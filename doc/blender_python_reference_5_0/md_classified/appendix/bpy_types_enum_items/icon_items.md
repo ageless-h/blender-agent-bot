@@ -1,0 +1,3204 @@
+Contents
+
+Menu
+
+Expand
+
+Light mode
+
+Dark mode
+
+Auto light/dark, in light mode
+
+Auto light/dark, in dark mode
+
+[ ]
+[ ]
+
+Hide navigation sidebar
+
+Hide table of contents sidebar
+
+[Skip to content](#furo-main-content)
+
+Toggle site navigation sidebar
+
+[Blender Python API](../../meta/index.md)
+
+Toggle Light / Dark / Auto color theme
+
+Toggle table of contents sidebar
+
+[![Logo](../_static/blender_logo.svg)
+
+Blender Python API](../../meta/index.md)
+
+Documentation
+
+* [Quickstart](../../guides/quickstart.md)
+* [API Overview](../../guides/overview.md)
+* [API Reference Usage](../../guides/api_reference.md)
+* [Best Practice](../../guides/best_practice.md)
+* [Tips and Tricks](../../guides/tips_and_tricks.md)
+* [Gotchas](../../guides/gotchas/index.md)[ ]
+* [Advanced](../../guides/advanced/index.md)[ ]
+* [Change Log](../../guides/change_log.md)
+
+Application Modules
+
+* [Context Access (bpy.context)](../../api/bpy/context/index.md)
+* [Data Access (bpy.data)](../../api/bpy/data/index.md)
+* [Message Bus (bpy.msgbus)](../../api/bpy/msgbus/index.md)
+* [Operators (bpy.ops)](../../api/bpy/ops/index.md)[ ]
+* [Types (bpy.types)](../../api/bpy/types/index.md)[x]
+* [Utilities (bpy.utils)](../../api/bpy/utils/index.md)[ ]
+
+  Toggle navigation of Utilities (bpy.utils)
+
+  + [bpy.utils submodule (bpy.utils.previews)](../../api/bpy/utils/previews.md)
+  + [bpy.utils submodule (bpy.utils.units)](../../api/bpy/utils/units.md)
+* [Path Utilities (bpy.path)](../../api/bpy/path/index.md)
+* [Application Data (bpy.app)](../../api/bpy/app/index.md)[ ]
+
+  Toggle navigation of Application Data (bpy.app)
+
+  + [Application Handlers (bpy.app.handlers)](../../api/bpy/app/handlers.md)
+  + [Application Translations (bpy.app.translations)](../../api/bpy/app/translations.md)
+  + [Application Icons (bpy.app.icons)](../../api/bpy/app/icons.md)
+  + [Application Timers (bpy.app.timers)](../../api/bpy/app/timers.md)
+* [Property Definitions (bpy.props)](../../api/bpy/props/index.md)
+
+Standalone Modules
+
+* [Audio System (aud)](../../api/aud/index.md)
+* [Additional Math Functions (bl\_math)](../../api/bl_math/index.md)
+* [Font Drawing (blf)](../../api/blf/index.md)
+* [BMesh Module (bmesh)](../../api/bmesh/index.md)[ ]
+
+  Toggle navigation of BMesh Module (bmesh)
+
+  + [BMesh Operators (bmesh.ops)](../../api/bmesh/ops/index.md)
+  + [BMesh Types (bmesh.types)](../../api/bmesh/types/index.md)
+  + [BMesh Utilities (bmesh.utils)](../../api/bmesh/utils/index.md)
+  + [BMesh Geometry Utilities (bmesh.geometry)](../../api/bmesh/geometry/index.md)
+* [Extra Utilities (bpy\_extras)](../../api/bpy_extras/index.md)[ ]
+
+  Toggle navigation of Extra Utilities (bpy\_extras)
+
+  + [bpy\_extras submodule (bpy\_extras.anim\_utils)](../../api/bpy_extras/anim_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.asset\_utils)](../../api/bpy_extras/asset_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.object\_utils)](../../api/bpy_extras/object_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.io\_utils)](../../api/bpy_extras/io_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.image\_utils)](../../api/bpy_extras/image_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.keyconfig\_utils)](../../api/bpy_extras/keyconfig_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.mesh\_utils)](../../api/bpy_extras/mesh_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.node\_utils)](../../api/bpy_extras/node_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.view3d\_utils)](../../api/bpy_extras/view3d_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.id\_map\_utils)](../../api/bpy_extras/id_map_utils/index.md)
+* [Freestyle Module (freestyle)](../../api/freestyle/index.md)[ ]
+
+  Toggle navigation of Freestyle Module (freestyle)
+
+  + [Freestyle Types (freestyle.types)](../../api/freestyle/types/index.md)
+  + [Freestyle Predicates (freestyle.predicates)](../../api/freestyle/predicates/index.md)
+  + [Freestyle Functions (freestyle.functions)](../../api/freestyle/functions/index.md)
+  + [Freestyle Chaining Iterators (freestyle.chainingiterators)](../../api/freestyle/chainingiterators/index.md)
+  + [Freestyle Shaders (freestyle.shaders)](../../api/freestyle/shaders/index.md)
+  + [Freestyle Utilities (freestyle.utils)](../../api/freestyle/utils/index.md)[ ]
+
+    Toggle navigation of Freestyle Utilities (freestyle.utils)
+
+    - [freestyle.utils submodule (freestyle.utils.ContextFunctions)](../../api/freestyle/utils/ContextFunctions.md)
+* [GPU Module (gpu)](../../api/gpu/index.md)[ ]
+
+  Toggle navigation of GPU Module (gpu)
+
+  + [GPU Types (gpu.types)](../../api/gpu/types/index.md)
+  + [GPU Matrix Utilities (gpu.matrix)](../../api/gpu/matrix/index.md)
+  + [GPU Select Utilities (gpu.select)](../../api/gpu/select/index.md)
+  + [GPU Shader Utilities (gpu.shader)](../../api/gpu/shader/index.md)
+  + [GPU State Utilities (gpu.state)](../../api/gpu/state/index.md)
+  + [GPU Texture Utilities (gpu.texture)](../../api/gpu/texture/index.md)
+  + [GPU Platform Utilities (gpu.platform)](../../api/gpu/platform/index.md)
+  + [GPU Capabilities Utilities (gpu.capabilities)](../../api/gpu/capabilities/index.md)
+* [GPU Utilities (gpu\_extras)](../../api/gpu_extras/index.md)[ ]
+
+  Toggle navigation of GPU Utilities (gpu\_extras)
+
+  + [gpu\_extras submodule (gpu\_extras.batch)](../../api/gpu_extras/batch/index.md)
+  + [gpu\_extras submodule (gpu\_extras.presets)](../../api/gpu_extras/presets/index.md)
+* [ID Property Access (idprop.types)](../../api/idprop/types/index.md)
+* [Image Buffer (imbuf)](../../api/imbuf/index.md)[ ]
+
+  Toggle navigation of Image Buffer (imbuf)
+
+  + [Image Buffer Types (imbuf.types)](../../api/imbuf/types/index.md)
+* [Math Types & Utilities (mathutils)](../../api/mathutils/index.md)[ ]
+
+  Toggle navigation of Math Types & Utilities (mathutils)
+
+  + [Geometry Utilities (mathutils.geometry)](../../api/mathutils/geometry/index.md)
+  + [BVHTree Utilities (mathutils.bvhtree)](../../api/mathutils/bvhtree/index.md)
+  + [KDTree Utilities (mathutils.kdtree)](../../api/mathutils/kdtree/index.md)
+  + [Interpolation Utilities (mathutils.interpolate)](../../api/mathutils/interpolate/index.md)
+  + [Noise Utilities (mathutils.noise)](../../api/mathutils/noise/index.md)
+
+* 5.0
+
+  Versions
+
+  + Loading...
+
+Note
+
+You are not using the most up to date version of the documentation.
+ is the newest version.
+
+Back to top
+
+Toggle Light / Dark / Auto color theme
+
+Toggle table of contents sidebar
+
+# Icon Items[¶](#icon-items "Link to this heading")
+
+NONE:
+:   NONE.
+
+CHAR\_NOTDEF:
+:   CHAR\_NOTDEF.
+
+CHAR\_REPLACEMENT:
+:   CHAR\_REPLACEMENT.
+
+NOT\_FOUND:
+:   NOT\_FOUND.
+
+BLANK1:
+:   BLANK1.
+
+AUTOMERGE\_OFF:
+:   AUTOMERGE\_OFF.
+
+AUTOMERGE\_ON:
+:   AUTOMERGE\_ON.
+
+CHECKBOX\_DEHLT:
+:   CHECKBOX\_DEHLT.
+
+CHECKBOX\_HLT:
+:   CHECKBOX\_HLT.
+
+CLIPUV\_DEHLT:
+:   CLIPUV\_DEHLT.
+
+CLIPUV\_HLT:
+:   CLIPUV\_HLT.
+
+DECORATE\_UNLOCKED:
+:   DECORATE\_UNLOCKED.
+
+DECORATE\_LOCKED:
+:   DECORATE\_LOCKED.
+
+FAKE\_USER\_OFF:
+:   FAKE\_USER\_OFF.
+
+FAKE\_USER\_ON:
+:   FAKE\_USER\_ON.
+
+HIDE\_ON:
+:   HIDE\_ON.
+
+HIDE\_OFF:
+:   HIDE\_OFF.
+
+INDIRECT\_ONLY\_OFF:
+:   INDIRECT\_ONLY\_OFF.
+
+INDIRECT\_ONLY\_ON:
+:   INDIRECT\_ONLY\_ON.
+
+ONIONSKIN\_OFF:
+:   ONIONSKIN\_OFF.
+
+ONIONSKIN\_ON:
+:   ONIONSKIN\_ON.
+
+UNPINNED:
+:   UNPINNED.
+
+PINNED:
+:   PINNED.
+
+RADIOBUT\_OFF:
+:   RADIOBUT\_OFF.
+
+RADIOBUT\_ON:
+:   RADIOBUT\_ON.
+
+RECORD\_OFF:
+:   RECORD\_OFF.
+
+RECORD\_ON:
+:   RECORD\_ON.
+
+RESTRICT\_RENDER\_ON:
+:   RESTRICT\_RENDER\_ON.
+
+RESTRICT\_RENDER\_OFF:
+:   RESTRICT\_RENDER\_OFF.
+
+RESTRICT\_SELECT\_ON:
+:   RESTRICT\_SELECT\_ON.
+
+RESTRICT\_SELECT\_OFF:
+:   RESTRICT\_SELECT\_OFF.
+
+RESTRICT\_VIEW\_ON:
+:   RESTRICT\_VIEW\_ON.
+
+RESTRICT\_VIEW\_OFF:
+:   RESTRICT\_VIEW\_OFF.
+
+RIGHTARROW:
+:   RIGHTARROW.
+
+DOWNARROW\_HLT:
+:   DOWNARROW\_HLT.
+
+SELECT\_INTERSECT:
+:   SELECT\_INTERSECT.
+
+SELECT\_DIFFERENCE:
+:   SELECT\_DIFFERENCE.
+
+SNAP\_OFF:
+:   SNAP\_OFF.
+
+SNAP\_ON:
+:   SNAP\_ON.
+
+PLAYHEAD\_SNAP\_OFF:
+:   PLAYHEAD\_SNAP\_OFF.
+
+PLAYHEAD\_SNAP\_ON:
+:   PLAYHEAD\_SNAP\_ON.
+
+UNLOCKED:
+:   UNLOCKED.
+
+LOCKED:
+:   LOCKED.
+
+VIS\_SEL\_11:
+:   VIS\_SEL\_11.
+
+VIS\_SEL\_10:
+:   VIS\_SEL\_10.
+
+VIS\_SEL\_01:
+:   VIS\_SEL\_01.
+
+VIS\_SEL\_00:
+:   VIS\_SEL\_00.
+
+CANCEL:
+:   CANCEL.
+
+ERROR:
+:   ERROR.
+
+QUESTION:
+:   QUESTION.
+
+ADD:
+:   ADD.
+
+ARROW\_LEFTRIGHT:
+:   ARROW\_LEFTRIGHT.
+
+AUTO:
+:   AUTO.
+
+BLENDER:
+:   BLENDER.
+
+BORDERMOVE:
+:   BORDERMOVE.
+
+BRUSHES\_ALL:
+:   BRUSHES\_ALL.
+
+CHECKMARK:
+:   CHECKMARK.
+
+COLLAPSEMENU:
+:   COLLAPSEMENU.
+
+COLLECTION\_NEW:
+:   COLLECTION\_NEW.
+
+COLOR:
+:   COLOR.
+
+COPY\_ID:
+:   COPY\_ID.
+
+DISCLOSURE\_TRI\_DOWN:
+:   DISCLOSURE\_TRI\_DOWN.
+
+DISCLOSURE\_TRI\_RIGHT:
+:   DISCLOSURE\_TRI\_RIGHT.
+
+DOT:
+:   DOT.
+
+DRIVER\_DISTANCE:
+:   DRIVER\_DISTANCE.
+
+DRIVER\_ROTATIONAL\_DIFFERENCE:
+:   DRIVER\_ROTATIONAL\_DIFFERENCE.
+
+DRIVER\_TRANSFORM:
+:   DRIVER\_TRANSFORM.
+
+DUPLICATE:
+:   DUPLICATE.
+
+EYEDROPPER:
+:   EYEDROPPER.
+
+FCURVE\_SNAPSHOT:
+:   FCURVE\_SNAPSHOT.
+
+FILE\_NEW:
+:   FILE\_NEW.
+
+FILE\_TICK:
+:   FILE\_TICK.
+
+FREEZE:
+:   FREEZE.
+
+FULLSCREEN\_ENTER:
+:   FULLSCREEN\_ENTER.
+
+FULLSCREEN\_EXIT:
+:   FULLSCREEN\_EXIT.
+
+GHOST\_DISABLED:
+:   GHOST\_DISABLED.
+
+GHOST\_ENABLED:
+:   GHOST\_ENABLED.
+
+GRIP:
+:   GRIP.
+
+GRIP\_V:
+:   GRIP\_V.
+
+HAND:
+:   HAND.
+
+HELP:
+:   HELP.
+
+LINKED:
+:   LINKED.
+
+MENU\_PANEL:
+:   MENU\_PANEL.
+
+NODE\_SEL:
+:   NODE\_SEL.
+
+NODE:
+:   NODE.
+
+OBJECT\_HIDDEN:
+:   OBJECT\_HIDDEN.
+
+OPTIONS:
+:   OPTIONS.
+
+PANEL\_CLOSE:
+:   PANEL\_CLOSE.
+
+PLUGIN:
+:   PLUGIN.
+
+PLUS:
+:   PLUS.
+
+PRESET\_NEW:
+:   PRESET\_NEW.
+
+QUIT:
+:   QUIT.
+
+RECOVER\_LAST:
+:   RECOVER\_LAST.
+
+REMOVE:
+:   REMOVE.
+
+RIGHTARROW\_THIN:
+:   RIGHTARROW\_THIN.
+
+SCREEN\_BACK:
+:   SCREEN\_BACK.
+
+STATUSBAR:
+:   STATUSBAR.
+
+STYLUS\_PRESSURE:
+:   STYLUS\_PRESSURE.
+
+THREE\_DOTS:
+:   THREE\_DOTS.
+
+TOPBAR:
+:   TOPBAR.
+
+TRASH:
+:   TRASH.
+
+TRIA\_DOWN:
+:   TRIA\_DOWN.
+
+TRIA\_LEFT:
+:   TRIA\_LEFT.
+
+TRIA\_RIGHT:
+:   TRIA\_RIGHT.
+
+TRIA\_UP:
+:   TRIA\_UP.
+
+UNLINKED:
+:   UNLINKED.
+
+URL:
+:   URL.
+
+VIEWZOOM:
+:   VIEWZOOM.
+
+WINDOW:
+:   WINDOW.
+
+WORKSPACE:
+:   WORKSPACE.
+
+X:
+
+ZOOM\_ALL:
+:   ZOOM\_ALL.
+
+ZOOM\_IN:
+:   ZOOM\_IN.
+
+ZOOM\_OUT:
+:   ZOOM\_OUT.
+
+ZOOM\_PREVIOUS:
+:   ZOOM\_PREVIOUS.
+
+ZOOM\_SELECTED:
+:   ZOOM\_SELECTED.
+
+MODIFIER:
+:   MODIFIER.
+
+PARTICLES:
+:   PARTICLES.
+
+PHYSICS:
+:   PHYSICS.
+
+SHADERFX:
+:   SHADERFX.
+
+SPEAKER:
+:   SPEAKER.
+
+OUTPUT:
+:   OUTPUT.
+
+SCENE:
+:   SCENE.
+
+TOOL\_SETTINGS:
+:   TOOL\_SETTINGS.
+
+LIGHT:
+:   LIGHT.
+
+MATERIAL:
+:   MATERIAL.
+
+TEXTURE:
+:   TEXTURE.
+
+WORLD:
+:   WORLD.
+
+ANIM:
+:   ANIM.
+
+SCRIPT:
+:   SCRIPT.
+
+GEOMETRY\_NODES:
+:   GEOMETRY\_NODES.
+
+TEXT:
+:   TEXT.
+
+ACTION:
+:   ACTION.
+
+ASSET\_MANAGER:
+:   ASSET\_MANAGER.
+
+CONSOLE:
+:   CONSOLE.
+
+FILEBROWSER:
+:   FILEBROWSER.
+
+GEOMETRY\_SET:
+:   GEOMETRY\_SET.
+
+GRAPH:
+:   GRAPH.
+
+IMAGE:
+:   IMAGE.
+
+INFO:
+:   INFO.
+
+NLA:
+:   NLA.
+
+NODE\_COMPOSITING:
+:   NODE\_COMPOSITING.
+
+NODE\_MATERIAL:
+:   NODE\_MATERIAL.
+
+NODE\_TEXTURE:
+:   NODE\_TEXTURE.
+
+NODETREE:
+:   NODETREE.
+
+OUTLINER:
+:   OUTLINER.
+
+PREFERENCES:
+:   PREFERENCES.
+
+PROPERTIES:
+:   PROPERTIES.
+
+SEQUENCE:
+:   SEQUENCE.
+
+SOUND:
+:   SOUND.
+
+SPREADSHEET:
+:   SPREADSHEET.
+
+TIME:
+:   TIME.
+
+TRACKER:
+:   TRACKER.
+
+UV:
+:   UV.
+
+VIEW3D:
+:   VIEW3D.
+
+EDITMODE\_HLT:
+:   EDITMODE\_HLT.
+
+OBJECT\_DATAMODE:
+:   OBJECT\_DATAMODE.
+
+PARTICLEMODE:
+:   PARTICLEMODE.
+
+POSE\_HLT:
+:   POSE\_HLT.
+
+SCULPTMODE\_HLT:
+:   SCULPTMODE\_HLT.
+
+TPAINT\_HLT:
+:   TPAINT\_HLT.
+
+UV\_DATA:
+:   UV\_DATA.
+
+VPAINT\_HLT:
+:   VPAINT\_HLT.
+
+WPAINT\_HLT:
+:   WPAINT\_HLT.
+
+TRACKER\_DATA:
+:   TRACKER\_DATA.
+
+TRACKING\_BACKWARDS\_SINGLE:
+:   TRACKING\_BACKWARDS\_SINGLE.
+
+TRACKING\_BACKWARDS:
+:   TRACKING\_BACKWARDS.
+
+TRACKING\_CLEAR\_BACKWARDS:
+:   TRACKING\_CLEAR\_BACKWARDS.
+
+TRACKING\_CLEAR\_FORWARDS:
+:   TRACKING\_CLEAR\_FORWARDS.
+
+TRACKING\_FORWARDS\_SINGLE:
+:   TRACKING\_FORWARDS\_SINGLE.
+
+TRACKING\_FORWARDS:
+:   TRACKING\_FORWARDS.
+
+TRACKING\_REFINE\_BACKWARDS:
+:   TRACKING\_REFINE\_BACKWARDS.
+
+TRACKING\_REFINE\_FORWARDS:
+:   TRACKING\_REFINE\_FORWARDS.
+
+TRACKING:
+:   TRACKING.
+
+GROUP:
+:   GROUP.
+
+CONSTRAINT\_BONE:
+:   CONSTRAINT\_BONE.
+
+CONSTRAINT:
+:   CONSTRAINT.
+
+ARMATURE\_DATA:
+:   ARMATURE\_DATA.
+
+BONE\_DATA:
+:   BONE\_DATA.
+
+CAMERA\_DATA:
+:   CAMERA\_DATA.
+
+CURVE\_DATA:
+:   CURVE\_DATA.
+
+EMPTY\_DATA:
+:   EMPTY\_DATA.
+
+FONT\_DATA:
+:   FONT\_DATA.
+
+LATTICE\_DATA:
+:   LATTICE\_DATA.
+
+LIGHT\_DATA:
+:   LIGHT\_DATA.
+
+MESH\_DATA:
+:   MESH\_DATA.
+
+META\_DATA:
+:   META\_DATA.
+
+PARTICLE\_DATA:
+:   PARTICLE\_DATA.
+
+SHAPEKEY\_DATA:
+:   SHAPEKEY\_DATA.
+
+SURFACE\_DATA:
+:   SURFACE\_DATA.
+
+OBJECT\_DATA:
+:   OBJECT\_DATA.
+
+RENDER\_RESULT:
+:   RENDER\_RESULT.
+
+RENDERLAYERS:
+:   RENDERLAYERS.
+
+SCENE\_DATA:
+:   SCENE\_DATA.
+
+BRUSH\_DATA:
+:   BRUSH\_DATA.
+
+IMAGE\_DATA:
+:   IMAGE\_DATA.
+
+LINE\_DATA:
+:   LINE\_DATA.
+
+MATERIAL\_DATA:
+:   MATERIAL\_DATA.
+
+TEXTURE\_DATA:
+:   TEXTURE\_DATA.
+
+WORLD\_DATA:
+:   WORLD\_DATA.
+
+ANIM\_DATA:
+:   ANIM\_DATA.
+
+BOIDS:
+:   BOIDS.
+
+CAMERA\_STEREO:
+:   CAMERA\_STEREO.
+
+COMMUNITY:
+:   COMMUNITY.
+
+FACE\_MAPS:
+:   FACE\_MAPS.
+
+FCURVE:
+:   FCURVE.
+
+FILE:
+:   FILE.
+
+GREASEPENCIL:
+:   GREASEPENCIL.
+
+GREASEPENCIL\_LAYER\_GROUP:
+:   GREASEPENCIL\_LAYER\_GROUP.
+
+GROUP\_BONE:
+:   GROUP\_BONE.
+
+GROUP\_UVS:
+:   GROUP\_UVS.
+
+GROUP\_VCOL:
+:   GROUP\_VCOL.
+
+GROUP\_VERTEX:
+:   GROUP\_VERTEX.
+
+LIBRARY\_DATA\_BROKEN:
+:   LIBRARY\_DATA\_BROKEN.
+
+LIBRARY\_DATA\_DIRECT:
+:   LIBRARY\_DATA\_DIRECT.
+
+LIBRARY\_DATA\_OVERRIDE:
+:   LIBRARY\_DATA\_OVERRIDE.
+
+ORPHAN\_DATA:
+:   ORPHAN\_DATA.
+
+PACKAGE:
+:   PACKAGE.
+
+PRESET:
+:   PRESET.
+
+RENDER\_ANIMATION:
+:   RENDER\_ANIMATION.
+
+RENDER\_STILL:
+:   RENDER\_STILL.
+
+RNA:
+:   RNA.
+
+STRANDS:
+:   STRANDS.
+
+UGLYPACKAGE:
+:   UGLYPACKAGE.
+
+MOUSE\_LMB:
+:   MOUSE\_LMB.
+
+MOUSE\_MMB:
+:   MOUSE\_MMB.
+
+MOUSE\_RMB:
+:   MOUSE\_RMB.
+
+MOUSE\_MMB\_SCROLL:
+:   MOUSE\_MMB\_SCROLL.
+
+MOUSE\_LMB\_2X:
+:   MOUSE\_LMB\_2X.
+
+MOUSE\_MOVE:
+:   MOUSE\_MOVE.
+
+MOUSE\_LMB\_DRAG:
+:   MOUSE\_LMB\_DRAG.
+
+MOUSE\_MMB\_DRAG:
+:   MOUSE\_MMB\_DRAG.
+
+MOUSE\_RMB\_DRAG:
+:   MOUSE\_RMB\_DRAG.
+
+DECORATE\_ANIMATE:
+:   DECORATE\_ANIMATE.
+
+DECORATE\_DRIVER:
+:   DECORATE\_DRIVER.
+
+DECORATE\_KEYFRAME:
+:   DECORATE\_KEYFRAME.
+
+DECORATE\_LIBRARY\_OVERRIDE:
+:   DECORATE\_LIBRARY\_OVERRIDE.
+
+DECORATE\_LINKED:
+:   DECORATE\_LINKED.
+
+DECORATE\_OVERRIDE:
+:   DECORATE\_OVERRIDE.
+
+DECORATE:
+:   DECORATE.
+
+OUTLINER\_COLLECTION:
+:   OUTLINER\_COLLECTION.
+
+COLLECTION\_COLOR\_01:
+:   COLLECTION\_COLOR\_01.
+
+COLLECTION\_COLOR\_02:
+:   COLLECTION\_COLOR\_02.
+
+COLLECTION\_COLOR\_03:
+:   COLLECTION\_COLOR\_03.
+
+COLLECTION\_COLOR\_04:
+:   COLLECTION\_COLOR\_04.
+
+COLLECTION\_COLOR\_05:
+:   COLLECTION\_COLOR\_05.
+
+COLLECTION\_COLOR\_06:
+:   COLLECTION\_COLOR\_06.
+
+COLLECTION\_COLOR\_07:
+:   COLLECTION\_COLOR\_07.
+
+COLLECTION\_COLOR\_08:
+:   COLLECTION\_COLOR\_08.
+
+CURVES\_DATA:
+:   CURVES\_DATA.
+
+OUTLINER\_DATA\_ARMATURE:
+:   OUTLINER\_DATA\_ARMATURE.
+
+OUTLINER\_DATA\_CAMERA:
+:   OUTLINER\_DATA\_CAMERA.
+
+OUTLINER\_DATA\_CURVE:
+:   OUTLINER\_DATA\_CURVE.
+
+OUTLINER\_DATA\_CURVES:
+:   OUTLINER\_DATA\_CURVES.
+
+OUTLINER\_DATA\_EMPTY:
+:   OUTLINER\_DATA\_EMPTY.
+
+OUTLINER\_DATA\_FONT:
+:   OUTLINER\_DATA\_FONT.
+
+OUTLINER\_DATA\_GP\_LAYER:
+:   OUTLINER\_DATA\_GP\_LAYER.
+
+OUTLINER\_DATA\_GREASEPENCIL:
+:   OUTLINER\_DATA\_GREASEPENCIL.
+
+OUTLINER\_DATA\_LATTICE:
+:   OUTLINER\_DATA\_LATTICE.
+
+OUTLINER\_DATA\_LIGHT:
+:   OUTLINER\_DATA\_LIGHT.
+
+OUTLINER\_DATA\_LIGHTPROBE:
+:   OUTLINER\_DATA\_LIGHTPROBE.
+
+OUTLINER\_DATA\_MESH:
+:   OUTLINER\_DATA\_MESH.
+
+OUTLINER\_DATA\_META:
+:   OUTLINER\_DATA\_META.
+
+OUTLINER\_DATA\_POINTCLOUD:
+:   OUTLINER\_DATA\_POINTCLOUD.
+
+OUTLINER\_DATA\_SPEAKER:
+:   OUTLINER\_DATA\_SPEAKER.
+
+OUTLINER\_DATA\_SURFACE:
+:   OUTLINER\_DATA\_SURFACE.
+
+OUTLINER\_DATA\_VOLUME:
+:   OUTLINER\_DATA\_VOLUME.
+
+POINTCLOUD\_DATA:
+:   POINTCLOUD\_DATA.
+
+POINTCLOUD\_POINT:
+:   POINTCLOUD\_POINT.
+
+VOLUME\_DATA:
+:   VOLUME\_DATA.
+
+OUTLINER\_OB\_ARMATURE:
+:   OUTLINER\_OB\_ARMATURE.
+
+OUTLINER\_OB\_CAMERA:
+:   OUTLINER\_OB\_CAMERA.
+
+OUTLINER\_OB\_CURVE:
+:   OUTLINER\_OB\_CURVE.
+
+OUTLINER\_OB\_CURVES:
+:   OUTLINER\_OB\_CURVES.
+
+OUTLINER\_OB\_EMPTY:
+:   OUTLINER\_OB\_EMPTY.
+
+OUTLINER\_OB\_FONT:
+:   OUTLINER\_OB\_FONT.
+
+OUTLINER\_OB\_FORCE\_FIELD:
+:   OUTLINER\_OB\_FORCE\_FIELD.
+
+OUTLINER\_OB\_GREASEPENCIL:
+:   OUTLINER\_OB\_GREASEPENCIL.
+
+OUTLINER\_OB\_GROUP\_INSTANCE:
+:   OUTLINER\_OB\_GROUP\_INSTANCE.
+
+OUTLINER\_OB\_IMAGE:
+:   OUTLINER\_OB\_IMAGE.
+
+OUTLINER\_OB\_LATTICE:
+:   OUTLINER\_OB\_LATTICE.
+
+OUTLINER\_OB\_LIGHT:
+:   OUTLINER\_OB\_LIGHT.
+
+OUTLINER\_OB\_LIGHTPROBE:
+:   OUTLINER\_OB\_LIGHTPROBE.
+
+OUTLINER\_OB\_MESH:
+:   OUTLINER\_OB\_MESH.
+
+OUTLINER\_OB\_META:
+:   OUTLINER\_OB\_META.
+
+OUTLINER\_OB\_POINTCLOUD:
+:   OUTLINER\_OB\_POINTCLOUD.
+
+OUTLINER\_OB\_SPEAKER:
+:   OUTLINER\_OB\_SPEAKER.
+
+OUTLINER\_OB\_SURFACE:
+:   OUTLINER\_OB\_SURFACE.
+
+OUTLINER\_OB\_VOLUME:
+:   OUTLINER\_OB\_VOLUME.
+
+GP\_MULTIFRAME\_EDITING:
+:   GP\_MULTIFRAME\_EDITING.
+
+GP\_ONLY\_SELECTED:
+:   GP\_ONLY\_SELECTED.
+
+GP\_SELECT\_BETWEEN\_STROKES:
+:   GP\_SELECT\_BETWEEN\_STROKES.
+
+GP\_SELECT\_POINTS:
+:   GP\_SELECT\_POINTS.
+
+GP\_SELECT\_STROKES:
+:   GP\_SELECT\_STROKES.
+
+HOLDOUT\_OFF:
+:   HOLDOUT\_OFF.
+
+HOLDOUT\_ON:
+:   HOLDOUT\_ON.
+
+MODIFIER\_OFF:
+:   MODIFIER\_OFF.
+
+MODIFIER\_ON:
+:   MODIFIER\_ON.
+
+RESTRICT\_COLOR\_OFF:
+:   RESTRICT\_COLOR\_OFF.
+
+RESTRICT\_COLOR\_ON:
+:   RESTRICT\_COLOR\_ON.
+
+RESTRICT\_INSTANCED\_OFF:
+:   RESTRICT\_INSTANCED\_OFF.
+
+RESTRICT\_INSTANCED\_ON:
+:   RESTRICT\_INSTANCED\_ON.
+
+LIGHT\_AREA:
+:   LIGHT\_AREA.
+
+LIGHT\_HEMI:
+:   LIGHT\_HEMI.
+
+LIGHT\_POINT:
+:   LIGHT\_POINT.
+
+LIGHT\_SPOT:
+:   LIGHT\_SPOT.
+
+LIGHT\_SUN:
+:   LIGHT\_SUN.
+
+LIGHTPROBE\_PLANE:
+:   LIGHTPROBE\_PLANE.
+
+LIGHTPROBE\_SPHERE:
+:   LIGHTPROBE\_SPHERE.
+
+LIGHTPROBE\_VOLUME:
+:   LIGHTPROBE\_VOLUME.
+
+COLOR\_BLUE:
+:   COLOR\_BLUE.
+
+COLOR\_GREEN:
+:   COLOR\_GREEN.
+
+COLOR\_RED:
+:   COLOR\_RED.
+
+CONE:
+:   CONE.
+
+CUBE:
+:   CUBE.
+
+CURVE\_BEZCIRCLE:
+:   CURVE\_BEZCIRCLE.
+
+CURVE\_BEZCURVE:
+:   CURVE\_BEZCURVE.
+
+CURVE\_NCIRCLE:
+:   CURVE\_NCIRCLE.
+
+CURVE\_NCURVE:
+:   CURVE\_NCURVE.
+
+CURVE\_PATH:
+:   CURVE\_PATH.
+
+CURVES:
+:   CURVES.
+
+EMPTY\_ARROWS:
+:   EMPTY\_ARROWS.
+
+EMPTY\_AXIS:
+:   EMPTY\_AXIS.
+
+EMPTY\_SINGLE\_ARROW:
+:   EMPTY\_SINGLE\_ARROW.
+
+MESH\_CAPSULE:
+:   MESH\_CAPSULE.
+
+MESH\_CIRCLE:
+:   MESH\_CIRCLE.
+
+MESH\_CONE:
+:   MESH\_CONE.
+
+MESH\_CUBE:
+:   MESH\_CUBE.
+
+MESH\_CYLINDER:
+:   MESH\_CYLINDER.
+
+MESH\_GRID:
+:   MESH\_GRID.
+
+MESH\_ICOSPHERE:
+:   MESH\_ICOSPHERE.
+
+MESH\_MONKEY:
+:   MESH\_MONKEY.
+
+MESH\_PLANE:
+:   MESH\_PLANE.
+
+MESH\_TORUS:
+:   MESH\_TORUS.
+
+MESH\_UVSPHERE:
+:   MESH\_UVSPHERE.
+
+META\_BALL:
+:   META\_BALL.
+
+META\_CAPSULE:
+:   META\_CAPSULE.
+
+META\_CUBE:
+:   META\_CUBE.
+
+META\_ELLIPSOID:
+:   META\_ELLIPSOID.
+
+META\_PLANE:
+:   META\_PLANE.
+
+MONKEY:
+:   MONKEY.
+
+SPHERE:
+:   SPHERE.
+
+STROKE:
+:   STROKE.
+
+SURFACE\_NCIRCLE:
+:   SURFACE\_NCIRCLE.
+
+SURFACE\_NCURVE:
+:   SURFACE\_NCURVE.
+
+SURFACE\_NCYLINDER:
+:   SURFACE\_NCYLINDER.
+
+SURFACE\_NSPHERE:
+:   SURFACE\_NSPHERE.
+
+SURFACE\_NSURFACE:
+:   SURFACE\_NSURFACE.
+
+SURFACE\_NTORUS:
+:   SURFACE\_NTORUS.
+
+TRIA\_DOWN\_BAR:
+:   TRIA\_DOWN\_BAR.
+
+TRIA\_LEFT\_BAR:
+:   TRIA\_LEFT\_BAR.
+
+TRIA\_RIGHT\_BAR:
+:   TRIA\_RIGHT\_BAR.
+
+TRIA\_UP\_BAR:
+:   TRIA\_UP\_BAR.
+
+AREA\_DOCK:
+:   AREA\_DOCK.
+
+AREA\_JOIN\_DOWN:
+:   AREA\_JOIN\_DOWN.
+
+AREA\_JOIN\_LEFT:
+:   AREA\_JOIN\_LEFT.
+
+AREA\_JOIN\_UP:
+:   AREA\_JOIN\_UP.
+
+AREA\_JOIN:
+:   AREA\_JOIN.
+
+AREA\_SWAP:
+:   AREA\_SWAP.
+
+FORCE\_BOID:
+:   FORCE\_BOID.
+
+FORCE\_CHARGE:
+:   FORCE\_CHARGE.
+
+FORCE\_CURVE:
+:   FORCE\_CURVE.
+
+FORCE\_DRAG:
+:   FORCE\_DRAG.
+
+FORCE\_FLUIDFLOW:
+:   FORCE\_FLUIDFLOW.
+
+FORCE\_FORCE:
+:   FORCE\_FORCE.
+
+FORCE\_HARMONIC:
+:   FORCE\_HARMONIC.
+
+FORCE\_LENNARDJONES:
+:   FORCE\_LENNARDJONES.
+
+FORCE\_MAGNETIC:
+:   FORCE\_MAGNETIC.
+
+FORCE\_TEXTURE:
+:   FORCE\_TEXTURE.
+
+FORCE\_TURBULENCE:
+:   FORCE\_TURBULENCE.
+
+FORCE\_VORTEX:
+:   FORCE\_VORTEX.
+
+FORCE\_WIND:
+:   FORCE\_WIND.
+
+IMAGE\_BACKGROUND:
+:   IMAGE\_BACKGROUND.
+
+IMAGE\_PLANE:
+:   IMAGE\_PLANE.
+
+IMAGE\_REFERENCE:
+:   IMAGE\_REFERENCE.
+
+RIGID\_BODY\_CONSTRAINT:
+:   RIGID\_BODY\_CONSTRAINT.
+
+RIGID\_BODY:
+:   RIGID\_BODY.
+
+SPLIT\_HORIZONTAL:
+:   SPLIT\_HORIZONTAL.
+
+SPLIT\_VERTICAL:
+:   SPLIT\_VERTICAL.
+
+ANCHOR\_BOTTOM:
+:   ANCHOR\_BOTTOM.
+
+ANCHOR\_CENTER:
+:   ANCHOR\_CENTER.
+
+ANCHOR\_LEFT:
+:   ANCHOR\_LEFT.
+
+ANCHOR\_RIGHT:
+:   ANCHOR\_RIGHT.
+
+ANCHOR\_TOP:
+:   ANCHOR\_TOP.
+
+NODE\_CORNER:
+:   NODE\_CORNER.
+
+NODE\_INSERT\_OFF:
+:   NODE\_INSERT\_OFF.
+
+NODE\_INSERT\_ON:
+:   NODE\_INSERT\_ON.
+
+NODE\_SIDE:
+:   NODE\_SIDE.
+
+NODE\_TOP:
+:   NODE\_TOP.
+
+SELECT\_EXTEND:
+:   SELECT\_EXTEND.
+
+SELECT\_SET:
+:   SELECT\_SET.
+
+SELECT\_SUBTRACT:
+:   SELECT\_SUBTRACT.
+
+ALIGN\_BOTTOM:
+:   ALIGN\_BOTTOM.
+
+ALIGN\_CENTER:
+:   ALIGN\_CENTER.
+
+ALIGN\_FLUSH:
+:   ALIGN\_FLUSH.
+
+ALIGN\_JUSTIFY:
+:   ALIGN\_JUSTIFY.
+
+ALIGN\_LEFT:
+:   ALIGN\_LEFT.
+
+ALIGN\_MIDDLE:
+:   ALIGN\_MIDDLE.
+
+ALIGN\_RIGHT:
+:   ALIGN\_RIGHT.
+
+ALIGN\_TOP:
+:   ALIGN\_TOP.
+
+BOLD:
+:   BOLD.
+
+ITALIC:
+:   ITALIC.
+
+LINENUMBERS\_OFF:
+:   LINENUMBERS\_OFF.
+
+LINENUMBERS\_ON:
+:   LINENUMBERS\_ON.
+
+SCRIPTPLUGINS:
+:   SCRIPTPLUGINS.
+
+SMALL\_CAPS:
+:   SMALL\_CAPS.
+
+SYNTAX\_OFF:
+:   SYNTAX\_OFF.
+
+SYNTAX\_ON:
+:   SYNTAX\_ON.
+
+UNDERLINE:
+:   UNDERLINE.
+
+WORDWRAP\_OFF:
+:   WORDWRAP\_OFF.
+
+WORDWRAP\_ON:
+:   WORDWRAP\_ON.
+
+CON\_ACTION:
+:   CON\_ACTION.
+
+CON\_ARMATURE:
+:   CON\_ARMATURE.
+
+CON\_GEOMETRYATTRIBUTE:
+:   CON\_GEOMETRYATTRIBUTE.
+
+CON\_CAMERASOLVER:
+:   CON\_CAMERASOLVER.
+
+CON\_CHILDOF:
+:   CON\_CHILDOF.
+
+CON\_CLAMPTO:
+:   CON\_CLAMPTO.
+
+CON\_DISTLIMIT:
+:   CON\_DISTLIMIT.
+
+CON\_FLOOR:
+:   CON\_FLOOR.
+
+CON\_FOLLOWPATH:
+:   CON\_FOLLOWPATH.
+
+CON\_FOLLOWTRACK:
+:   CON\_FOLLOWTRACK.
+
+CON\_KINEMATIC:
+:   CON\_KINEMATIC.
+
+CON\_LOCKTRACK:
+:   CON\_LOCKTRACK.
+
+CON\_LOCLIKE:
+:   CON\_LOCLIKE.
+
+CON\_LOCLIMIT:
+:   CON\_LOCLIMIT.
+
+CON\_OBJECTSOLVER:
+:   CON\_OBJECTSOLVER.
+
+CON\_PIVOT:
+:   CON\_PIVOT.
+
+CON\_ROTLIKE:
+:   CON\_ROTLIKE.
+
+CON\_ROTLIMIT:
+:   CON\_ROTLIMIT.
+
+CON\_SAMEVOL:
+:   CON\_SAMEVOL.
+
+CON\_SHRINKWRAP:
+:   CON\_SHRINKWRAP.
+
+CON\_SIZELIKE:
+:   CON\_SIZELIKE.
+
+CON\_SIZELIMIT:
+:   CON\_SIZELIMIT.
+
+CON\_SPLINEIK:
+:   CON\_SPLINEIK.
+
+CON\_STRETCHTO:
+:   CON\_STRETCHTO.
+
+CON\_TRACKTO:
+:   CON\_TRACKTO.
+
+CON\_TRANSFORM\_CACHE:
+:   CON\_TRANSFORM\_CACHE.
+
+CON\_TRANSFORM:
+:   CON\_TRANSFORM.
+
+CON\_TRANSLIKE:
+:   CON\_TRANSLIKE.
+
+HOOK:
+:   HOOK.
+
+MOD\_ARMATURE:
+:   MOD\_ARMATURE.
+
+MOD\_ARRAY:
+:   MOD\_ARRAY.
+
+MOD\_BEVEL:
+:   MOD\_BEVEL.
+
+MOD\_BOOLEAN:
+:   MOD\_BOOLEAN.
+
+MOD\_BUILD:
+:   MOD\_BUILD.
+
+MOD\_CAST:
+:   MOD\_CAST.
+
+MOD\_CLOTH:
+:   MOD\_CLOTH.
+
+MOD\_CURVE:
+:   MOD\_CURVE.
+
+MOD\_CURVE\_TO\_TUBE:
+:   MOD\_CURVE\_TO\_TUBE.
+
+MOD\_DASH:
+:   MOD\_DASH.
+
+MOD\_DATA\_TRANSFER:
+:   MOD\_DATA\_TRANSFER.
+
+MOD\_DECIM:
+:   MOD\_DECIM.
+
+MOD\_DISPLACE:
+:   MOD\_DISPLACE.
+
+MOD\_DYNAMICPAINT:
+:   MOD\_DYNAMICPAINT.
+
+MOD\_EDGESPLIT:
+:   MOD\_EDGESPLIT.
+
+MOD\_ENVELOPE:
+:   MOD\_ENVELOPE.
+
+MOD\_EXPLODE:
+:   MOD\_EXPLODE.
+
+MOD\_FLUID:
+:   MOD\_FLUID.
+
+MOD\_FLUIDSIM:
+:   MOD\_FLUIDSIM.
+
+MOD\_HUE\_SATURATION:
+:   MOD\_HUE\_SATURATION.
+
+MOD\_INSTANCE:
+:   MOD\_INSTANCE.
+
+MOD\_LATTICE:
+:   MOD\_LATTICE.
+
+MOD\_LENGTH:
+:   MOD\_LENGTH.
+
+MOD\_LINEART:
+:   MOD\_LINEART.
+
+MOD\_MASK:
+:   MOD\_MASK.
+
+MOD\_MESHDEFORM:
+:   MOD\_MESHDEFORM.
+
+MOD\_MIRROR:
+:   MOD\_MIRROR.
+
+MOD\_MULTIRES:
+:   MOD\_MULTIRES.
+
+MOD\_NOISE:
+:   MOD\_NOISE.
+
+MOD\_NORMALEDIT:
+:   MOD\_NORMALEDIT.
+
+MOD\_OCEAN:
+:   MOD\_OCEAN.
+
+MOD\_OFFSET:
+:   MOD\_OFFSET.
+
+MOD\_OPACITY:
+:   MOD\_OPACITY.
+
+MOD\_OUTLINE:
+:   MOD\_OUTLINE.
+
+MOD\_PARTICLE\_INSTANCE:
+:   MOD\_PARTICLE\_INSTANCE.
+
+MOD\_PARTICLES:
+:   MOD\_PARTICLES.
+
+MOD\_PHYSICS:
+:   MOD\_PHYSICS.
+
+MOD\_REMESH:
+:   MOD\_REMESH.
+
+MOD\_SCATTER\_ON\_SURFACE:
+:   MOD\_SCATTER\_ON\_SURFACE.
+
+MOD\_SCREW:
+:   MOD\_SCREW.
+
+MOD\_SHRINKWRAP:
+:   MOD\_SHRINKWRAP.
+
+MOD\_SIMPLEDEFORM:
+:   MOD\_SIMPLEDEFORM.
+
+MOD\_SIMPLIFY:
+:   MOD\_SIMPLIFY.
+
+MOD\_SKIN:
+:   MOD\_SKIN.
+
+MOD\_SMOOTH:
+:   MOD\_SMOOTH.
+
+MOD\_SOFT:
+:   MOD\_SOFT.
+
+MOD\_SOLIDIFY:
+:   MOD\_SOLIDIFY.
+
+MOD\_SUBSURF:
+:   MOD\_SUBSURF.
+
+MOD\_THICKNESS:
+:   MOD\_THICKNESS.
+
+MOD\_TIME:
+:   MOD\_TIME.
+
+MOD\_TINT:
+:   MOD\_TINT.
+
+MOD\_TRIANGULATE:
+:   MOD\_TRIANGULATE.
+
+MOD\_UVPROJECT:
+:   MOD\_UVPROJECT.
+
+MOD\_VERTEX\_WEIGHT:
+:   MOD\_VERTEX\_WEIGHT.
+
+MOD\_WARP:
+:   MOD\_WARP.
+
+MOD\_WAVE:
+:   MOD\_WAVE.
+
+MOD\_WIREFRAME:
+:   MOD\_WIREFRAME.
+
+MODIFIER\_DATA:
+:   MODIFIER\_DATA.
+
+ACTION\_SLOT:
+:   ACTION\_SLOT.
+
+ACTION\_TWEAK:
+:   ACTION\_TWEAK.
+
+DRIVER:
+:   DRIVER.
+
+FF:
+:   FF.
+
+FRAME\_NEXT:
+:   FRAME\_NEXT.
+
+FRAME\_PREV:
+:   FRAME\_PREV.
+
+HANDLE\_ALIGNED:
+:   HANDLE\_ALIGNED.
+
+HANDLE\_AUTO:
+:   HANDLE\_AUTO.
+
+HANDLE\_AUTOCLAMPED:
+:   HANDLE\_AUTOCLAMPED.
+
+HANDLE\_FREE:
+:   HANDLE\_FREE.
+
+HANDLE\_VECTOR:
+:   HANDLE\_VECTOR.
+
+IPO\_BACK:
+:   IPO\_BACK.
+
+IPO\_BEZIER:
+:   IPO\_BEZIER.
+
+IPO\_BOUNCE:
+:   IPO\_BOUNCE.
+
+IPO\_CIRC:
+:   IPO\_CIRC.
+
+IPO\_CONSTANT:
+:   IPO\_CONSTANT.
+
+IPO\_CUBIC:
+:   IPO\_CUBIC.
+
+IPO\_EASE\_IN\_OUT:
+:   IPO\_EASE\_IN\_OUT.
+
+IPO\_EASE\_IN:
+:   IPO\_EASE\_IN.
+
+IPO\_EASE\_OUT:
+:   IPO\_EASE\_OUT.
+
+IPO\_ELASTIC:
+:   IPO\_ELASTIC.
+
+IPO\_EXPO:
+:   IPO\_EXPO.
+
+IPO\_LINEAR:
+:   IPO\_LINEAR.
+
+IPO\_QUAD:
+:   IPO\_QUAD.
+
+IPO\_QUART:
+:   IPO\_QUART.
+
+IPO\_QUINT:
+:   IPO\_QUINT.
+
+IPO\_SINE:
+:   IPO\_SINE.
+
+KEY\_DEHLT:
+:   KEY\_DEHLT.
+
+KEY\_HLT:
+:   KEY\_HLT.
+
+KEYFRAME\_HLT:
+:   KEYFRAME\_HLT.
+
+KEYFRAME:
+:   KEYFRAME.
+
+KEYINGSET:
+:   KEYINGSET.
+
+MARKER\_HLT:
+:   MARKER\_HLT.
+
+MARKER:
+:   MARKER.
+
+MUTE\_IPO\_OFF:
+:   MUTE\_IPO\_OFF.
+
+MUTE\_IPO\_ON:
+:   MUTE\_IPO\_ON.
+
+NEXT\_KEYFRAME:
+:   NEXT\_KEYFRAME.
+
+NLA\_PUSHDOWN:
+:   NLA\_PUSHDOWN.
+
+NORMALIZE\_FCURVES:
+:   NORMALIZE\_FCURVES.
+
+ORIENTATION\_PARENT:
+:   ORIENTATION\_PARENT.
+
+PAUSE:
+:   PAUSE.
+
+PLAY\_REVERSE:
+:   PLAY\_REVERSE.
+
+PLAY\_SOUND:
+:   PLAY\_SOUND.
+
+PLAY:
+:   PLAY.
+
+PMARKER\_ACT:
+:   PMARKER\_ACT.
+
+PMARKER\_SEL:
+:   PMARKER\_SEL.
+
+PMARKER:
+:   PMARKER.
+
+PREV\_KEYFRAME:
+:   PREV\_KEYFRAME.
+
+PREVIEW\_RANGE:
+:   PREVIEW\_RANGE.
+
+REC:
+:   REC.
+
+REW:
+:   REW.
+
+SOLO\_OFF:
+:   SOLO\_OFF.
+
+SOLO\_ON:
+:   SOLO\_ON.
+
+CENTER\_ONLY:
+:   CENTER\_ONLY.
+
+CURSOR:
+:   CURSOR.
+
+EDGESEL:
+:   EDGESEL.
+
+EDGE\_BEVEL:
+:   EDGE\_BEVEL.
+
+EDGE\_CREASE:
+:   EDGE\_CREASE.
+
+EDGE\_SEAM:
+:   EDGE\_SEAM.
+
+EDGE\_SHARP:
+:   EDGE\_SHARP.
+
+FACE\_CORNER:
+:   FACE\_CORNER.
+
+FACESEL:
+:   FACESEL.
+
+INVERSESQUARECURVE:
+:   INVERSESQUARECURVE.
+
+LINCURVE:
+:   LINCURVE.
+
+NOCURVE:
+:   NOCURVE.
+
+PARTICLE\_PATH:
+:   PARTICLE\_PATH.
+
+PARTICLE\_POINT:
+:   PARTICLE\_POINT.
+
+PARTICLE\_TIP:
+:   PARTICLE\_TIP.
+
+PIVOT\_ACTIVE:
+:   PIVOT\_ACTIVE.
+
+PIVOT\_BOUNDBOX:
+:   PIVOT\_BOUNDBOX.
+
+PIVOT\_CURSOR:
+:   PIVOT\_CURSOR.
+
+PIVOT\_INDIVIDUAL:
+:   PIVOT\_INDIVIDUAL.
+
+PIVOT\_MEDIAN:
+:   PIVOT\_MEDIAN.
+
+PROP\_CON:
+:   PROP\_CON.
+
+PROP\_OFF:
+:   PROP\_OFF.
+
+PROP\_ON:
+:   PROP\_ON.
+
+PROP\_PROJECTED:
+:   PROP\_PROJECTED.
+
+RNDCURVE:
+:   RNDCURVE.
+
+ROOTCURVE:
+:   ROOTCURVE.
+
+SHARPCURVE:
+:   SHARPCURVE.
+
+SMOOTHCURVE:
+:   SMOOTHCURVE.
+
+SPHERECURVE:
+:   SPHERECURVE.
+
+VERTEXSEL:
+:   VERTEXSEL.
+
+VERTEX\_CREASE:
+:   VERTEX\_CREASE.
+
+SNAP\_EDGE:
+:   SNAP\_EDGE.
+
+SNAP\_FACE\_CENTER:
+:   SNAP\_FACE\_CENTER.
+
+SNAP\_FACE\_NEAREST:
+:   SNAP\_FACE\_NEAREST.
+
+SNAP\_FACE:
+:   SNAP\_FACE.
+
+SNAP\_GRID:
+:   SNAP\_GRID.
+
+SNAP\_INCREMENT:
+:   SNAP\_INCREMENT.
+
+SNAP\_MIDPOINT:
+:   SNAP\_MIDPOINT.
+
+SNAP\_NORMAL:
+:   SNAP\_NORMAL.
+
+SNAP\_PEEL\_OBJECT:
+:   SNAP\_PEEL\_OBJECT.
+
+SNAP\_PERPENDICULAR:
+:   SNAP\_PERPENDICULAR.
+
+SNAP\_VERTEX:
+:   SNAP\_VERTEX.
+
+SNAP\_VOLUME:
+:   SNAP\_VOLUME.
+
+STICKY\_UVS\_DISABLE:
+:   STICKY\_UVS\_DISABLE.
+
+STICKY\_UVS\_LOC:
+:   STICKY\_UVS\_LOC.
+
+STICKY\_UVS\_VERT:
+:   STICKY\_UVS\_VERT.
+
+ORIENTATION\_GIMBAL:
+:   ORIENTATION\_GIMBAL.
+
+ORIENTATION\_GLOBAL:
+:   ORIENTATION\_GLOBAL.
+
+ORIENTATION\_LOCAL:
+:   ORIENTATION\_LOCAL.
+
+ORIENTATION\_NORMAL:
+:   ORIENTATION\_NORMAL.
+
+ORIENTATION\_VIEW:
+:   ORIENTATION\_VIEW.
+
+COPYDOWN:
+:   COPYDOWN.
+
+FIXED\_SIZE:
+:   FIXED\_SIZE.
+
+GIZMO:
+:   GIZMO.
+
+GP\_CAPS\_FLAT:
+:   GP\_CAPS\_FLAT.
+
+GP\_CAPS\_ROUND:
+:   GP\_CAPS\_ROUND.
+
+NORMALS\_FACE:
+:   NORMALS\_FACE.
+
+NORMALS\_VERTEX\_FACE:
+:   NORMALS\_VERTEX\_FACE.
+
+NORMALS\_VERTEX:
+:   NORMALS\_VERTEX.
+
+OBJECT\_ORIGIN:
+:   OBJECT\_ORIGIN.
+
+ORIENTATION\_CURSOR:
+:   ORIENTATION\_CURSOR.
+
+PASTEDOWN:
+:   PASTEDOWN.
+
+PASTEFLIPDOWN:
+:   PASTEFLIPDOWN.
+
+PASTEFLIPUP:
+:   PASTEFLIPUP.
+
+TRANSFORM\_ORIGINS:
+:   TRANSFORM\_ORIGINS.
+
+UV\_EDGESEL:
+:   UV\_EDGESEL.
+
+UV\_FACESEL:
+:   UV\_FACESEL.
+
+UV\_ISLANDSEL:
+:   UV\_ISLANDSEL.
+
+UV\_SYNC\_SELECT:
+:   UV\_SYNC\_SELECT.
+
+UV\_VERTEXSEL:
+:   UV\_VERTEXSEL.
+
+AXIS\_FRONT:
+:   AXIS\_FRONT.
+
+AXIS\_SIDE:
+:   AXIS\_SIDE.
+
+AXIS\_TOP:
+:   AXIS\_TOP.
+
+GRID:
+:   GRID.
+
+LAYER\_ACTIVE:
+:   LAYER\_ACTIVE.
+
+LAYER\_USED:
+:   LAYER\_USED.
+
+LOCKVIEW\_OFF:
+:   LOCKVIEW\_OFF.
+
+LOCKVIEW\_ON:
+:   LOCKVIEW\_ON.
+
+OVERLAY:
+:   OVERLAY.
+
+SHADING\_BBOX:
+:   SHADING\_BBOX.
+
+SHADING\_RENDERED:
+:   SHADING\_RENDERED.
+
+SHADING\_SOLID:
+:   SHADING\_SOLID.
+
+SHADING\_TEXTURE:
+:   SHADING\_TEXTURE.
+
+SHADING\_WIRE:
+:   SHADING\_WIRE.
+
+XRAY:
+:   XRAY.
+
+VIEW\_CAMERA\_UNSELECTED:
+:   VIEW\_CAMERA\_UNSELECTED.
+
+VIEW\_CAMERA:
+:   VIEW\_CAMERA.
+
+VIEW\_LOCKED:
+:   VIEW\_LOCKED.
+
+VIEW\_ORTHO:
+:   VIEW\_ORTHO.
+
+VIEW\_PAN:
+:   VIEW\_PAN.
+
+VIEW\_PERSPECTIVE:
+:   VIEW\_PERSPECTIVE.
+
+VIEW\_UNLOCKED:
+:   VIEW\_UNLOCKED.
+
+VIEW\_ZOOM:
+:   VIEW\_ZOOM.
+
+FILE\_ALIAS:
+:   FILE\_ALIAS.
+
+FILE\_FOLDER:
+:   FILE\_FOLDER.
+
+FOLDER\_REDIRECT:
+:   FOLDER\_REDIRECT.
+
+APPEND\_BLEND:
+:   APPEND\_BLEND.
+
+BACK:
+:   BACK.
+
+BOOKMARKS:
+:   BOOKMARKS.
+
+CURRENT\_FILE:
+:   CURRENT\_FILE.
+
+DESKTOP:
+:   DESKTOP.
+
+DISC:
+:   DISC.
+
+DISK\_DRIVE:
+:   DISK\_DRIVE.
+
+DOCUMENTS:
+:   DOCUMENTS.
+
+EXPORT:
+:   EXPORT.
+
+EXTERNAL\_DRIVE:
+:   EXTERNAL\_DRIVE.
+
+FILE\_3D:
+:   FILE\_3D.
+
+FILE\_ARCHIVE:
+:   FILE\_ARCHIVE.
+
+FILE\_BACKUP:
+:   FILE\_BACKUP.
+
+FILE\_BLANK:
+:   FILE\_BLANK.
+
+FILE\_BLEND:
+:   FILE\_BLEND.
+
+FILE\_CACHE:
+:   FILE\_CACHE.
+
+FILE\_FONT:
+:   FILE\_FONT.
+
+FILE\_HIDDEN:
+:   FILE\_HIDDEN.
+
+FILE\_IMAGE:
+:   FILE\_IMAGE.
+
+FILE\_MOVIE:
+:   FILE\_MOVIE.
+
+FILE\_PARENT:
+:   FILE\_PARENT.
+
+FILE\_REFRESH:
+:   FILE\_REFRESH.
+
+FILE\_SCRIPT:
+:   FILE\_SCRIPT.
+
+FILE\_SOUND:
+:   FILE\_SOUND.
+
+FILE\_TEXT:
+:   FILE\_TEXT.
+
+FILE\_VOLUME:
+:   FILE\_VOLUME.
+
+FILTER:
+:   FILTER.
+
+FONTPREVIEW:
+:   FONTPREVIEW.
+
+FORWARD:
+:   FORWARD.
+
+HOME:
+:   HOME.
+
+IMGDISPLAY:
+:   IMGDISPLAY.
+
+IMPORT:
+:   IMPORT.
+
+LINK\_BLEND:
+:   LINK\_BLEND.
+
+LONGDISPLAY:
+:   LONGDISPLAY.
+
+LOOP\_BACK:
+:   LOOP\_BACK.
+
+LOOP\_FORWARDS:
+:   LOOP\_FORWARDS.
+
+NETWORK\_DRIVE:
+:   NETWORK\_DRIVE.
+
+NEWFOLDER:
+:   NEWFOLDER.
+
+PREVIEW\_LOADING:
+:   PREVIEW\_LOADING.
+
+SETTINGS:
+:   SETTINGS.
+
+SHORTDISPLAY:
+:   SHORTDISPLAY.
+
+SORT\_ASC:
+:   SORT\_ASC.
+
+SORT\_DESC:
+:   SORT\_DESC.
+
+SORTALPHA:
+:   SORTALPHA.
+
+SORTBYEXT:
+:   SORTBYEXT.
+
+SORTSIZE:
+:   SORTSIZE.
+
+SORTTIME:
+:   SORTTIME.
+
+SYSTEM:
+:   SYSTEM.
+
+TAG:
+:   TAG.
+
+TEMP:
+:   TEMP.
+
+ALIASED:
+:   ALIASED.
+
+ANTIALIASED:
+:   ANTIALIASED.
+
+MAT\_SPHERE\_SKY:
+:   MAT\_SPHERE\_SKY.
+
+MATCLOTH:
+:   MATCLOTH.
+
+MATCUBE:
+:   MATCUBE.
+
+MATFLUID:
+:   MATFLUID.
+
+MATPLANE:
+:   MATPLANE.
+
+MATSHADERBALL:
+:   MATSHADERBALL.
+
+MATSPHERE:
+:   MATSPHERE.
+
+SEQ\_CHROMA\_SCOPE:
+:   SEQ\_CHROMA\_SCOPE.
+
+SEQ\_HISTOGRAM:
+:   SEQ\_HISTOGRAM.
+
+SEQ\_LUMA\_WAVEFORM:
+:   SEQ\_LUMA\_WAVEFORM.
+
+SEQ\_PREVIEW:
+:   SEQ\_PREVIEW.
+
+SEQ\_SEQUENCER:
+:   SEQ\_SEQUENCER.
+
+SEQ\_SPLITVIEW:
+:   SEQ\_SPLITVIEW.
+
+SEQ\_STRIP\_DUPLICATE:
+:   SEQ\_STRIP\_DUPLICATE.
+
+SEQ\_STRIP\_META:
+:   SEQ\_STRIP\_META.
+
+SEQ\_STRIP\_MODIFIER:
+:   SEQ\_STRIP\_MODIFIER.
+
+MOD\_BRIGHTNESS\_CONTRAST:
+:   MOD\_BRIGHTNESS\_CONTRAST.
+
+MOD\_COLOR\_BALANCE:
+:   MOD\_COLOR\_BALANCE.
+
+MOD\_CURVES:
+:   MOD\_CURVES.
+
+MOD\_HUE\_CORRECT:
+:   MOD\_HUE\_CORRECT.
+
+MOD\_TONEMAP:
+:   MOD\_TONEMAP.
+
+MOD\_WHITE\_BALANCE:
+:   MOD\_WHITE\_BALANCE.
+
+IMAGE\_ALPHA:
+:   IMAGE\_ALPHA.
+
+IMAGE\_RGB\_ALPHA:
+:   IMAGE\_RGB\_ALPHA.
+
+IMAGE\_RGB:
+:   IMAGE\_RGB.
+
+IMAGE\_ZDEPTH:
+:   IMAGE\_ZDEPTH.
+
+BLENDER\_LOGO\_LARGE:
+:   BLENDER\_LOGO\_LARGE.
+
+CANCEL\_LARGE:
+:   CANCEL\_LARGE.
+
+DISC\_LARGE:
+:   DISC\_LARGE.
+
+DISK\_DRIVE\_LARGE:
+:   DISK\_DRIVE\_LARGE.
+
+EXTERNAL\_DRIVE\_LARGE:
+:   EXTERNAL\_DRIVE\_LARGE.
+
+FILE\_FOLDER\_LARGE:
+:   FILE\_FOLDER\_LARGE.
+
+FILE\_LARGE:
+:   FILE\_LARGE.
+
+FILE\_PARENT\_LARGE:
+:   FILE\_PARENT\_LARGE.
+
+INFO\_LARGE:
+:   INFO\_LARGE.
+
+NETWORK\_DRIVE\_LARGE:
+:   NETWORK\_DRIVE\_LARGE.
+
+QUESTION\_LARGE:
+:   QUESTION\_LARGE.
+
+WARNING\_LARGE:
+:   WARNING\_LARGE.
+
+KEY\_BACKSPACE\_FILLED:
+:   KEY\_BACKSPACE\_FILLED.
+
+KEY\_BACKSPACE:
+:   KEY\_BACKSPACE.
+
+KEY\_COMMAND\_FILLED:
+:   KEY\_COMMAND\_FILLED.
+
+KEY\_COMMAND:
+:   KEY\_COMMAND.
+
+KEY\_CONTROL\_FILLED:
+:   KEY\_CONTROL\_FILLED.
+
+KEY\_CONTROL:
+:   KEY\_CONTROL.
+
+KEY\_EMPTY1\_FILLED:
+:   KEY\_EMPTY1\_FILLED.
+
+KEY\_EMPTY1:
+:   KEY\_EMPTY1.
+
+KEY\_EMPTY2\_FILLED:
+:   KEY\_EMPTY2\_FILLED.
+
+KEY\_EMPTY2:
+:   KEY\_EMPTY2.
+
+KEY\_EMPTY3\_FILLED:
+:   KEY\_EMPTY3\_FILLED.
+
+KEY\_EMPTY3:
+:   KEY\_EMPTY3.
+
+KEY\_MENU\_FILLED:
+:   KEY\_MENU\_FILLED.
+
+KEY\_MENU:
+:   KEY\_MENU.
+
+KEY\_OPTION\_FILLED:
+:   KEY\_OPTION\_FILLED.
+
+KEY\_OPTION:
+:   KEY\_OPTION.
+
+KEY\_RETURN\_FILLED:
+:   KEY\_RETURN\_FILLED.
+
+KEY\_RETURN:
+:   KEY\_RETURN.
+
+KEY\_RING\_FILLED:
+:   KEY\_RING\_FILLED.
+
+KEY\_RING:
+:   KEY\_RING.
+
+KEY\_SHIFT\_FILLED:
+:   KEY\_SHIFT\_FILLED.
+
+KEY\_SHIFT:
+:   KEY\_SHIFT.
+
+KEY\_TAB\_FILLED:
+:   KEY\_TAB\_FILLED.
+
+KEY\_TAB:
+:   KEY\_TAB.
+
+KEY\_WINDOWS\_FILLED:
+:   KEY\_WINDOWS\_FILLED.
+
+KEY\_WINDOWS:
+:   KEY\_WINDOWS.
+
+GESTURE\_PAN:
+:   GESTURE\_PAN.
+
+GESTURE\_ROTATE:
+:   GESTURE\_ROTATE.
+
+GESTURE\_ZOOM:
+:   GESTURE\_ZOOM.
+
+FUND:
+:   FUND.
+
+HEART:
+:   HEART.
+
+INTERNET\_OFFLINE:
+:   INTERNET\_OFFLINE.
+
+INTERNET:
+:   INTERNET.
+
+USER:
+:   USER.
+
+EXPERIMENTAL:
+:   EXPERIMENTAL.
+
+MEMORY:
+:   MEMORY.
+
+RGB\_RED:
+:   RGB\_RED.
+
+RGB\_GREEN:
+:   RGB\_GREEN.
+
+RGB\_BLUE:
+:   RGB\_BLUE.
+
+KEYTYPE\_KEYFRAME\_VEC:
+:   KEYTYPE\_KEYFRAME\_VEC.
+
+KEYTYPE\_BREAKDOWN\_VEC:
+:   KEYTYPE\_BREAKDOWN\_VEC.
+
+KEYTYPE\_EXTREME\_VEC:
+:   KEYTYPE\_EXTREME\_VEC.
+
+KEYTYPE\_JITTER\_VEC:
+:   KEYTYPE\_JITTER\_VEC.
+
+KEYTYPE\_MOVING\_HOLD\_VEC:
+:   KEYTYPE\_MOVING\_HOLD\_VEC.
+
+KEYTYPE\_GENERATED\_VEC:
+:   KEYTYPE\_GENERATED\_VEC.
+
+HANDLETYPE\_FREE\_VEC:
+:   HANDLETYPE\_FREE\_VEC.
+
+HANDLETYPE\_ALIGNED\_VEC:
+:   HANDLETYPE\_ALIGNED\_VEC.
+
+HANDLETYPE\_VECTOR\_VEC:
+:   HANDLETYPE\_VECTOR\_VEC.
+
+HANDLETYPE\_AUTO\_VEC:
+:   HANDLETYPE\_AUTO\_VEC.
+
+HANDLETYPE\_AUTO\_CLAMP\_VEC:
+:   HANDLETYPE\_AUTO\_CLAMP\_VEC.
+
+COLORSET\_01\_VEC:
+:   COLORSET\_01\_VEC.
+
+COLORSET\_02\_VEC:
+:   COLORSET\_02\_VEC.
+
+COLORSET\_03\_VEC:
+:   COLORSET\_03\_VEC.
+
+COLORSET\_04\_VEC:
+:   COLORSET\_04\_VEC.
+
+COLORSET\_05\_VEC:
+:   COLORSET\_05\_VEC.
+
+COLORSET\_06\_VEC:
+:   COLORSET\_06\_VEC.
+
+COLORSET\_07\_VEC:
+:   COLORSET\_07\_VEC.
+
+COLORSET\_08\_VEC:
+:   COLORSET\_08\_VEC.
+
+COLORSET\_09\_VEC:
+:   COLORSET\_09\_VEC.
+
+COLORSET\_10\_VEC:
+:   COLORSET\_10\_VEC.
+
+COLORSET\_11\_VEC:
+:   COLORSET\_11\_VEC.
+
+COLORSET\_12\_VEC:
+:   COLORSET\_12\_VEC.
+
+COLORSET\_13\_VEC:
+:   COLORSET\_13\_VEC.
+
+COLORSET\_14\_VEC:
+:   COLORSET\_14\_VEC.
+
+COLORSET\_15\_VEC:
+:   COLORSET\_15\_VEC.
+
+COLORSET\_16\_VEC:
+:   COLORSET\_16\_VEC.
+
+COLORSET\_17\_VEC:
+:   COLORSET\_17\_VEC.
+
+COLORSET\_18\_VEC:
+:   COLORSET\_18\_VEC.
+
+COLORSET\_19\_VEC:
+:   COLORSET\_19\_VEC.
+
+COLORSET\_20\_VEC:
+:   COLORSET\_20\_VEC.
+
+STRIP\_COLOR\_01:
+:   STRIP\_COLOR\_01.
+
+STRIP\_COLOR\_02:
+:   STRIP\_COLOR\_02.
+
+STRIP\_COLOR\_03:
+:   STRIP\_COLOR\_03.
+
+STRIP\_COLOR\_04:
+:   STRIP\_COLOR\_04.
+
+STRIP\_COLOR\_05:
+:   STRIP\_COLOR\_05.
+
+STRIP\_COLOR\_06:
+:   STRIP\_COLOR\_06.
+
+STRIP\_COLOR\_07:
+:   STRIP\_COLOR\_07.
+
+STRIP\_COLOR\_08:
+:   STRIP\_COLOR\_08.
+
+STRIP\_COLOR\_09:
+:   STRIP\_COLOR\_09.
+
+LIBRARY\_DATA\_INDIRECT:
+:   LIBRARY\_DATA\_INDIRECT.
+
+LIBRARY\_DATA\_OVERRIDE\_NONEDITABLE:
+:   LIBRARY\_DATA\_OVERRIDE\_NONEDITABLE.
+
+LAYERGROUP\_COLOR\_01:
+:   LAYERGROUP\_COLOR\_01.
+
+LAYERGROUP\_COLOR\_02:
+:   LAYERGROUP\_COLOR\_02.
+
+LAYERGROUP\_COLOR\_03:
+:   LAYERGROUP\_COLOR\_03.
+
+LAYERGROUP\_COLOR\_04:
+:   LAYERGROUP\_COLOR\_04.
+
+LAYERGROUP\_COLOR\_05:
+:   LAYERGROUP\_COLOR\_05.
+
+LAYERGROUP\_COLOR\_06:
+:   LAYERGROUP\_COLOR\_06.
+
+LAYERGROUP\_COLOR\_07:
+:   LAYERGROUP\_COLOR\_07.
+
+LAYERGROUP\_COLOR\_08:
+:   LAYERGROUP\_COLOR\_08.
+
+EVENT\_A:
+:   EVENT\_A.
+
+EVENT\_B:
+:   EVENT\_B.
+
+EVENT\_C:
+:   EVENT\_C.
+
+EVENT\_D:
+:   EVENT\_D.
+
+EVENT\_E:
+:   EVENT\_E.
+
+EVENT\_F:
+:   EVENT\_F.
+
+EVENT\_G:
+:   EVENT\_G.
+
+EVENT\_H:
+:   EVENT\_H.
+
+EVENT\_I:
+:   EVENT\_I.
+
+EVENT\_J:
+:   EVENT\_J.
+
+EVENT\_K:
+:   EVENT\_K.
+
+EVENT\_L:
+:   EVENT\_L.
+
+EVENT\_M:
+:   EVENT\_M.
+
+EVENT\_N:
+:   EVENT\_N.
+
+EVENT\_O:
+:   EVENT\_O.
+
+EVENT\_P:
+:   EVENT\_P.
+
+EVENT\_Q:
+:   EVENT\_Q.
+
+EVENT\_R:
+:   EVENT\_R.
+
+EVENT\_S:
+:   EVENT\_S.
+
+EVENT\_T:
+:   EVENT\_T.
+
+EVENT\_U:
+:   EVENT\_U.
+
+EVENT\_V:
+:   EVENT\_V.
+
+EVENT\_W:
+:   EVENT\_W.
+
+EVENT\_X:
+:   EVENT\_X.
+
+EVENT\_Y:
+:   EVENT\_Y.
+
+EVENT\_Z:
+:   EVENT\_Z.
+
+EVENT\_SHIFT:
+:   EVENT\_SHIFT.
+
+EVENT\_CTRL:
+:   EVENT\_CTRL.
+
+EVENT\_ALT:
+:   EVENT\_ALT.
+
+EVENT\_OS:
+:   EVENT\_OS.
+
+EVENT\_HYPER:
+:   EVENT\_HYPER.
+
+EVENT\_F1:
+:   EVENT\_F1.
+
+EVENT\_F2:
+:   EVENT\_F2.
+
+EVENT\_F3:
+:   EVENT\_F3.
+
+EVENT\_F4:
+:   EVENT\_F4.
+
+EVENT\_F5:
+:   EVENT\_F5.
+
+EVENT\_F6:
+:   EVENT\_F6.
+
+EVENT\_F7:
+:   EVENT\_F7.
+
+EVENT\_F8:
+:   EVENT\_F8.
+
+EVENT\_F9:
+:   EVENT\_F9.
+
+EVENT\_F10:
+:   EVENT\_F10.
+
+EVENT\_F11:
+:   EVENT\_F11.
+
+EVENT\_F12:
+:   EVENT\_F12.
+
+EVENT\_F13:
+:   EVENT\_F13.
+
+EVENT\_F14:
+:   EVENT\_F14.
+
+EVENT\_F15:
+:   EVENT\_F15.
+
+EVENT\_F16:
+:   EVENT\_F16.
+
+EVENT\_F17:
+:   EVENT\_F17.
+
+EVENT\_F18:
+:   EVENT\_F18.
+
+EVENT\_F19:
+:   EVENT\_F19.
+
+EVENT\_F20:
+:   EVENT\_F20.
+
+EVENT\_F21:
+:   EVENT\_F21.
+
+EVENT\_F22:
+:   EVENT\_F22.
+
+EVENT\_F23:
+:   EVENT\_F23.
+
+EVENT\_F24:
+:   EVENT\_F24.
+
+EVENT\_ESC:
+:   EVENT\_ESC.
+
+EVENT\_TAB:
+:   EVENT\_TAB.
+
+EVENT\_PAGEUP:
+:   EVENT\_PAGEUP.
+
+EVENT\_PAGEDOWN:
+:   EVENT\_PAGEDOWN.
+
+EVENT\_RETURN:
+:   EVENT\_RETURN.
+
+EVENT\_SPACEKEY:
+:   EVENT\_SPACEKEY.
+
+EVENT\_ZEROKEY:
+:   EVENT\_ZEROKEY.
+
+EVENT\_ONEKEY:
+:   EVENT\_ONEKEY.
+
+EVENT\_TWOKEY:
+:   EVENT\_TWOKEY.
+
+EVENT\_THREEKEY:
+:   EVENT\_THREEKEY.
+
+EVENT\_FOURKEY:
+:   EVENT\_FOURKEY.
+
+EVENT\_FIVEKEY:
+:   EVENT\_FIVEKEY.
+
+EVENT\_SIXKEY:
+:   EVENT\_SIXKEY.
+
+EVENT\_SEVENKEY:
+:   EVENT\_SEVENKEY.
+
+EVENT\_EIGHTKEY:
+:   EVENT\_EIGHTKEY.
+
+EVENT\_NINEKEY:
+:   EVENT\_NINEKEY.
+
+EVENT\_PAD0:
+:   EVENT\_PAD0.
+
+EVENT\_PAD1:
+:   EVENT\_PAD1.
+
+EVENT\_PAD2:
+:   EVENT\_PAD2.
+
+EVENT\_PAD3:
+:   EVENT\_PAD3.
+
+EVENT\_PAD4:
+:   EVENT\_PAD4.
+
+EVENT\_PAD5:
+:   EVENT\_PAD5.
+
+EVENT\_PAD6:
+:   EVENT\_PAD6.
+
+EVENT\_PAD7:
+:   EVENT\_PAD7.
+
+EVENT\_PAD8:
+:   EVENT\_PAD8.
+
+EVENT\_PAD9:
+:   EVENT\_PAD9.
+
+EVENT\_PADASTER:
+:   EVENT\_PADASTER.
+
+EVENT\_PADSLASH:
+:   EVENT\_PADSLASH.
+
+EVENT\_PADMINUS:
+:   EVENT\_PADMINUS.
+
+EVENT\_PADENTER:
+:   EVENT\_PADENTER.
+
+EVENT\_PADPLUS:
+:   EVENT\_PADPLUS.
+
+EVENT\_PADPERIOD:
+:   EVENT\_PADPERIOD.
+
+EVENT\_MOUSE\_4:
+:   EVENT\_MOUSE\_4.
+
+EVENT\_MOUSE\_5:
+:   EVENT\_MOUSE\_5.
+
+EVENT\_MOUSE\_6:
+:   EVENT\_MOUSE\_6.
+
+EVENT\_MOUSE\_7:
+:   EVENT\_MOUSE\_7.
+
+EVENT\_TABLET\_STYLUS:
+:   EVENT\_TABLET\_STYLUS.
+
+EVENT\_TABLET\_ERASER:
+:   EVENT\_TABLET\_ERASER.
+
+EVENT\_LEFT\_ARROW:
+:   EVENT\_LEFT\_ARROW.
+
+EVENT\_DOWN\_ARROW:
+:   EVENT\_DOWN\_ARROW.
+
+EVENT\_RIGHT\_ARROW:
+:   EVENT\_RIGHT\_ARROW.
+
+EVENT\_UP\_ARROW:
+:   EVENT\_UP\_ARROW.
+
+EVENT\_PAUSE:
+:   EVENT\_PAUSE.
+
+EVENT\_INSERT:
+:   EVENT\_INSERT.
+
+EVENT\_HOME:
+:   EVENT\_HOME.
+
+EVENT\_END:
+:   EVENT\_END.
+
+EVENT\_UNKNOWN:
+:   EVENT\_UNKNOWN.
+
+EVENT\_GRLESS:
+:   EVENT\_GRLESS.
+
+EVENT\_MEDIAPLAY:
+:   EVENT\_MEDIAPLAY.
+
+EVENT\_MEDIASTOP:
+:   EVENT\_MEDIASTOP.
+
+EVENT\_MEDIAFIRST:
+:   EVENT\_MEDIAFIRST.
+
+EVENT\_MEDIALAST:
+:   EVENT\_MEDIALAST.
+
+EVENT\_APP:
+:   EVENT\_APP.
+
+EVENT\_CAPSLOCK:
+:   EVENT\_CAPSLOCK.
+
+EVENT\_BACKSPACE:
+:   EVENT\_BACKSPACE.
+
+EVENT\_DEL:
+:   EVENT\_DEL.
+
+EVENT\_SEMICOLON:
+:   EVENT\_SEMICOLON.
+
+EVENT\_PERIOD:
+:   EVENT\_PERIOD.
+
+EVENT\_COMMA:
+:   EVENT\_COMMA.
+
+EVENT\_QUOTE:
+:   EVENT\_QUOTE.
+
+EVENT\_ACCENTGRAVE:
+:   EVENT\_ACCENTGRAVE.
+
+EVENT\_MINUS:
+:   EVENT\_MINUS.
+
+EVENT\_PLUS:
+:   EVENT\_PLUS.
+
+EVENT\_SLASH:
+:   EVENT\_SLASH.
+
+EVENT\_BACKSLASH:
+:   EVENT\_BACKSLASH.
+
+EVENT\_EQUAL:
+:   EVENT\_EQUAL.
+
+EVENT\_LEFTBRACKET:
+:   EVENT\_LEFTBRACKET.
+
+EVENT\_RIGHTBRACKET:
+:   EVENT\_RIGHTBRACKET.
+
+EVENT\_PAD\_PAN:
+:   EVENT\_PAD\_PAN.
+
+EVENT\_PAD\_ROTATE:
+:   EVENT\_PAD\_ROTATE.
+
+EVENT\_PAD\_ZOOM:
+:   EVENT\_PAD\_ZOOM.
+
+EVENT\_NDOF\_BUTTON\_V1:
+:   EVENT\_NDOF\_BUTTON\_V1.
+
+EVENT\_NDOF\_BUTTON\_V2:
+:   EVENT\_NDOF\_BUTTON\_V2.
+
+EVENT\_NDOF\_BUTTON\_V3:
+:   EVENT\_NDOF\_BUTTON\_V3.
+
+EVENT\_NDOF\_BUTTON\_SAVE\_V1:
+:   EVENT\_NDOF\_BUTTON\_SAVE\_V1.
+
+EVENT\_NDOF\_BUTTON\_SAVE\_V2:
+:   EVENT\_NDOF\_BUTTON\_SAVE\_V2.
+
+EVENT\_NDOF\_BUTTON\_SAVE\_V3:
+:   EVENT\_NDOF\_BUTTON\_SAVE\_V3.
+
+EVENT\_NDOF\_BUTTON\_1:
+:   EVENT\_NDOF\_BUTTON\_1.
+
+EVENT\_NDOF\_BUTTON\_2:
+:   EVENT\_NDOF\_BUTTON\_2.
+
+EVENT\_NDOF\_BUTTON\_3:
+:   EVENT\_NDOF\_BUTTON\_3.
+
+EVENT\_NDOF\_BUTTON\_4:
+:   EVENT\_NDOF\_BUTTON\_4.
+
+EVENT\_NDOF\_BUTTON\_5:
+:   EVENT\_NDOF\_BUTTON\_5.
+
+EVENT\_NDOF\_BUTTON\_6:
+:   EVENT\_NDOF\_BUTTON\_6.
+
+EVENT\_NDOF\_BUTTON\_7:
+:   EVENT\_NDOF\_BUTTON\_7.
+
+EVENT\_NDOF\_BUTTON\_8:
+:   EVENT\_NDOF\_BUTTON\_8.
+
+EVENT\_NDOF\_BUTTON\_9:
+:   EVENT\_NDOF\_BUTTON\_9.
+
+EVENT\_NDOF\_BUTTON\_10:
+:   EVENT\_NDOF\_BUTTON\_10.
+
+EVENT\_NDOF\_BUTTON\_11:
+:   EVENT\_NDOF\_BUTTON\_11.
+
+EVENT\_NDOF\_BUTTON\_12:
+:   EVENT\_NDOF\_BUTTON\_12.
+
+EVENT\_NDOF\_BUTTON\_MENU:
+:   EVENT\_NDOF\_BUTTON\_MENU.
+
+EVENT\_NDOF\_BUTTON\_FIT:
+:   EVENT\_NDOF\_BUTTON\_FIT.
+
+EVENT\_NDOF\_BUTTON\_TOP:
+:   EVENT\_NDOF\_BUTTON\_TOP.
+
+EVENT\_NDOF\_BUTTON\_BOTTOM:
+:   EVENT\_NDOF\_BUTTON\_BOTTOM.
+
+EVENT\_NDOF\_BUTTON\_LEFT:
+:   EVENT\_NDOF\_BUTTON\_LEFT.
+
+EVENT\_NDOF\_BUTTON\_RIGHT:
+:   EVENT\_NDOF\_BUTTON\_RIGHT.
+
+EVENT\_NDOF\_BUTTON\_FRONT:
+:   EVENT\_NDOF\_BUTTON\_FRONT.
+
+EVENT\_NDOF\_BUTTON\_BACK:
+:   EVENT\_NDOF\_BUTTON\_BACK.
+
+EVENT\_NDOF\_BUTTON\_ISO1:
+:   EVENT\_NDOF\_BUTTON\_ISO1.
+
+EVENT\_NDOF\_BUTTON\_ISO2:
+:   EVENT\_NDOF\_BUTTON\_ISO2.
+
+EVENT\_NDOF\_BUTTON\_ROLL\_CW:
+:   EVENT\_NDOF\_BUTTON\_ROLL\_CW.
+
+EVENT\_NDOF\_BUTTON\_ROLL\_CCW:
+:   EVENT\_NDOF\_BUTTON\_ROLL\_CCW.
+
+EVENT\_NDOF\_BUTTON\_SPIN\_CW:
+:   EVENT\_NDOF\_BUTTON\_SPIN\_CW.
+
+EVENT\_NDOF\_BUTTON\_SPIN\_CCW:
+:   EVENT\_NDOF\_BUTTON\_SPIN\_CCW.
+
+EVENT\_NDOF\_BUTTON\_TILT\_CW:
+:   EVENT\_NDOF\_BUTTON\_TILT\_CW.
+
+EVENT\_NDOF\_BUTTON\_TILT\_CCW:
+:   EVENT\_NDOF\_BUTTON\_TILT\_CCW.
+
+EVENT\_NDOF\_BUTTON\_ROTATE:
+:   EVENT\_NDOF\_BUTTON\_ROTATE.
+
+EVENT\_NDOF\_BUTTON\_PANZOOM:
+:   EVENT\_NDOF\_BUTTON\_PANZOOM.
+
+EVENT\_NDOF\_BUTTON\_DOMINANT:
+:   EVENT\_NDOF\_BUTTON\_DOMINANT.
+
+EVENT\_NDOF\_BUTTON\_PLUS:
+:   EVENT\_NDOF\_BUTTON\_PLUS.
+
+EVENT\_NDOF\_BUTTON\_MINUS:
+:   EVENT\_NDOF\_BUTTON\_MINUS.
+
+NODE\_SOCKET\_FLOAT:
+:   NODE\_SOCKET\_FLOAT.
+
+NODE\_SOCKET\_VECTOR:
+:   NODE\_SOCKET\_VECTOR.
+
+NODE\_SOCKET\_RGBA:
+:   NODE\_SOCKET\_RGBA.
+
+NODE\_SOCKET\_SHADER:
+:   NODE\_SOCKET\_SHADER.
+
+NODE\_SOCKET\_BOOLEAN:
+:   NODE\_SOCKET\_BOOLEAN.
+
+NODE\_SOCKET\_INT:
+:   NODE\_SOCKET\_INT.
+
+NODE\_SOCKET\_STRING:
+:   NODE\_SOCKET\_STRING.
+
+NODE\_SOCKET\_OBJECT:
+:   NODE\_SOCKET\_OBJECT.
+
+NODE\_SOCKET\_IMAGE:
+:   NODE\_SOCKET\_IMAGE.
+
+NODE\_SOCKET\_GEOMETRY:
+:   NODE\_SOCKET\_GEOMETRY.
+
+NODE\_SOCKET\_COLLECTION:
+:   NODE\_SOCKET\_COLLECTION.
+
+NODE\_SOCKET\_TEXTURE:
+:   NODE\_SOCKET\_TEXTURE.
+
+NODE\_SOCKET\_MATERIAL:
+:   NODE\_SOCKET\_MATERIAL.
+
+NODE\_SOCKET\_ROTATION:
+:   NODE\_SOCKET\_ROTATION.
+
+NODE\_SOCKET\_MENU:
+:   NODE\_SOCKET\_MENU.
+
+NODE\_SOCKET\_MATRIX:
+:   NODE\_SOCKET\_MATRIX.
+
+NODE\_SOCKET\_BUNDLE:
+:   NODE\_SOCKET\_BUNDLE.
+
+NODE\_SOCKET\_CLOSURE:
+:   NODE\_SOCKET\_CLOSURE.
+
+[Next
+
+Uilist Layout Type Items](uilist_layout_type_items.md)
+[Previous
+
+Clip Editor Mode Items](clip_editor_mode_items.md)
+
+Copyright © Blender Authors
+
+Made with
+[Furo](https://github.com/pradyunsg/furo)
+
+* [Report issue
+  on this page](https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy_types_enum_items/icon_items.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbpy_types_enum_items/icon_items.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A)

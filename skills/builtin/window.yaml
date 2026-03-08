@@ -1,0 +1,87 @@
+metadata:
+  name: window
+  tags: [architecture, window, boolean]
+  description: 在墙体中创建窗洞并生成窗框与玻璃
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    cut: 0.0
+    frame: 0.0
+    glass: 0.0
+
+gene:
+  strategy: |
+    1. 创建窗洞切割体
+    2. 对目标墙体执行布尔差集
+    3. 生成窗框与玻璃面板
+  parameters:
+    target_wall:
+      type: string
+      default: Wall_North
+    window_width:
+      type: float
+      default: 1.4
+      range: [0.6, 3.0]
+    window_height:
+      type: float
+      default: 1.1
+      range: [0.5, 2.5]
+    sill_height:
+      type: float
+      default: 1.0
+      range: [0.5, 1.5]
+  constraints:
+    - target_wall 必须存在
+    - window_height 应小于墙体高度
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: WindowCutter, object_type: MESH, primitive: cube}
+      undo_group: cut
+    - tool: modify_object
+      args:
+        name: WindowCutter
+        scale: ["$window_width", 0.2, "$window_height"]
+        location: [0.0, 0.0, "$sill_height"]
+      undo_group: cut
+    - tool: modify_object
+      args:
+        name: "$target_wall"
+        add_modifier:
+          type: BOOLEAN
+          operation: DIFFERENCE
+          object: WindowCutter
+        apply_modifier: true
+      undo_group: cut
+    - tool: create_object
+      args: {name: WindowFrame, object_type: MESH, primitive: cube}
+      undo_group: frame
+    - tool: modify_object
+      args:
+        name: WindowFrame
+        scale: ["$window_width", 0.08, "$window_height"]
+        add_modifier:
+          type: SOLIDIFY
+          thickness: 0.04
+      undo_group: frame
+    - tool: create_object
+      args: {name: WindowGlass, object_type: MESH, primitive: plane}
+      undo_group: glass
+    - tool: modify_object
+      args:
+        name: WindowGlass
+        scale: ["$window_width", "$window_height", 1.0]
+        location: [0.0, 0.0, "$sill_height"]
+      undo_group: glass
+
+validation:
+  - object_exists: [WindowFrame, WindowGlass]
+  - object_count_gte: 2
+  - property_check:
+      object_name: WindowGlass
+      property: type
+      expected: MESH

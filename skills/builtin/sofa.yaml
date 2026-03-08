@@ -1,0 +1,87 @@
+metadata:
+  name: sofa
+  tags: [furniture, sofa, interior]
+  description: 创建双人沙发基础模型
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.88
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    cushion: 0.0
+    material: 0.0
+
+gene:
+  strategy: |
+    1. 创建底座、靠背和扶手形成主体
+    2. 叠加靠垫和坐垫增加体积感
+    3. 统一布艺材质
+  parameters:
+    sofa_width:
+      type: float
+      default: 1.8
+      range: [1.2, 3.0]
+    sofa_depth:
+      type: float
+      default: 0.9
+      range: [0.6, 1.5]
+    seat_height:
+      type: float
+      default: 0.45
+      range: [0.3, 0.7]
+  constraints:
+    - sofa_width 不应小于 sofa_depth
+    - seat_height 应小于 0.8
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: SofaBase, object_type: MESH, primitive: cube}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: SofaBase
+        scale: ["$sofa_width", "$sofa_depth", "$seat_height"]
+        location: [0.0, 0.0, "$seat_height"]
+      undo_group: structure
+    - tool: create_object
+      args: {name: SofaBack, object_type: MESH, primitive: cube}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: SofaBack
+        scale: ["$sofa_width", 0.15, 0.5]
+        location: [0.0, "-$sofa_depth", 0.9]
+      undo_group: structure
+    - tool: create_object
+      args: {name: SofaArm_L, object_type: MESH, primitive: cube}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: SofaArm_L
+        scale: [0.12, "$sofa_depth", 0.4]
+        location: ["$sofa_width", 0.0, 0.7]
+        duplicate_to:
+          - {name: SofaArm_R, location: ["-$sofa_width", 0.0, 0.7]}
+      undo_group: structure
+    - tool: create_object
+      args: {name: SofaCushion, object_type: MESH, primitive: cube}
+      undo_group: cushion
+    - tool: modify_object
+      args:
+        name: SofaCushion
+        scale: ["$sofa_width", "$sofa_depth", 0.12]
+        location: [0.0, 0.0, "$seat_height"]
+      undo_group: cushion
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [SofaBase, SofaBack, SofaArm_L, SofaArm_R, SofaCushion]
+        material_name: Mat_Sofa_Fabric
+      undo_group: material
+
+validation:
+  - object_exists: [SofaBase, SofaBack, SofaArm_L, SofaArm_R, SofaCushion]
+  - object_count_gte: 5
+  - material_exists: [Mat_Sofa_Fabric]

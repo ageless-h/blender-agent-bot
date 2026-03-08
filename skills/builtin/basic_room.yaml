@@ -1,0 +1,75 @@
+metadata:
+  name: basic_room
+  tags: [architecture, room, interior]
+  description: 创建地板和四面墙的基础房间结构
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.95
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    proportion: 0.0
+    material: 0.0
+
+gene:
+  strategy: |
+    1. 先创建地板确定房间边界
+    2. 按长宽高生成四面墙体
+    3. 统一基础墙体材质
+  parameters:
+    room_width:
+      type: float
+      default: 5.0
+      range: [2.0, 20.0]
+    room_depth:
+      type: float
+      default: 4.0
+      range: [2.0, 20.0]
+    wall_height:
+      type: float
+      default: 3.0
+      range: [2.2, 8.0]
+    wall_thickness:
+      type: float
+      default: 0.12
+      range: [0.05, 0.5]
+  constraints:
+    - wall_height 应大于 2.2
+    - wall_thickness 不应超过 room_width 的 10%
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: RoomFloor, object_type: MESH, primitive: plane}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: RoomFloor
+        scale: ["$room_width", "$room_depth", 1.0]
+        location: [0.0, 0.0, 0.0]
+      undo_group: structure
+    - tool: create_object
+      args: {name: Wall_North, object_type: MESH, primitive: cube}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: Wall_North
+        scale: ["$room_width", "$wall_thickness", "$wall_height"]
+        location: [0.0, "-$room_depth", "$wall_height"]
+        duplicate_to:
+          - {name: Wall_South, location: [0.0, "$room_depth", "$wall_height"]}
+          - {name: Wall_East, location: ["$room_width", 0.0, "$wall_height"], scale: ["$wall_thickness", "$room_depth", "$wall_height"]}
+          - {name: Wall_West, location: ["-$room_width", 0.0, "$wall_height"], scale: ["$wall_thickness", "$room_depth", "$wall_height"]}
+      undo_group: proportion
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [RoomFloor, Wall_North, Wall_South, Wall_East, Wall_West]
+        material_name: Mat_Room_Default
+      undo_group: material
+
+validation:
+  - object_exists: [RoomFloor, Wall_North, Wall_South, Wall_East, Wall_West]
+  - object_count_gte: 5
+  - material_exists: [Mat_Room_Default]

@@ -1,0 +1,58 @@
+metadata:
+  name: mirror_object
+  tags: [modifier, mirror, symmetry]
+  description: 对对象添加镜像修改器实现对称建模
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.95
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    origin: 0.0
+    mirror: 0.0
+
+gene:
+  strategy: |
+    1. 将对象原点对齐到镜像平面
+    2. 添加 Mirror 修改器并指定轴向
+    3. 开启 Clipping 防止顶点穿透
+  parameters:
+    target_object:
+      type: string
+      default: Cube
+    axis:
+      type: string
+      default: X
+      options: [X, Y, Z]
+    merge_threshold:
+      type: float
+      default: 0.001
+      range: [0.0001, 0.05]
+  constraints:
+    - axis 只能是 X/Y/Z
+    - merge_threshold 应小于 0.1
+
+capsule:
+  steps:
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        location: [0.0, 0.0, 0.0]
+        apply_transform: true
+      undo_group: origin
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        add_modifier:
+          type: MIRROR
+          axis: "$axis"
+          use_clip: true
+          merge_threshold: "$merge_threshold"
+      undo_group: mirror
+
+validation:
+  - object_exists: ["$target_object"]
+  - property_check:
+      object_name: "$target_object"
+      property: type
+      expected: MESH

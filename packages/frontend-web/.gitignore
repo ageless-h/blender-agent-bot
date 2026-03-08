@@ -1,0 +1,12 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.pyc
+
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+frontend/*.d.ts
+
+src/static/exports/

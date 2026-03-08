@@ -1,0 +1,71 @@
+metadata:
+  name: render_setup_eevee
+  tags: [render, eevee, scene]
+  description: 配置 Eevee 渲染参数与输出设置
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.93
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    engine: 0.0
+    quality: 0.0
+    output: 0.0
+
+gene:
+  strategy: |
+    1. 切换渲染引擎为 Eevee
+    2. 设置抗锯齿、采样和阴影质量
+    3. 配置输出分辨率与路径
+  parameters:
+    resolution_x:
+      type: int
+      default: 1920
+      range: [320, 8192]
+    resolution_y:
+      type: int
+      default: 1080
+      range: [240, 8192]
+    output_path:
+      type: string
+      default: //renders/
+    taa_samples:
+      type: int
+      default: 64
+      range: [8, 512]
+  constraints:
+    - resolution_x 与 resolution_y 应大于 0
+    - output_path 必须可写
+
+capsule:
+  steps:
+    - tool: execute_script
+      args:
+        script: |
+          import bpy
+          scene = bpy.context.scene
+          scene.render.engine = "BLENDER_EEVEE_NEXT"
+          scene.eevee.taa_render_samples = int($taa_samples)
+          scene.render.resolution_x = int($resolution_x)
+          scene.render.resolution_y = int($resolution_y)
+          scene.render.filepath = "$output_path"
+      undo_group: engine
+    - tool: execute_script
+      args:
+        script: |
+          import bpy
+          scene = bpy.context.scene
+          scene.eevee.use_gtao = True
+          scene.eevee.use_bloom = True
+          scene.eevee.shadow_step_count = 6
+      undo_group: quality
+
+validation:
+  - property_check:
+      object_name: Scene
+      property: render.engine
+      expected: BLENDER_EEVEE_NEXT
+  - property_check:
+      object_name: Scene
+      property: render.filepath
+      expected: "$output_path"

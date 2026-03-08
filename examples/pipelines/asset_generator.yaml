@@ -1,0 +1,77 @@
+name: asset_generator
+version: "1.0"
+description: 参数化家具资产批量生成并导出 glb（兼容 blender-agent run）
+
+vars:
+  output_root: ./outputs/assets
+  asset_variants:
+    - label: s_oak
+      width: 0.8
+      depth: 0.5
+      height: 0.75
+      material: oak
+    - label: s_walnut
+      width: 0.8
+      depth: 0.5
+      height: 0.75
+      material: walnut
+    - label: m_oak
+      width: 1.2
+      depth: 0.6
+      height: 0.75
+      material: oak
+    - label: m_white
+      width: 1.2
+      depth: 0.6
+      height: 0.75
+      material: white
+    - label: l_walnut
+      width: 1.6
+      depth: 0.7
+      height: 0.75
+      material: walnut
+    - label: l_white
+      width: 1.6
+      depth: 0.7
+      height: 0.75
+      material: white
+
+steps:
+  - name: prepare-output-dir
+    tool: fs_ensure_dir
+    args:
+      path: "{{ output_root }}"
+    on_error: stop
+
+  - name: build-table-base
+    tool: blender_procedural_furniture
+    args:
+      type: table
+      width: "{{ variant.width }}"
+      depth: "{{ variant.depth }}"
+      height: "{{ variant.height }}"
+    loop:
+      var: variant
+      in: "{{ asset_variants }}"
+    on_error: continue
+
+  - name: apply-material
+    tool: blender_apply_material_preset
+    args:
+      target: table
+      preset: "{{ variant.material }}"
+    loop:
+      var: variant
+      in: "{{ asset_variants }}"
+    on_error: continue
+
+  - name: export-glb
+    tool: blender_export_model
+    args:
+      format: glb
+      file: "{{ output_root }}/table_{{ variant.label }}.glb"
+    loop:
+      var: variant
+      in: "{{ asset_variants }}"
+    retry: 1
+    on_error: continue

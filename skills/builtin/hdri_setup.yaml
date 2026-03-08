@@ -1,0 +1,66 @@
+metadata:
+  name: hdri_setup
+  tags: [lighting, hdri, world]
+  description: 配置世界节点并加载 HDRI 环境光
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    world_nodes: 0.0
+    texture_input: 0.0
+
+gene:
+  strategy: |
+    1. 开启 World 节点系统
+    2. 建立 Environment Texture 到 Background 的连接
+    3. 设置强度和旋转
+  parameters:
+    hdri_path:
+      type: string
+      default: //hdri/studio.hdr
+    strength:
+      type: float
+      default: 1.2
+      range: [0.1, 5.0]
+    rotation_z:
+      type: float
+      default: 0.0
+      range: [-180.0, 180.0]
+  constraints:
+    - hdri_path 需要是可读取路径
+    - strength 需大于 0
+
+capsule:
+  steps:
+    - tool: edit_nodes
+      args:
+        target: world
+        target_name: World
+        clear_existing: true
+        nodes:
+          - {name: TextureCoord, type: ShaderNodeTexCoord, location: [-900, 0]}
+          - {name: Mapping, type: ShaderNodeMapping, location: [-700, 0]}
+          - {name: HDRI, type: ShaderNodeTexEnvironment, location: [-460, 0]}
+          - {name: Background, type: ShaderNodeBackground, location: [-160, 0]}
+          - {name: WorldOutput, type: ShaderNodeOutputWorld, location: [120, 0]}
+        links:
+          - {from_node: TextureCoord, from_socket: Generated, to_node: Mapping, to_socket: Vector}
+          - {from_node: Mapping, from_socket: Vector, to_node: HDRI, to_socket: Vector}
+          - {from_node: HDRI, from_socket: Color, to_node: Background, to_socket: Color}
+          - {from_node: Background, from_socket: Background, to_node: WorldOutput, to_socket: Surface}
+      undo_group: world_nodes
+    - tool: modify_object
+      args:
+        name: World
+        world_environment_texture: "$hdri_path"
+        world_strength: "$strength"
+        world_rotation: [0.0, 0.0, "$rotation_z"]
+      undo_group: texture_input
+
+validation:
+  - property_check:
+      object_name: World
+      property: use_nodes
+      expected: true

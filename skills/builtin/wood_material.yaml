@@ -1,0 +1,68 @@
+metadata:
+  name: wood_material
+  tags: [material, wood, procedural]
+  description: 创建程序化木纹材质模板
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.91
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    shader: 0.0
+    texture: 0.0
+    assign: 0.0
+
+gene:
+  strategy: |
+    1. 基于 Principled BSDF 创建木材底色
+    2. 接入噪声和色带形成木纹
+    3. 分配到家具对象
+  parameters:
+    target_objects:
+      type: list[string]
+      default: [ShelfFrame]
+    grain_scale:
+      type: float
+      default: 6.0
+      range: [1.0, 20.0]
+    roughness:
+      type: float
+      default: 0.55
+      range: [0.2, 0.9]
+  constraints:
+    - grain_scale 应大于 1
+    - roughness 在 0 到 1 之间
+
+capsule:
+  steps:
+    - tool: manage_material
+      args:
+        action: create
+        material_name: Mat_Wood
+        use_nodes: true
+      undo_group: shader
+    - tool: edit_nodes
+      args:
+        material_name: Mat_Wood
+        clear_existing: false
+        nodes:
+          - {name: WoodNoise, type: ShaderNodeTexNoise, location: [-450, 140]}
+          - {name: WoodRamp, type: ShaderNodeValToRGB, location: [-200, 140]}
+          - {name: Principled BSDF, type: ShaderNodeBsdfPrincipled, location: [100, 140]}
+        links:
+          - {from_node: WoodNoise, from_socket: Fac, to_node: WoodRamp, to_socket: Fac}
+          - {from_node: WoodRamp, from_socket: Color, to_node: Principled BSDF, to_socket: Base Color}
+      undo_group: texture
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: "$target_objects"
+        material_name: Mat_Wood
+      undo_group: assign
+
+validation:
+  - material_exists: [Mat_Wood]
+  - property_check:
+      object_name: Mat_Wood
+      property: use_nodes
+      expected: true

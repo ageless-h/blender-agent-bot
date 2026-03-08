@@ -1,0 +1,75 @@
+metadata:
+  name: camera_orbit
+  tags: [camera, animation, orbit]
+  description: 创建绕目标旋转的相机动画
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.88
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    rig_setup: 0.0
+    constraint: 0.0
+    keyframe: 0.0
+
+gene:
+  strategy: |
+    1. 创建空对象作为轨道中心
+    2. 相机指向中心并设置轨道半径
+    3. 给中心对象写入旋转关键帧
+  parameters:
+    target_object:
+      type: string
+      default: Cube
+    radius:
+      type: float
+      default: 5.0
+      range: [1.0, 30.0]
+    frame_start:
+      type: int
+      default: 1
+      range: [1, 10000]
+    frame_end:
+      type: int
+      default: 120
+      range: [2, 10000]
+  constraints:
+    - frame_end 应大于 frame_start
+    - radius 应大于 1
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: OrbitPivot, object_type: EMPTY, empty_type: PLAIN_AXES}
+      undo_group: rig_setup
+    - tool: modify_object
+      args:
+        name: OrbitPivot
+        location: [0.0, 0.0, 1.2]
+      undo_group: rig_setup
+    - tool: create_object
+      args: {name: OrbitCamera, object_type: CAMERA}
+      undo_group: rig_setup
+    - tool: modify_object
+      args:
+        name: OrbitCamera
+        location: ["$radius", 0.0, 2.5]
+        add_constraint:
+          type: TRACK_TO
+          target: OrbitPivot
+      undo_group: constraint
+    - tool: edit_animation
+      args:
+        object_name: OrbitPivot
+        keyframes:
+          - {data_path: rotation_euler, index: 2, frame: "$frame_start", value: 0.0}
+          - {data_path: rotation_euler, index: 2, frame: "$frame_end", value: 6.28318}
+      undo_group: keyframe
+
+validation:
+  - object_exists: [OrbitPivot, OrbitCamera]
+  - object_count_gte: 2
+  - property_check:
+      object_name: OrbitCamera
+      property: type
+      expected: CAMERA

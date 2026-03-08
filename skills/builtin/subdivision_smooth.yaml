@@ -1,0 +1,56 @@
+metadata:
+  name: subdivision_smooth
+  tags: [modifier, subdivision, smooth]
+  description: 为对象添加细分并开启平滑着色
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.94
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    modifier: 0.0
+    shading: 0.0
+
+gene:
+  strategy: |
+    1. 添加 Subdivision Surface 修改器
+    2. 设置细分级别平衡质量与性能
+    3. 开启平滑着色
+  parameters:
+    target_object:
+      type: string
+      default: Cube
+    levels_viewport:
+      type: int
+      default: 2
+      range: [1, 4]
+    levels_render:
+      type: int
+      default: 3
+      range: [1, 6]
+  constraints:
+    - target_object 需要是网格对象
+    - levels_render 不应小于 levels_viewport
+
+capsule:
+  steps:
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        add_modifier:
+          type: SUBSURF
+          levels: "$levels_viewport"
+          render_levels: "$levels_render"
+      undo_group: modifier
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        shade_smooth: true
+      undo_group: shading
+
+validation:
+  - object_exists: ["$target_object"]
+  - property_check:
+      object_name: "$target_object"
+      property: type
+      expected: MESH

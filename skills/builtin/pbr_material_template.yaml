@@ -1,0 +1,78 @@
+metadata:
+  name: pbr_material_template
+  tags: [material, pbr, template]
+  description: 创建标准 PBR 材质模板并预留贴图槽位
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.89
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    node_setup: 0.0
+    mapping: 0.0
+    assign: 0.0
+
+gene:
+  strategy: |
+    1. 建立 Principled BSDF + 纹理输入骨架
+    2. 连接 BaseColor/Roughness/Normal/AO 贴图
+    3. 作为可复用模板分配给目标对象
+  parameters:
+    target_objects:
+      type: list[string]
+      default: [Cube]
+    uv_scale:
+      type: float
+      default: 1.0
+      range: [0.1, 10.0]
+    material_name:
+      type: string
+      default: Mat_PBR_Template
+  constraints:
+    - uv_scale 必须为正数
+    - material_name 需唯一
+
+capsule:
+  steps:
+    - tool: manage_material
+      args:
+        action: create
+        material_name: "$material_name"
+        use_nodes: true
+      undo_group: node_setup
+    - tool: edit_nodes
+      args:
+        material_name: "$material_name"
+        clear_existing: true
+        nodes:
+          - {name: TexCoord, type: ShaderNodeTexCoord, location: [-900, 80]}
+          - {name: Mapping, type: ShaderNodeMapping, location: [-700, 80]}
+          - {name: AlbedoTex, type: ShaderNodeTexImage, location: [-450, 260]}
+          - {name: RoughnessTex, type: ShaderNodeTexImage, location: [-450, 80]}
+          - {name: NormalTex, type: ShaderNodeTexImage, location: [-450, -120]}
+          - {name: NormalMap, type: ShaderNodeNormalMap, location: [-200, -120]}
+          - {name: AOTexture, type: ShaderNodeTexImage, location: [-450, -300]}
+          - {name: Principled BSDF, type: ShaderNodeBsdfPrincipled, location: [120, 80]}
+        links:
+          - {from_node: TexCoord, from_socket: UV, to_node: Mapping, to_socket: Vector}
+          - {from_node: Mapping, from_socket: Vector, to_node: AlbedoTex, to_socket: Vector}
+          - {from_node: Mapping, from_socket: Vector, to_node: RoughnessTex, to_socket: Vector}
+          - {from_node: Mapping, from_socket: Vector, to_node: NormalTex, to_socket: Vector}
+          - {from_node: AlbedoTex, from_socket: Color, to_node: Principled BSDF, to_socket: Base Color}
+          - {from_node: RoughnessTex, from_socket: Color, to_node: Principled BSDF, to_socket: Roughness}
+          - {from_node: NormalTex, from_socket: Color, to_node: NormalMap, to_socket: Color}
+          - {from_node: NormalMap, from_socket: Normal, to_node: Principled BSDF, to_socket: Normal}
+      undo_group: mapping
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: "$target_objects"
+        material_name: "$material_name"
+      undo_group: assign
+
+validation:
+  - material_exists: ["$material_name"]
+  - property_check:
+      object_name: "$material_name"
+      property: use_nodes
+      expected: true

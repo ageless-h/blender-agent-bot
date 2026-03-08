@@ -1,0 +1,67 @@
+metadata:
+  name: glass_material
+  tags: [material, glass, transparent]
+  description: 创建玻璃材质并配置透射参数
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.93
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    shader: 0.0
+    transparency: 0.0
+    assign: 0.0
+
+gene:
+  strategy: |
+    1. 创建启用节点的玻璃材质
+    2. 设置高透射和合适 IOR
+    3. 分配给窗玻璃或容器对象
+  parameters:
+    target_objects:
+      type: list[string]
+      default: [WindowGlass]
+    ior:
+      type: float
+      default: 1.45
+      range: [1.0, 2.0]
+    roughness:
+      type: float
+      default: 0.02
+      range: [0.0, 0.2]
+  constraints:
+    - ior 应在 1.0 到 2.0 之间
+    - roughness 推荐不超过 0.2
+
+capsule:
+  steps:
+    - tool: manage_material
+      args:
+        action: create
+        material_name: Mat_Glass
+        use_nodes: true
+      undo_group: shader
+    - tool: edit_nodes
+      args:
+        material_name: Mat_Glass
+        nodes:
+          - {name: Principled BSDF, type: ShaderNodeBsdfPrincipled}
+        node_values:
+          Principled BSDF:
+            Transmission: 1.0
+            IOR: "$ior"
+            Roughness: "$roughness"
+      undo_group: transparency
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: "$target_objects"
+        material_name: Mat_Glass
+      undo_group: assign
+
+validation:
+  - material_exists: [Mat_Glass]
+  - property_check:
+      object_name: Mat_Glass
+      property: use_nodes
+      expected: true

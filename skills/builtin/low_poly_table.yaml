@@ -1,0 +1,81 @@
+metadata:
+  name: low_poly_table
+  tags: [furniture, table, low-poly]
+  description: 创建低面数四腿桌，适用于快速场景搭建
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.94
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    detail: 0.0
+    material: 0.0
+
+gene:
+  strategy: |
+    1. 先创建桌面并确定尺寸
+    2. 在四角创建桌腿并统一高度
+    3. 绑定统一材质，确保风格一致
+  parameters:
+    table_width:
+      type: float
+      default: 1.6
+      range: [0.8, 3.0]
+    table_depth:
+      type: float
+      default: 0.9
+      range: [0.5, 1.8]
+    table_height:
+      type: float
+      default: 0.75
+      range: [0.5, 1.2]
+    leg_thickness:
+      type: float
+      default: 0.08
+      range: [0.04, 0.2]
+  constraints:
+    - table_height 应大于桌面厚度
+    - 桌腿厚度不应超过桌面深度的四分之一
+
+capsule:
+  steps:
+    - tool: create_object
+      args:
+        name: TableTop
+        object_type: MESH
+        primitive: cube
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: TableTop
+        scale: ["$table_width", "$table_depth", 0.05]
+        location: [0.0, 0.0, "$table_height"]
+      undo_group: structure
+    - tool: create_object
+      args:
+        name: Leg_FL
+        object_type: MESH
+        primitive: cube
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: Leg_FL
+        scale: ["$leg_thickness", "$leg_thickness", "$table_height"]
+        location: ["$table_width", "$table_depth", "$table_height"]
+        duplicate_to:
+          - {name: Leg_FR, location: ["$table_width", "-$table_depth", "$table_height"]}
+          - {name: Leg_BL, location: ["-$table_width", "$table_depth", "$table_height"]}
+          - {name: Leg_BR, location: ["-$table_width", "-$table_depth", "$table_height"]}
+      undo_group: detail
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [TableTop, Leg_FL, Leg_FR, Leg_BL, Leg_BR]
+        material_name: Mat_Table_Default
+      undo_group: material
+
+validation:
+  - object_exists: [TableTop, Leg_FL, Leg_FR, Leg_BL, Leg_BR]
+  - object_count_gte: 5
+  - material_exists: [Mat_Table_Default]

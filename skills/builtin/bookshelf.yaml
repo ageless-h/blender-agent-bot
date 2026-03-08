@@ -1,0 +1,77 @@
+metadata:
+  name: bookshelf
+  tags: [furniture, shelf, storage]
+  description: 创建多层书架，适合室内场景快速摆放
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    shelves: 0.0
+    material: 0.0
+
+gene:
+  strategy: |
+    1. 创建左右侧板和上下封板形成框体
+    2. 通过阵列生成内部层板
+    3. 设置统一木质材质
+  parameters:
+    shelf_width:
+      type: float
+      default: 1.2
+      range: [0.6, 2.0]
+    shelf_depth:
+      type: float
+      default: 0.35
+      range: [0.2, 0.6]
+    shelf_height:
+      type: float
+      default: 2.0
+      range: [1.2, 3.0]
+    shelf_count:
+      type: int
+      default: 4
+      range: [2, 8]
+  constraints:
+    - shelf_count 至少为 2
+    - shelf_depth 不应大于 shelf_width
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: ShelfFrame, object_type: MESH, primitive: cube}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: ShelfFrame
+        scale: ["$shelf_width", "$shelf_depth", "$shelf_height"]
+        add_modifier:
+          type: SOLIDIFY
+          thickness: 0.04
+      undo_group: structure
+    - tool: create_object
+      args: {name: ShelfBoard, object_type: MESH, primitive: cube}
+      undo_group: shelves
+    - tool: modify_object
+      args:
+        name: ShelfBoard
+        scale: ["$shelf_width", "$shelf_depth", 0.03]
+        location: [0.0, 0.0, 0.4]
+        add_modifier:
+          type: ARRAY
+          count: "$shelf_count"
+          relative_offset_displace: [0.0, 0.0, 1.2]
+      undo_group: shelves
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [ShelfFrame, ShelfBoard]
+        material_name: Mat_Bookshelf_Wood
+      undo_group: material
+
+validation:
+  - object_exists: [ShelfFrame, ShelfBoard]
+  - object_count_gte: 2
+  - material_exists: [Mat_Bookshelf_Wood]

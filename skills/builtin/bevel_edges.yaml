@@ -1,0 +1,58 @@
+metadata:
+  name: bevel_edges
+  tags: [modifier, bevel, hard-surface]
+  description: 为硬表面模型添加倒角增强高光
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.92
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    bevel: 0.0
+    smooth: 0.0
+
+gene:
+  strategy: |
+    1. 添加 Bevel 修改器
+    2. 使用角度限制避免软边过度倒角
+    3. 结合自动平滑提升视觉质量
+  parameters:
+    target_object:
+      type: string
+      default: Cube
+    width:
+      type: float
+      default: 0.02
+      range: [0.001, 0.2]
+    segments:
+      type: int
+      default: 3
+      range: [1, 12]
+  constraints:
+    - width 应小于对象尺寸
+    - segments 建议不超过 8
+
+capsule:
+  steps:
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        add_modifier:
+          type: BEVEL
+          width: "$width"
+          segments: "$segments"
+          limit_method: ANGLE
+      undo_group: bevel
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        auto_smooth: true
+        auto_smooth_angle: 30.0
+      undo_group: smooth
+
+validation:
+  - object_exists: ["$target_object"]
+  - property_check:
+      object_name: "$target_object"
+      property: type
+      expected: MESH

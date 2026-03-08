@@ -1,0 +1,57 @@
+name: scene_setup
+version: "1.0"
+description: 标准场景初始化模板（兼容 blender-agent run）
+
+vars:
+  unit_system: METRIC
+  world_strength: 0.6
+  camera_location: [0.0, -7.0, 2.5]
+  camera_rotation_deg: [78.0, 0.0, 0.0]
+  camera_focal_length_mm: 35
+  key_light:
+    location: [3.0, -2.5, 4.0]
+    power: 900
+  fill_light:
+    location: [-3.5, -1.5, 2.0]
+    power: 320
+  rim_light:
+    location: [0.0, 3.0, 3.2]
+    power: 480
+  template_scene: ./workspace/templates/scene_template.blend
+
+steps:
+  - name: set-units
+    tool: blender_configure_scene
+    args:
+      unit_system: "{{ unit_system }}"
+    on_error: stop
+
+  - name: setup-world
+    tool: blender_setup_world
+    args:
+      hdri: studio_soft.exr
+      strength: "{{ world_strength }}"
+    on_error: stop
+
+  - name: setup-camera
+    tool: blender_setup_camera
+    args:
+      name: Camera
+      location: "{{ camera_location }}"
+      rotation_deg: "{{ camera_rotation_deg }}"
+      focal_length_mm: "{{ camera_focal_length_mm }}"
+    on_error: stop
+
+  - name: setup-three-point-lighting
+    tool: blender_setup_three_point_lighting
+    args:
+      key: "{{ key_light }}"
+      fill: "{{ fill_light }}"
+      rim: "{{ rim_light }}"
+    on_error: stop
+
+  - name: save-template-scene
+    tool: blender_save_scene_as
+    args:
+      file: "{{ template_scene }}"
+    on_error: stop

@@ -1,0 +1,65 @@
+metadata:
+  name: emission_material
+  tags: [material, emission, light]
+  description: 创建发光材质用于灯牌、霓虹和屏幕
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    shader: 0.0
+    color: 0.0
+    assign: 0.0
+
+gene:
+  strategy: |
+    1. 创建发光节点网络
+    2. 设置颜色和强度
+    3. 绑定目标对象
+  parameters:
+    target_objects:
+      type: list[string]
+      default: [LampHead]
+    emission_color:
+      type: color
+      default: [1.0, 0.8, 0.4, 1.0]
+    emission_strength:
+      type: float
+      default: 8.0
+      range: [0.5, 100.0]
+  constraints:
+    - emission_strength 需大于 0
+    - emission_color 需要 RGBA 四通道
+
+capsule:
+  steps:
+    - tool: manage_material
+      args:
+        action: create
+        material_name: Mat_Emission
+        use_nodes: true
+      undo_group: shader
+    - tool: edit_nodes
+      args:
+        material_name: Mat_Emission
+        nodes:
+          - {name: Emission, type: ShaderNodeEmission, location: [0, 80]}
+        node_values:
+          Emission:
+            Color: "$emission_color"
+            Strength: "$emission_strength"
+      undo_group: color
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: "$target_objects"
+        material_name: Mat_Emission
+      undo_group: assign
+
+validation:
+  - material_exists: [Mat_Emission]
+  - property_check:
+      object_name: Mat_Emission
+      property: use_nodes
+      expected: true

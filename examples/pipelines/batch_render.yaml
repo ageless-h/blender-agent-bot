@@ -1,0 +1,59 @@
+name: batch_render
+version: "1.0"
+description: 多角度批量渲染示例（兼容 blender-agent run）
+
+vars:
+  base_scene: ./workspace/scene_main.blend
+  output_root: ./outputs/renders
+  image_format: PNG
+  resolution_width: 1920
+  resolution_height: 1080
+  samples: 128
+  camera_positions:
+    - name: front
+      location: [0.0, -6.0, 2.2]
+      rotation_deg: [75.0, 0.0, 0.0]
+    - name: left
+      location: [-5.0, -3.5, 2.1]
+      rotation_deg: [72.0, 0.0, -35.0]
+    - name: right
+      location: [5.0, -3.5, 2.1]
+      rotation_deg: [72.0, 0.0, 35.0]
+
+steps:
+  - name: load-scene
+    tool: blender_open_scene
+    args:
+      file: "{{ base_scene }}"
+    on_error: stop
+
+  - name: setup-render
+    tool: blender_set_render_params
+    args:
+      engine: CYCLES
+      device: GPU
+      format: "{{ image_format }}"
+      resolution_width: "{{ resolution_width }}"
+      resolution_height: "{{ resolution_height }}"
+      samples: "{{ samples }}"
+    on_error: stop
+
+  - name: place-camera
+    tool: blender_set_camera_transform
+    args:
+      name: Camera
+      location: "{{ cam.location }}"
+      rotation_deg: "{{ cam.rotation_deg }}"
+    loop:
+      var: cam
+      in: "{{ camera_positions }}"
+    on_error: continue
+
+  - name: render-still
+    tool: blender_render_still
+    args:
+      output: "{{ output_root }}/{{ cam.name }}.png"
+    loop:
+      var: cam
+      in: "{{ camera_positions }}"
+    on_error: continue

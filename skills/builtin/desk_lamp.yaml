@@ -1,0 +1,92 @@
+metadata:
+  name: desk_lamp
+  tags: [furniture, lamp, lighting]
+  description: 创建可用于桌面的简易台灯
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.89
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    light: 0.0
+    material: 0.0
+
+gene:
+  strategy: |
+    1. 搭建底座与灯臂结构
+    2. 添加灯头和点光源
+    3. 设置发光材质提升可见性
+  parameters:
+    lamp_height:
+      type: float
+      default: 0.6
+      range: [0.35, 1.0]
+    base_radius:
+      type: float
+      default: 0.16
+      range: [0.08, 0.3]
+    light_power:
+      type: float
+      default: 350.0
+      range: [80.0, 1500.0]
+  constraints:
+    - lamp_height 应大于 base_radius
+    - light_power 需为正数
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: LampBase, object_type: MESH, primitive: cylinder}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: LampBase
+        scale: ["$base_radius", "$base_radius", 0.04]
+        location: [0.0, 0.0, 0.04]
+      undo_group: structure
+    - tool: create_object
+      args: {name: LampArm, object_type: MESH, primitive: cylinder}
+      undo_group: structure
+    - tool: modify_object
+      args:
+        name: LampArm
+        scale: [0.02, 0.02, "$lamp_height"]
+        location: [0.0, 0.0, "$lamp_height"]
+      undo_group: structure
+    - tool: create_object
+      args: {name: LampHead, object_type: MESH, primitive: cone}
+      undo_group: detail
+    - tool: modify_object
+      args:
+        name: LampHead
+        scale: [0.08, 0.08, 0.15]
+        location: [0.0, 0.0, "$lamp_height"]
+      undo_group: detail
+    - tool: create_object
+      args:
+        name: LampLight
+        object_type: LIGHT
+        light_type: SPOT
+      undo_group: light
+    - tool: modify_object
+      args:
+        name: LampLight
+        location: [0.0, 0.0, "$lamp_height"]
+        light_energy: "$light_power"
+        light_spot_size: 0.9
+      undo_group: light
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [LampBase, LampArm, LampHead]
+        material_name: Mat_Lamp_Metal
+      undo_group: material
+
+validation:
+  - object_exists: [LampBase, LampArm, LampHead, LampLight]
+  - object_count_gte: 4
+  - property_check:
+      object_name: LampLight
+      property: type
+      expected: LIGHT

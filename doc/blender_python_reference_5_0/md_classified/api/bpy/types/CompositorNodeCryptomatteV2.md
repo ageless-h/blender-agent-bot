@@ -1,0 +1,384 @@
+Contents
+
+Menu
+
+Expand
+
+Light mode
+
+Dark mode
+
+Auto light/dark, in light mode
+
+Auto light/dark, in dark mode
+
+[ ]
+[ ]
+
+Hide navigation sidebar
+
+Hide table of contents sidebar
+
+[Skip to content](#furo-main-content)
+
+Toggle site navigation sidebar
+
+[Blender Python API](../../../meta/index.md)
+
+Toggle Light / Dark / Auto color theme
+
+Toggle table of contents sidebar
+
+[![Logo](_static/blender_logo.svg)
+
+Blender Python API](index.md)
+
+Documentation
+
+* [Quickstart](../../../guides/quickstart.md)
+* [API Overview](../../../guides/overview.md)
+* [API Reference Usage](../../../guides/api_reference.md)
+* [Best Practice](../../../guides/best_practice.md)
+* [Tips and Tricks](../../../guides/tips_and_tricks.md)
+* [Gotchas](../../../guides/gotchas/index.md)[ ]
+* [Advanced](../../../guides/advanced/index.md)[ ]
+* [Change Log](../../../guides/change_log.md)
+
+Application Modules
+
+* [Context Access (bpy.context)](../context/index.md)
+* [Data Access (bpy.data)](../data/index.md)
+* [Message Bus (bpy.msgbus)](../msgbus/index.md)
+* [Operators (bpy.ops)](../ops/index.md)[ ]
+* [Types (bpy.types)](index.md)[x]
+* [Utilities (bpy.utils)](../utils/index.md)[ ]
+
+  Toggle navigation of Utilities (bpy.utils)
+
+  + [bpy.utils submodule (bpy.utils.previews)](../utils/previews.md)
+  + [bpy.utils submodule (bpy.utils.units)](../utils/units.md)
+* [Path Utilities (bpy.path)](../path/index.md)
+* [Application Data (bpy.app)](../app/index.md)[ ]
+
+  Toggle navigation of Application Data (bpy.app)
+
+  + [Application Handlers (bpy.app.handlers)](../app/handlers.md)
+  + [Application Translations (bpy.app.translations)](../app/translations.md)
+  + [Application Icons (bpy.app.icons)](../app/icons.md)
+  + [Application Timers (bpy.app.timers)](../app/timers.md)
+* [Property Definitions (bpy.props)](../props/index.md)
+
+Standalone Modules
+
+* [Audio System (aud)](../../aud/index.md)
+* [Additional Math Functions (bl\_math)](../../bl_math/index.md)
+* [Font Drawing (blf)](../../blf/index.md)
+* [BMesh Module (bmesh)](../../bmesh/index.md)[ ]
+
+  Toggle navigation of BMesh Module (bmesh)
+
+  + [BMesh Operators (bmesh.ops)](../../bmesh/ops/index.md)
+  + [BMesh Types (bmesh.types)](../../bmesh/types/index.md)
+  + [BMesh Utilities (bmesh.utils)](../../bmesh/utils/index.md)
+  + [BMesh Geometry Utilities (bmesh.geometry)](../../bmesh/geometry/index.md)
+* [Extra Utilities (bpy\_extras)](../../bpy_extras/index.md)[ ]
+
+  Toggle navigation of Extra Utilities (bpy\_extras)
+
+  + [bpy\_extras submodule (bpy\_extras.anim\_utils)](../../bpy_extras/anim_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.asset\_utils)](../../bpy_extras/asset_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.object\_utils)](../../bpy_extras/object_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.io\_utils)](../../bpy_extras/io_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.image\_utils)](../../bpy_extras/image_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.keyconfig\_utils)](../../bpy_extras/keyconfig_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.mesh\_utils)](../../bpy_extras/mesh_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.node\_utils)](../../bpy_extras/node_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.view3d\_utils)](../../bpy_extras/view3d_utils/index.md)
+  + [bpy\_extras submodule (bpy\_extras.id\_map\_utils)](../../bpy_extras/id_map_utils/index.md)
+* [Freestyle Module (freestyle)](../../freestyle/index.md)[ ]
+
+  Toggle navigation of Freestyle Module (freestyle)
+
+  + [Freestyle Types (freestyle.types)](../../freestyle/types/index.md)
+  + [Freestyle Predicates (freestyle.predicates)](../../freestyle/predicates/index.md)
+  + [Freestyle Functions (freestyle.functions)](../../freestyle/functions/index.md)
+  + [Freestyle Chaining Iterators (freestyle.chainingiterators)](../../freestyle/chainingiterators/index.md)
+  + [Freestyle Shaders (freestyle.shaders)](../../freestyle/shaders/index.md)
+  + [Freestyle Utilities (freestyle.utils)](../../freestyle/utils/index.md)[ ]
+
+    Toggle navigation of Freestyle Utilities (freestyle.utils)
+
+    - [freestyle.utils submodule (freestyle.utils.ContextFunctions)](../../freestyle/utils/ContextFunctions.md)
+* [GPU Module (gpu)](../../gpu/index.md)[ ]
+
+  Toggle navigation of GPU Module (gpu)
+
+  + [GPU Types (gpu.types)](../../gpu/types/index.md)
+  + [GPU Matrix Utilities (gpu.matrix)](../../gpu/matrix/index.md)
+  + [GPU Select Utilities (gpu.select)](../../gpu/select/index.md)
+  + [GPU Shader Utilities (gpu.shader)](../../gpu/shader/index.md)
+  + [GPU State Utilities (gpu.state)](../../gpu/state/index.md)
+  + [GPU Texture Utilities (gpu.texture)](../../gpu/texture/index.md)
+  + [GPU Platform Utilities (gpu.platform)](../../gpu/platform/index.md)
+  + [GPU Capabilities Utilities (gpu.capabilities)](../../gpu/capabilities/index.md)
+* [GPU Utilities (gpu\_extras)](../../gpu_extras/index.md)[ ]
+
+  Toggle navigation of GPU Utilities (gpu\_extras)
+
+  + [gpu\_extras submodule (gpu\_extras.batch)](../../gpu_extras/batch/index.md)
+  + [gpu\_extras submodule (gpu\_extras.presets)](../../gpu_extras/presets/index.md)
+* [ID Property Access (idprop.types)](../../idprop/types/index.md)
+* [Image Buffer (imbuf)](../../imbuf/index.md)[ ]
+
+  Toggle navigation of Image Buffer (imbuf)
+
+  + [Image Buffer Types (imbuf.types)](../../imbuf/types/index.md)
+* [Math Types & Utilities (mathutils)](../../mathutils/index.md)[ ]
+
+  Toggle navigation of Math Types & Utilities (mathutils)
+
+  + [Geometry Utilities (mathutils.geometry)](../../mathutils/geometry/index.md)
+  + [BVHTree Utilities (mathutils.bvhtree)](../../mathutils/bvhtree/index.md)
+  + [KDTree Utilities (mathutils.kdtree)](../../mathutils/kdtree/index.md)
+  + [Interpolation Utilities (mathutils.interpolate)](../../mathutils/interpolate/index.md)
+  + [Noise Utilities (mathutils.noise)](../../mathutils/noise/index.md)
+
+* 5.0
+
+  Versions
+
+  + Loading...
+
+Note
+
+You are not using the most up to date version of the documentation.
+ is the newest version.
+
+Back to top
+
+Toggle Light / Dark / Auto color theme
+
+Toggle table of contents sidebar
+
+# CompositorNodeCryptomatteV2(CompositorNode)[¶](#compositornodecryptomattev2-compositornode "Link to this heading")
+
+base classes — [`bpy_struct`](bpy_struct.md#bpy.types.bpy_struct "bpy.types.bpy_struct"), [`Node`](Node.md#bpy.types.Node "bpy.types.Node"), [`NodeInternal`](NodeInternal.md#bpy.types.NodeInternal "bpy.types.NodeInternal"), [`CompositorNode`](CompositorNode.md#bpy.types.CompositorNode "bpy.types.CompositorNode")
+
+*class* bpy.types.CompositorNodeCryptomatteV2(*CompositorNode*)[¶](#bpy.types.CompositorNodeCryptomatteV2 "Link to this definition")
+:   Generate matte for individual objects and materials using Cryptomatte render passes
+
+    add[¶](#bpy.types.CompositorNodeCryptomatteV2.add "Link to this definition")
+    :   Add object or material to matte, by picking a color from the Pick output
+
+        Type:
+        :   [`mathutils.Color`](../../mathutils/index.md#mathutils.Color "mathutils.Color") of 3 items in [-inf, inf], default (1.0, 1.0, 1.0)
+
+    entries[¶](#bpy.types.CompositorNodeCryptomatteV2.entries "Link to this definition")
+    :   Type:
+        :   [`bpy_prop_collection`](bpy_prop_collection.md#bpy.types.bpy_prop_collection "bpy.types.bpy_prop_collection") of [`CryptomatteEntry`](CryptomatteEntry.md#bpy.types.CryptomatteEntry "bpy.types.CryptomatteEntry"), (readonly)
+
+    frame\_duration[¶](#bpy.types.CompositorNodeCryptomatteV2.frame_duration "Link to this definition")
+    :   Number of images of a movie to use
+
+        Type:
+        :   int in [0, 1048574], default 0
+
+    frame\_offset[¶](#bpy.types.CompositorNodeCryptomatteV2.frame_offset "Link to this definition")
+    :   Offset the number of the frame to use in the animation
+
+        Type:
+        :   int in [-1048574, 1048574], default 0
+
+    frame\_start[¶](#bpy.types.CompositorNodeCryptomatteV2.frame_start "Link to this definition")
+    :   Global starting frame of the movie/sequence, assuming first picture has a #1
+
+        Type:
+        :   int in [-1048574, 1048574], default 0
+
+    has\_layers[¶](#bpy.types.CompositorNodeCryptomatteV2.has_layers "Link to this definition")
+    :   True if this image has any named layer
+
+        Type:
+        :   boolean, default False, (readonly)
+
+    has\_views[¶](#bpy.types.CompositorNodeCryptomatteV2.has_views "Link to this definition")
+    :   True if this image has multiple views
+
+        Type:
+        :   boolean, default False, (readonly)
+
+    image[¶](#bpy.types.CompositorNodeCryptomatteV2.image "Link to this definition")
+    :   Type:
+        :   [`Image`](Image.md#bpy.types.Image "bpy.types.Image")
+
+    layer[¶](#bpy.types.CompositorNodeCryptomatteV2.layer "Link to this definition")
+    :   Type:
+        :   enum in [`'PLACEHOLDER'`], default `'PLACEHOLDER'`
+
+    layer\_name[¶](#bpy.types.CompositorNodeCryptomatteV2.layer_name "Link to this definition")
+    :   What Cryptomatte layer is used
+
+        * `CryptoObject`
+          Object – Use Object layer.
+        * `CryptoMaterial`
+          Material – Use Material layer.
+        * `CryptoAsset`
+          Asset – Use Asset layer.
+
+        Type:
+        :   enum in [`'CryptoObject'`, `'CryptoMaterial'`, `'CryptoAsset'`], default `'CryptoObject'`
+
+    matte\_id[¶](#bpy.types.CompositorNodeCryptomatteV2.matte_id "Link to this definition")
+    :   List of object and material crypto IDs to include in matte
+
+        Type:
+        :   string, default “”, (never None)
+
+    remove[¶](#bpy.types.CompositorNodeCryptomatteV2.remove "Link to this definition")
+    :   Remove object or material from matte, by picking a color from the Pick output
+
+        Type:
+        :   [`mathutils.Color`](../../mathutils/index.md#mathutils.Color "mathutils.Color") of 3 items in [-inf, inf], default (1.0, 1.0, 1.0)
+
+    scene[¶](#bpy.types.CompositorNodeCryptomatteV2.scene "Link to this definition")
+    :   Type:
+        :   [`Scene`](Scene.md#bpy.types.Scene "bpy.types.Scene")
+
+    source[¶](#bpy.types.CompositorNodeCryptomatteV2.source "Link to this definition")
+    :   Where the Cryptomatte passes are loaded from
+
+        * `RENDER`
+          Render – Use Cryptomatte passes from a render.
+        * `IMAGE`
+          Image – Use Cryptomatte passes from an image.
+
+        Type:
+        :   enum in [`'RENDER'`, `'IMAGE'`], default `'RENDER'`
+
+    use\_auto\_refresh[¶](#bpy.types.CompositorNodeCryptomatteV2.use_auto_refresh "Link to this definition")
+    :   Always refresh image on frame changes
+
+        Type:
+        :   boolean, default False
+
+    use\_cyclic[¶](#bpy.types.CompositorNodeCryptomatteV2.use_cyclic "Link to this definition")
+    :   Cycle the images in the movie
+
+        Type:
+        :   boolean, default False
+
+    view[¶](#bpy.types.CompositorNodeCryptomatteV2.view "Link to this definition")
+    :   Type:
+        :   enum in [`'ALL'`], default `'ALL'`
+
+    *classmethod* is\_registered\_node\_type()[¶](#bpy.types.CompositorNodeCryptomatteV2.is_registered_node_type "Link to this definition")
+    :   True if a registered node type
+
+        Returns:
+        :   Result
+
+        Return type:
+        :   boolean
+
+    *classmethod* input\_template(*index*)[¶](#bpy.types.CompositorNodeCryptomatteV2.input_template "Link to this definition")
+    :   Input socket template
+
+        Parameters:
+        :   **index** (*int in* *[**0**,* *inf**]*) – Index
+
+        Returns:
+        :   result
+
+        Return type:
+        :   [`NodeInternalSocketTemplate`](NodeInternalSocketTemplate.md#bpy.types.NodeInternalSocketTemplate "bpy.types.NodeInternalSocketTemplate")
+
+    *classmethod* output\_template(*index*)[¶](#bpy.types.CompositorNodeCryptomatteV2.output_template "Link to this definition")
+    :   Output socket template
+
+        Parameters:
+        :   **index** (*int in* *[**0**,* *inf**]*) – Index
+
+        Returns:
+        :   result
+
+        Return type:
+        :   [`NodeInternalSocketTemplate`](NodeInternalSocketTemplate.md#bpy.types.NodeInternalSocketTemplate "bpy.types.NodeInternalSocketTemplate")
+
+    update()[¶](#bpy.types.CompositorNodeCryptomatteV2.update "Link to this definition")
+
+    *classmethod* bl\_rna\_get\_subclass(*id*, *default=None*, */*)[¶](#bpy.types.CompositorNodeCryptomatteV2.bl_rna_get_subclass "Link to this definition")
+    :   Parameters:
+        :   **id** (*str*) – The RNA type identifier.
+
+        Returns:
+        :   The RNA type or default when not found.
+
+        Return type:
+        :   [`bpy.types.Struct`](Struct.md#bpy.types.Struct "bpy.types.Struct") subclass
+
+    *classmethod* bl\_rna\_get\_subclass\_py(*id*, *default=None*, */*)[¶](#bpy.types.CompositorNodeCryptomatteV2.bl_rna_get_subclass_py "Link to this definition")
+    :   Parameters:
+        :   **id** (*str*) – The RNA type identifier.
+
+        Returns:
+        :   The class or default when not found.
+
+        Return type:
+        :   type
+
+## Inherited Properties[¶](#inherited-properties "Link to this heading")
+
+|  |  |
+| --- | --- |
+| * [`bpy_struct.id_data`](bpy_struct.md#bpy.types.bpy_struct.id_data "bpy.types.bpy_struct.id_data") * [`Node.type`](Node.md#bpy.types.Node.type "bpy.types.Node.type") * [`Node.location`](Node.md#bpy.types.Node.location "bpy.types.Node.location") * [`Node.location_absolute`](Node.md#bpy.types.Node.location_absolute "bpy.types.Node.location_absolute") * [`Node.width`](Node.md#bpy.types.Node.width "bpy.types.Node.width") * [`Node.height`](Node.md#bpy.types.Node.height "bpy.types.Node.height") * [`Node.dimensions`](Node.md#bpy.types.Node.dimensions "bpy.types.Node.dimensions") * [`Node.name`](Node.md#bpy.types.Node.name "bpy.types.Node.name") * [`Node.label`](Node.md#bpy.types.Node.label "bpy.types.Node.label") * [`Node.inputs`](Node.md#bpy.types.Node.inputs "bpy.types.Node.inputs") * [`Node.outputs`](Node.md#bpy.types.Node.outputs "bpy.types.Node.outputs") * [`Node.internal_links`](Node.md#bpy.types.Node.internal_links "bpy.types.Node.internal_links") * [`Node.parent`](Node.md#bpy.types.Node.parent "bpy.types.Node.parent") * [`Node.warning_propagation`](Node.md#bpy.types.Node.warning_propagation "bpy.types.Node.warning_propagation") * [`Node.use_custom_color`](Node.md#bpy.types.Node.use_custom_color "bpy.types.Node.use_custom_color") * [`Node.color`](Node.md#bpy.types.Node.color "bpy.types.Node.color") * [`Node.color_tag`](Node.md#bpy.types.Node.color_tag "bpy.types.Node.color_tag") | * [`Node.select`](Node.md#bpy.types.Node.select "bpy.types.Node.select") * [`Node.show_options`](Node.md#bpy.types.Node.show_options "bpy.types.Node.show_options") * [`Node.show_preview`](Node.md#bpy.types.Node.show_preview "bpy.types.Node.show_preview") * [`Node.hide`](Node.md#bpy.types.Node.hide "bpy.types.Node.hide") * [`Node.mute`](Node.md#bpy.types.Node.mute "bpy.types.Node.mute") * [`Node.show_texture`](Node.md#bpy.types.Node.show_texture "bpy.types.Node.show_texture") * [`Node.bl_idname`](Node.md#bpy.types.Node.bl_idname "bpy.types.Node.bl_idname") * [`Node.bl_label`](Node.md#bpy.types.Node.bl_label "bpy.types.Node.bl_label") * [`Node.bl_description`](Node.md#bpy.types.Node.bl_description "bpy.types.Node.bl_description") * [`Node.bl_icon`](Node.md#bpy.types.Node.bl_icon "bpy.types.Node.bl_icon") * [`Node.bl_static_type`](Node.md#bpy.types.Node.bl_static_type "bpy.types.Node.bl_static_type") * [`Node.bl_width_default`](Node.md#bpy.types.Node.bl_width_default "bpy.types.Node.bl_width_default") * [`Node.bl_width_min`](Node.md#bpy.types.Node.bl_width_min "bpy.types.Node.bl_width_min") * [`Node.bl_width_max`](Node.md#bpy.types.Node.bl_width_max "bpy.types.Node.bl_width_max") * [`Node.bl_height_default`](Node.md#bpy.types.Node.bl_height_default "bpy.types.Node.bl_height_default") * [`Node.bl_height_min`](Node.md#bpy.types.Node.bl_height_min "bpy.types.Node.bl_height_min") * [`Node.bl_height_max`](Node.md#bpy.types.Node.bl_height_max "bpy.types.Node.bl_height_max") |
+
+## Inherited Functions[¶](#inherited-functions "Link to this heading")
+
+|  |  |
+| --- | --- |
+| * [`bpy_struct.as_pointer`](bpy_struct.md#bpy.types.bpy_struct.as_pointer "bpy.types.bpy_struct.as_pointer") * [`bpy_struct.driver_add`](bpy_struct.md#bpy.types.bpy_struct.driver_add "bpy.types.bpy_struct.driver_add") * [`bpy_struct.driver_remove`](bpy_struct.md#bpy.types.bpy_struct.driver_remove "bpy.types.bpy_struct.driver_remove") * [`bpy_struct.get`](bpy_struct.md#bpy.types.bpy_struct.get "bpy.types.bpy_struct.get") * [`bpy_struct.id_properties_clear`](bpy_struct.md#bpy.types.bpy_struct.id_properties_clear "bpy.types.bpy_struct.id_properties_clear") * [`bpy_struct.id_properties_ensure`](bpy_struct.md#bpy.types.bpy_struct.id_properties_ensure "bpy.types.bpy_struct.id_properties_ensure") * [`bpy_struct.id_properties_ui`](bpy_struct.md#bpy.types.bpy_struct.id_properties_ui "bpy.types.bpy_struct.id_properties_ui") * [`bpy_struct.is_property_hidden`](bpy_struct.md#bpy.types.bpy_struct.is_property_hidden "bpy.types.bpy_struct.is_property_hidden") * [`bpy_struct.is_property_overridable_library`](bpy_struct.md#bpy.types.bpy_struct.is_property_overridable_library "bpy.types.bpy_struct.is_property_overridable_library") * [`bpy_struct.is_property_readonly`](bpy_struct.md#bpy.types.bpy_struct.is_property_readonly "bpy.types.bpy_struct.is_property_readonly") * [`bpy_struct.is_property_set`](bpy_struct.md#bpy.types.bpy_struct.is_property_set "bpy.types.bpy_struct.is_property_set") * [`bpy_struct.items`](bpy_struct.md#bpy.types.bpy_struct.items "bpy.types.bpy_struct.items") * [`bpy_struct.keyframe_delete`](bpy_struct.md#bpy.types.bpy_struct.keyframe_delete "bpy.types.bpy_struct.keyframe_delete") * [`bpy_struct.keyframe_insert`](bpy_struct.md#bpy.types.bpy_struct.keyframe_insert "bpy.types.bpy_struct.keyframe_insert") * [`bpy_struct.keys`](bpy_struct.md#bpy.types.bpy_struct.keys "bpy.types.bpy_struct.keys") * [`bpy_struct.path_from_id`](bpy_struct.md#bpy.types.bpy_struct.path_from_id "bpy.types.bpy_struct.path_from_id") * [`bpy_struct.path_from_module`](bpy_struct.md#bpy.types.bpy_struct.path_from_module "bpy.types.bpy_struct.path_from_module") * [`bpy_struct.path_resolve`](bpy_struct.md#bpy.types.bpy_struct.path_resolve "bpy.types.bpy_struct.path_resolve") * [`bpy_struct.pop`](bpy_struct.md#bpy.types.bpy_struct.pop "bpy.types.bpy_struct.pop") * [`bpy_struct.property_overridable_library_set`](bpy_struct.md#bpy.types.bpy_struct.property_overridable_library_set "bpy.types.bpy_struct.property_overridable_library_set") * [`bpy_struct.property_unset`](bpy_struct.md#bpy.types.bpy_struct.property_unset "bpy.types.bpy_struct.property_unset") * [`bpy_struct.rna_ancestors`](bpy_struct.md#bpy.types.bpy_struct.rna_ancestors "bpy.types.bpy_struct.rna_ancestors") * [`bpy_struct.type_recast`](bpy_struct.md#bpy.types.bpy_struct.type_recast "bpy.types.bpy_struct.type_recast") * [`bpy_struct.values`](bpy_struct.md#bpy.types.bpy_struct.values "bpy.types.bpy_struct.values") * [`Node.bl_system_properties_get`](Node.md#bpy.types.Node.bl_system_properties_get "bpy.types.Node.bl_system_properties_get") * [`Node.socket_value_update`](Node.md#bpy.types.Node.socket_value_update "bpy.types.Node.socket_value_update") * [`Node.is_registered_node_type`](Node.md#bpy.types.Node.is_registered_node_type "bpy.types.Node.is_registered_node_type") | * [`Node.poll`](Node.md#bpy.types.Node.poll "bpy.types.Node.poll") * [`Node.poll_instance`](Node.md#bpy.types.Node.poll_instance "bpy.types.Node.poll_instance") * [`Node.update`](Node.md#bpy.types.Node.update "bpy.types.Node.update") * [`Node.insert_link`](Node.md#bpy.types.Node.insert_link "bpy.types.Node.insert_link") * [`Node.init`](Node.md#bpy.types.Node.init "bpy.types.Node.init") * [`Node.copy`](Node.md#bpy.types.Node.copy "bpy.types.Node.copy") * [`Node.free`](Node.md#bpy.types.Node.free "bpy.types.Node.free") * [`Node.draw_buttons`](Node.md#bpy.types.Node.draw_buttons "bpy.types.Node.draw_buttons") * [`Node.draw_buttons_ext`](Node.md#bpy.types.Node.draw_buttons_ext "bpy.types.Node.draw_buttons_ext") * [`Node.draw_label`](Node.md#bpy.types.Node.draw_label "bpy.types.Node.draw_label") * [`Node.debug_zone_body_lazy_function_graph`](Node.md#bpy.types.Node.debug_zone_body_lazy_function_graph "bpy.types.Node.debug_zone_body_lazy_function_graph") * [`Node.debug_zone_lazy_function_graph`](Node.md#bpy.types.Node.debug_zone_lazy_function_graph "bpy.types.Node.debug_zone_lazy_function_graph") * [`Node.poll`](Node.md#bpy.types.Node.poll "bpy.types.Node.poll") * [`Node.bl_rna_get_subclass`](Node.md#bpy.types.Node.bl_rna_get_subclass "bpy.types.Node.bl_rna_get_subclass") * [`Node.bl_rna_get_subclass_py`](Node.md#bpy.types.Node.bl_rna_get_subclass_py "bpy.types.Node.bl_rna_get_subclass_py") * [`NodeInternal.poll`](NodeInternal.md#bpy.types.NodeInternal.poll "bpy.types.NodeInternal.poll") * [`NodeInternal.poll_instance`](NodeInternal.md#bpy.types.NodeInternal.poll_instance "bpy.types.NodeInternal.poll_instance") * [`NodeInternal.update`](NodeInternal.md#bpy.types.NodeInternal.update "bpy.types.NodeInternal.update") * [`NodeInternal.draw_buttons`](NodeInternal.md#bpy.types.NodeInternal.draw_buttons "bpy.types.NodeInternal.draw_buttons") * [`NodeInternal.draw_buttons_ext`](NodeInternal.md#bpy.types.NodeInternal.draw_buttons_ext "bpy.types.NodeInternal.draw_buttons_ext") * [`NodeInternal.bl_rna_get_subclass`](NodeInternal.md#bpy.types.NodeInternal.bl_rna_get_subclass "bpy.types.NodeInternal.bl_rna_get_subclass") * [`NodeInternal.bl_rna_get_subclass_py`](NodeInternal.md#bpy.types.NodeInternal.bl_rna_get_subclass_py "bpy.types.NodeInternal.bl_rna_get_subclass_py") * [`CompositorNode.tag_need_exec`](CompositorNode.md#bpy.types.CompositorNode.tag_need_exec "bpy.types.CompositorNode.tag_need_exec") * `CompositorNode.poll` * [`CompositorNode.update`](CompositorNode.md#bpy.types.CompositorNode.update "bpy.types.CompositorNode.update") * [`CompositorNode.bl_rna_get_subclass`](CompositorNode.md#bpy.types.CompositorNode.bl_rna_get_subclass "bpy.types.CompositorNode.bl_rna_get_subclass") * [`CompositorNode.bl_rna_get_subclass_py`](CompositorNode.md#bpy.types.CompositorNode.bl_rna_get_subclass_py "bpy.types.CompositorNode.bl_rna_get_subclass_py") |
+
+[Next
+
+CompositorNodeCurveRGB(CompositorNode)](CompositorNodeCurveRGB.md)
+[Previous
+
+CompositorNodeCryptomatte(CompositorNode)](CompositorNodeCryptomatte.md)
+
+Copyright © Blender Authors
+
+Made with
+[Furo](https://github.com/pradyunsg/furo)
+
+* [Report issue
+  on this page](https://projects.blender.org/blender/blender/issues/new?template=.gitea/issue_template/api_docs.yaml&field:body=%2A%2APage+Information%2A%2A%0D%0AFile%3A+%60bpy.types.CompositorNodeCryptomatteV2.rst%60%0D%0ABlender+Version%3A+%605.0%60%0D%0A%5BPermanent+Link%5D%28https%3A%2F%2Fdocs.blender.org%2Fapi%2F5.0%2Fbpy.types.CompositorNodeCryptomatteV2.html%29%0D%0A%0D%0A%2A%2AShort+description+of+error%2A%2A%0D%0A%5BPlease+fill+out+a+short+description+of+the+error+here%5D%0D%0A)
+
+On this page
+
+* CompositorNodeCryptomatteV2(CompositorNode)
+  + [`CompositorNodeCryptomatteV2`](#bpy.types.CompositorNodeCryptomatteV2)
+    - [`CompositorNodeCryptomatteV2.add`](#bpy.types.CompositorNodeCryptomatteV2.add)
+    - [`CompositorNodeCryptomatteV2.entries`](#bpy.types.CompositorNodeCryptomatteV2.entries)
+    - [`CompositorNodeCryptomatteV2.frame_duration`](#bpy.types.CompositorNodeCryptomatteV2.frame_duration)
+    - [`CompositorNodeCryptomatteV2.frame_offset`](#bpy.types.CompositorNodeCryptomatteV2.frame_offset)
+    - [`CompositorNodeCryptomatteV2.frame_start`](#bpy.types.CompositorNodeCryptomatteV2.frame_start)
+    - [`CompositorNodeCryptomatteV2.has_layers`](#bpy.types.CompositorNodeCryptomatteV2.has_layers)
+    - [`CompositorNodeCryptomatteV2.has_views`](#bpy.types.CompositorNodeCryptomatteV2.has_views)
+    - [`CompositorNodeCryptomatteV2.image`](#bpy.types.CompositorNodeCryptomatteV2.image)
+    - [`CompositorNodeCryptomatteV2.layer`](#bpy.types.CompositorNodeCryptomatteV2.layer)
+    - [`CompositorNodeCryptomatteV2.layer_name`](#bpy.types.CompositorNodeCryptomatteV2.layer_name)
+    - [`CompositorNodeCryptomatteV2.matte_id`](#bpy.types.CompositorNodeCryptomatteV2.matte_id)
+    - [`CompositorNodeCryptomatteV2.remove`](#bpy.types.CompositorNodeCryptomatteV2.remove)
+    - [`CompositorNodeCryptomatteV2.scene`](#bpy.types.CompositorNodeCryptomatteV2.scene)
+    - [`CompositorNodeCryptomatteV2.source`](#bpy.types.CompositorNodeCryptomatteV2.source)
+    - [`CompositorNodeCryptomatteV2.use_auto_refresh`](#bpy.types.CompositorNodeCryptomatteV2.use_auto_refresh)
+    - [`CompositorNodeCryptomatteV2.use_cyclic`](#bpy.types.CompositorNodeCryptomatteV2.use_cyclic)
+    - [`CompositorNodeCryptomatteV2.view`](#bpy.types.CompositorNodeCryptomatteV2.view)
+    - [`CompositorNodeCryptomatteV2.is_registered_node_type()`](#bpy.types.CompositorNodeCryptomatteV2.is_registered_node_type)
+    - [`CompositorNodeCryptomatteV2.input_template()`](#bpy.types.CompositorNodeCryptomatteV2.input_template)
+    - [`CompositorNodeCryptomatteV2.output_template()`](#bpy.types.CompositorNodeCryptomatteV2.output_template)
+    - [`CompositorNodeCryptomatteV2.update()`](#bpy.types.CompositorNodeCryptomatteV2.update)
+    - [`CompositorNodeCryptomatteV2.bl_rna_get_subclass()`](#bpy.types.CompositorNodeCryptomatteV2.bl_rna_get_subclass)
+    - [`CompositorNodeCryptomatteV2.bl_rna_get_subclass_py()`](#bpy.types.CompositorNodeCryptomatteV2.bl_rna_get_subclass_py)
+  + [Inherited Properties](#inherited-properties)
+  + [Inherited Functions](#inherited-functions)

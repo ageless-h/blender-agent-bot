@@ -1,0 +1,76 @@
+metadata:
+  name: door
+  tags: [architecture, door, entry]
+  description: 创建门框、门板和门把手
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.91
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    frame: 0.0
+    panel: 0.0
+    hardware: 0.0
+
+gene:
+  strategy: |
+    1. 先定义门洞尺寸并创建门框
+    2. 创建门板并设置铰链方向
+    3. 添加门把手提升可识别度
+  parameters:
+    door_width:
+      type: float
+      default: 0.9
+      range: [0.7, 1.5]
+    door_height:
+      type: float
+      default: 2.1
+      range: [1.8, 3.0]
+    door_thickness:
+      type: float
+      default: 0.045
+      range: [0.03, 0.08]
+  constraints:
+    - door_height 应大于 door_width
+    - door_thickness 应小于 door_width 的 0.2
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: DoorFrame, object_type: MESH, primitive: cube}
+      undo_group: frame
+    - tool: modify_object
+      args:
+        name: DoorFrame
+        scale: ["$door_width", 0.08, "$door_height"]
+        add_modifier:
+          type: SOLIDIFY
+          thickness: 0.04
+      undo_group: frame
+    - tool: create_object
+      args: {name: DoorPanel, object_type: MESH, primitive: cube}
+      undo_group: panel
+    - tool: modify_object
+      args:
+        name: DoorPanel
+        scale: ["$door_width", "$door_thickness", "$door_height"]
+        location: [0.0, 0.0, "$door_height"]
+        origin: LEFT_CENTER
+      undo_group: panel
+    - tool: create_object
+      args: {name: DoorHandle, object_type: MESH, primitive: cylinder}
+      undo_group: hardware
+    - tool: modify_object
+      args:
+        name: DoorHandle
+        scale: [0.02, 0.02, 0.08]
+        location: ["$door_width", "$door_thickness", 1.0]
+      undo_group: hardware
+
+validation:
+  - object_exists: [DoorFrame, DoorPanel, DoorHandle]
+  - object_count_gte: 3
+  - property_check:
+      object_name: DoorPanel
+      property: type
+      expected: MESH

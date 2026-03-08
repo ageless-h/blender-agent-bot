@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blender-agent-core"
+version = "0.1.0"
+description = "BlenderAgentBot unified AI brain - LLM adapters, planner, safety, skills"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx",
+    "pyyaml",
+    "pydantic",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff"]
+openai = ["openai"]
+anthropic = ["anthropic"]
+google = ["google-generativeai"]
+all = ["openai", "anthropic", "google-generativeai"]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "blender_agent_core/**/*.py",
+    "__init__.py",
+    "llm/**/*.py",
+    "planner/**/*.py",
+    "safety/**/*.py",
+    "context/**/*.py",
+    "session/**/*.py",
+    "skills/**/*.py",
+    "router/**/*.py",
+    "prompts/**/*.py",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "README.md",
+    "SPEC_TODOLIST.md",
+    "pyproject.toml",
+    "blender_agent_core/**/*.py",
+    "__init__.py",
+    "llm/**/*.py",
+    "planner/**/*.py",
+    "safety/**/*.py",
+    "context/**/*.py",
+    "session/**/*.py",
+    "skills/**/*.py",
+    "router/**/*.py",
+    "prompts/**/*.py",
+]
+
+[tool.ruff.lint]
+ignore = ["N999"]

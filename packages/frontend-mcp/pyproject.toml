@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blender-frontend-mcp"
+version = "0.1.0"
+description = "BlenderAgentBot MCP protocol frontend - IDE/MCP client interface"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp",
+]
+
+[project.scripts]
+blender-mcp = "cli:main"
+blender-mcp-server = "server.mcp_server:main"
+blender-mcp-setup = "config.setup_generator:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff"]
+sse = ["sse-starlette", "starlette", "uvicorn"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["N999"]
+"config/__init__.py" = ["N999"]
+"server/__init__.py" = ["N999"]

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blender-agent-bot"
+version = "0.1.0"
+description = "BlenderAgentBot - Multi-frontend AI platform for Blender automation"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = [
+    "blender-engine",
+    "blender-agent-core",
+    "blender-shared",
+]
+
+[project.optional-dependencies]
+blender = ["blender-frontend-blender"]
+web = ["blender-frontend-web"]
+cli = ["blender-frontend-cli"]
+mcp = ["blender-frontend-mcp"]
+all = [
+    "blender-frontend-blender",
+    "blender-frontend-web",
+    "blender-frontend-cli",
+    "blender-frontend-mcp",
+]
+dev = ["pytest", "pytest-asyncio", "ruff", "mypy"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

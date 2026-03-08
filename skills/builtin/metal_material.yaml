@@ -1,0 +1,69 @@
+metadata:
+  name: metal_material
+  tags: [material, metal, principled]
+  description: 创建通用金属材质并分配到目标对象
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.95
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    shader: 0.0
+    assign: 0.0
+
+gene:
+  strategy: |
+    1. 使用 Principled BSDF 初始化金属参数
+    2. 设置金属度、粗糙度和高光
+    3. 将材质绑定到目标对象
+  parameters:
+    target_objects:
+      type: list[string]
+      default: [Cube]
+    metallic:
+      type: float
+      default: 0.95
+      range: [0.6, 1.0]
+    roughness:
+      type: float
+      default: 0.25
+      range: [0.02, 0.8]
+    base_color:
+      type: color
+      default: [0.72, 0.74, 0.78, 1.0]
+  constraints:
+    - metallic 需大于 0.6
+    - roughness 需在 0 到 1 之间
+
+capsule:
+  steps:
+    - tool: manage_material
+      args:
+        action: create
+        material_name: Mat_Metal
+        use_nodes: true
+      undo_group: shader
+    - tool: edit_nodes
+      args:
+        material_name: Mat_Metal
+        nodes:
+          - {name: Principled BSDF, type: ShaderNodeBsdfPrincipled}
+        node_values:
+          Principled BSDF:
+            Base Color: "$base_color"
+            Metallic: "$metallic"
+            Roughness: "$roughness"
+      undo_group: shader
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: "$target_objects"
+        material_name: Mat_Metal
+      undo_group: assign
+
+validation:
+  - material_exists: [Mat_Metal]
+  - property_check:
+      object_name: Mat_Metal
+      property: use_nodes
+      expected: true

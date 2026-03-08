@@ -1,0 +1,86 @@
+metadata:
+  name: simple_house
+  tags: [architecture, house, composition]
+  description: 组合基础房间、门窗与屋顶，快速生成简易小屋
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.87
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    structure: 0.0
+    opening: 0.0
+    roof: 0.0
+
+gene:
+  strategy: |
+    1. 先调用基础房间技能建立主体
+    2. 再调用门窗技能补齐开口构件
+    3. 最后创建屋顶并统一材质
+  parameters:
+    house_width:
+      type: float
+      default: 6.0
+      range: [3.0, 20.0]
+    house_depth:
+      type: float
+      default: 5.0
+      range: [3.0, 20.0]
+    wall_height:
+      type: float
+      default: 3.0
+      range: [2.2, 6.0]
+    roof_pitch:
+      type: float
+      default: 35.0
+      range: [15.0, 60.0]
+  constraints:
+    - house_width 与 house_depth 需为正数
+    - roof_pitch 应在 15 到 60 度之间
+
+capsule:
+  steps:
+    - tool: execute_skill
+      args:
+        skill_name: basic_room
+        params:
+          room_width: "$house_width"
+          room_depth: "$house_depth"
+          wall_height: "$wall_height"
+      undo_group: structure
+    - tool: execute_skill
+      args:
+        skill_name: door
+        params:
+          door_width: 0.9
+          door_height: 2.1
+      undo_group: opening
+    - tool: execute_skill
+      args:
+        skill_name: window
+        params:
+          target_wall: Wall_North
+          window_width: 1.2
+          window_height: 1.0
+      undo_group: opening
+    - tool: create_object
+      args: {name: HouseRoof, object_type: MESH, primitive: cube}
+      undo_group: roof
+    - tool: modify_object
+      args:
+        name: HouseRoof
+        scale: ["$house_width", "$house_depth", 0.5]
+        location: [0.0, 0.0, "$wall_height"]
+        rotation: ["$roof_pitch", 0.0, 0.0]
+      undo_group: roof
+    - tool: manage_material
+      args:
+        action: assign
+        object_names: [HouseRoof]
+        material_name: Mat_Roof_Tile
+      undo_group: roof
+
+validation:
+  - object_exists: [RoomFloor, Wall_North, Wall_South, Wall_East, Wall_West, HouseRoof]
+  - object_count_gte: 6
+  - material_exists: [Mat_Roof_Tile]

@@ -1,0 +1,83 @@
+metadata:
+  name: staircase
+  tags: [architecture, stairs, structure]
+  description: 创建基础直线楼梯（阵列步阶）
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    step_shape: 0.0
+    array: 0.0
+    detail: 0.0
+
+gene:
+  strategy: |
+    1. 先创建单个台阶基元
+    2. 使用阵列沿 X/Z 方向复制形成楼梯
+    3. 需要时添加扶手
+  parameters:
+    step_width:
+      type: float
+      default: 1.2
+      range: [0.6, 3.0]
+    step_depth:
+      type: float
+      default: 0.28
+      range: [0.18, 0.4]
+    step_height:
+      type: float
+      default: 0.17
+      range: [0.12, 0.22]
+    step_count:
+      type: int
+      default: 12
+      range: [4, 40]
+  constraints:
+    - step_count 至少为 4
+    - step_depth 与 step_height 比例建议在 1.5 到 2.0 之间
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: StairStep_01, object_type: MESH, primitive: cube}
+      undo_group: step_shape
+    - tool: modify_object
+      args:
+        name: StairStep_01
+        scale: ["$step_width", "$step_depth", "$step_height"]
+        location: [0.0, 0.0, "$step_height"]
+      undo_group: step_shape
+    - tool: modify_object
+      args:
+        name: StairStep_01
+        add_modifier:
+          type: ARRAY
+          count: "$step_count"
+          relative_offset_displace: [0.9, 0.0, 1.0]
+          constant_offset_displace: ["$step_depth", 0.0, "$step_height"]
+      undo_group: array
+    - tool: create_object
+      args: {name: StairRail, object_type: MESH, primitive: cube}
+      undo_group: detail
+      condition:
+        parameter: add_rail
+        equals: true
+    - tool: modify_object
+      args:
+        name: StairRail
+        scale: ["$step_count", 0.03, 0.03]
+        location: ["$step_count", 0.45, "$step_count"]
+      undo_group: detail
+      condition:
+        parameter: add_rail
+        equals: true
+
+validation:
+  - object_exists: [StairStep_01]
+  - object_count_gte: 1
+  - property_check:
+      object_name: StairStep_01
+      property: type
+      expected: MESH

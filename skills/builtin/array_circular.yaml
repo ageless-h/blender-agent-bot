@@ -1,0 +1,73 @@
+metadata:
+  name: array_circular
+  tags: [modifier, array, radial]
+  description: 通过阵列和空对象偏移创建环形阵列
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    pivot: 0.0
+    array: 0.0
+    rotation: 0.0
+
+gene:
+  strategy: |
+    1. 创建阵列中心空对象
+    2. 在目标物体上添加 Array 修改器
+    3. 使用 Object Offset 旋转形成圆周分布
+  parameters:
+    target_object:
+      type: string
+      default: Cube
+    count:
+      type: int
+      default: 12
+      range: [3, 120]
+    angle_step:
+      type: float
+      default: 30.0
+      range: [1.0, 180.0]
+    radius:
+      type: float
+      default: 2.0
+      range: [0.2, 50.0]
+  constraints:
+    - count 至少为 3
+    - angle_step 需要和 count 匹配完整圆周
+    - radius 需大于 0
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: CircularArrayPivot, object_type: EMPTY, empty_type: PLAIN_AXES}
+      undo_group: pivot
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        location: ["$radius", 0.0, 0.0]
+      undo_group: pivot
+    - tool: modify_object
+      args:
+        name: CircularArrayPivot
+        rotation: [0.0, 0.0, "$angle_step"]
+      undo_group: rotation
+    - tool: modify_object
+      args:
+        name: "$target_object"
+        add_modifier:
+          type: ARRAY
+          count: "$count"
+          use_relative_offset: false
+          use_object_offset: true
+          offset_object: CircularArrayPivot
+      undo_group: array
+
+validation:
+  - object_exists: [CircularArrayPivot]
+  - object_count_gte: 1
+  - property_check:
+      object_name: CircularArrayPivot
+      property: type
+      expected: EMPTY

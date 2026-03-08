@@ -1,0 +1,80 @@
+metadata:
+  name: studio_lighting
+  tags: [lighting, studio, product]
+  description: 创建摄影棚常用布光和背景台
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.9
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    backdrop: 0.0
+    softbox: 0.0
+    rim: 0.0
+
+gene:
+  strategy: |
+    1. 先创建弧形背景台
+    2. 左右软箱对称打光
+    3. 顶部补光控制高光
+  parameters:
+    backdrop_size:
+      type: float
+      default: 8.0
+      range: [4.0, 20.0]
+    softbox_power:
+      type: float
+      default: 650.0
+      range: [100.0, 3000.0]
+    top_power:
+      type: float
+      default: 300.0
+      range: [50.0, 1500.0]
+  constraints:
+    - softbox_power 应大于 top_power
+    - backdrop_size 应能覆盖目标物体
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: StudioBackdrop, object_type: MESH, primitive: plane}
+      undo_group: backdrop
+    - tool: modify_object
+      args:
+        name: StudioBackdrop
+        scale: ["$backdrop_size", "$backdrop_size", 1.0]
+        add_modifier:
+          type: BEVEL
+          width: 1.2
+          segments: 8
+      undo_group: backdrop
+    - tool: create_object
+      args: {name: Light_Softbox_L, object_type: LIGHT, light_type: AREA}
+      undo_group: softbox
+    - tool: modify_object
+      args:
+        name: Light_Softbox_L
+        location: [-3.0, -2.0, 3.2]
+        rotation: [60.0, 0.0, -25.0]
+        light_energy: "$softbox_power"
+        duplicate_to:
+          - {name: Light_Softbox_R, location: [3.0, -2.0, 3.2], rotation: [60.0, 0.0, 25.0], light_energy: "$softbox_power"}
+      undo_group: softbox
+    - tool: create_object
+      args: {name: Light_Top, object_type: LIGHT, light_type: AREA}
+      undo_group: rim
+    - tool: modify_object
+      args:
+        name: Light_Top
+        location: [0.0, 0.0, 5.5]
+        rotation: [180.0, 0.0, 0.0]
+        light_energy: "$top_power"
+      undo_group: rim
+
+validation:
+  - object_exists: [StudioBackdrop, Light_Softbox_L, Light_Softbox_R, Light_Top]
+  - object_count_gte: 4
+  - property_check:
+      object_name: Light_Top
+      property: type
+      expected: LIGHT

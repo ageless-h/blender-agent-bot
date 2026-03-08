@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "blender-frontend-cli"
+version = "0.1.0"
+description = "BlenderAgentBot CLI/TUI frontend - terminal-based Blender control"
+requires-python = ">=3.10"
+dependencies = [
+    "typer",
+    "rich",
+    "pyyaml",
+    "pydantic>=2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "mypy", "types-PyYAML"]
+
+[project.scripts]
+blender-agent = "cli.main:main"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["N999"]
+"cli/__init__.py" = ["N999"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["cli"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "cli",
+    "tests",
+    "README.md",
+    "SPEC_TODOLIST.md",
+    "pyproject.toml",
+]

@@ -1,0 +1,7 @@
+from .chat_panel import CHAT_PANEL_CLASSES
+from .preview_panel import PREVIEW_PANEL_CLASSES
+from .settings_panel import SETTINGS_PANEL_CLASSES
+
+PANEL_CLASSES = CHAT_PANEL_CLASSES + SETTINGS_PANEL_CLASSES + PREVIEW_PANEL_CLASSES
+
+__all__ = ["PANEL_CLASSES"]

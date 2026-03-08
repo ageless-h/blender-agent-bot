@@ -1,0 +1,76 @@
+metadata:
+  name: three_point_lighting
+  tags: [lighting, studio, portrait]
+  description: 创建标准三点布光（主光、辅光、轮廓光）
+  author: BlenderAgentBot Builtin Team
+  version: "1.0.0"
+  success_rate: 0.96
+  usage_count: 0
+  undo_rate: 0.0
+  partial_undo_stats:
+    key_light: 0.0
+    fill_light: 0.0
+    rim_light: 0.0
+
+gene:
+  strategy: |
+    1. 先放置主光塑造体积
+    2. 用辅光填补阴影
+    3. 用轮廓光分离主体与背景
+  parameters:
+    key_power:
+      type: float
+      default: 800.0
+      range: [100.0, 5000.0]
+    fill_power:
+      type: float
+      default: 350.0
+      range: [50.0, 3000.0]
+    rim_power:
+      type: float
+      default: 500.0
+      range: [80.0, 4000.0]
+  constraints:
+    - key_power 应大于 fill_power
+    - rim_power 应用于主体后方
+
+capsule:
+  steps:
+    - tool: create_object
+      args: {name: Light_Key, object_type: LIGHT, light_type: AREA}
+      undo_group: key_light
+    - tool: modify_object
+      args:
+        name: Light_Key
+        location: [3.5, -4.0, 4.0]
+        rotation: [55.0, 0.0, 35.0]
+        light_energy: "$key_power"
+      undo_group: key_light
+    - tool: create_object
+      args: {name: Light_Fill, object_type: LIGHT, light_type: AREA}
+      undo_group: fill_light
+    - tool: modify_object
+      args:
+        name: Light_Fill
+        location: [-3.0, -2.5, 2.8]
+        rotation: [48.0, 0.0, -28.0]
+        light_energy: "$fill_power"
+      undo_group: fill_light
+    - tool: create_object
+      args: {name: Light_Rim, object_type: LIGHT, light_type: AREA}
+      undo_group: rim_light
+    - tool: modify_object
+      args:
+        name: Light_Rim
+        location: [0.0, 4.0, 3.5]
+        rotation: [120.0, 0.0, 180.0]
+        light_energy: "$rim_power"
+      undo_group: rim_light
+
+validation:
+  - object_exists: [Light_Key, Light_Fill, Light_Rim]
+  - object_count_gte: 3
+  - property_check:
+      object_name: Light_Key
+      property: type
+      expected: LIGHT
