@@ -7,6 +7,40 @@ import os
 import time
 from typing import Any
 
+try:
+    from protocol import (
+        EngineRequest,
+        EngineResponse,
+        EngineRequestType,
+        EngineResponseStatus,
+        CapabilityInfo,
+    )
+except ImportError:
+    # Fallback for development without installed packages
+    import sys
+    from pathlib import Path
+    import importlib.util
+
+    shared_path = Path(__file__).parent.parent.parent.parent / "shared"
+    engine_protocol_path = shared_path / "protocol" / "engine_protocol.py"
+
+    if engine_protocol_path.exists():
+        spec = importlib.util.spec_from_file_location("engine_protocol", engine_protocol_path)
+        if spec and spec.loader:
+            engine_protocol = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(engine_protocol)
+            EngineRequest = engine_protocol.EngineRequest
+            EngineResponse = engine_protocol.EngineResponse
+            EngineRequestType = engine_protocol.EngineRequestType
+            EngineResponseStatus = engine_protocol.EngineResponseStatus
+            CapabilityInfo = engine_protocol.CapabilityInfo
+
+            EngineRequest.model_rebuild()
+            EngineResponse.model_rebuild()
+            CapabilityInfo.model_rebuild()
+    else:
+        raise ImportError("Cannot find engine_protocol module")
+
 from .adapters.base import BlenderAdapter
 from .adapters.mock import MockAdapter
 from .adapters.socket import SocketAdapter
@@ -79,105 +113,180 @@ class BlenderEngine:
         capability: str,
         payload: dict[str, Any],
     ) -> dict[str, Any]:
+        request = EngineRequest(
+            request_type=EngineRequestType.EXECUTE_CAPABILITY,
+            capability=capability,
+            payload=payload,
+        )
+        response = self.execute_request(request)
+        return response.model_dump(exclude_none=True)
+
+    def execute_request(self, request: EngineRequest) -> EngineResponse:
         call_start = time.perf_counter()
 
-        if not self._allowlist.is_allowed(capability):
-            logger.warning("Capability %s BLOCKED by allowlist", capability)
-            self._audit.record(
-                AuditEvent(
-                    capability=capability,
-                    ok=False,
-                    error="capability_not_allowed",
-                )
+        if request.request_type == EngineRequestType.LIST_CAPABILITIES:
+            capabilities = self.list_capabilities()
+            return EngineResponse(
+                status=EngineResponseStatus.SUCCESS,
+                request_id=request.request_id,
+                result={"capabilities": capabilities},
+                execution_time_ms=(time.perf_counter() - call_start) * 1000,
             )
-            return {
-                "status": "blocked",
-                "error": f"Capability '{capability}' is not allowed",
-                "error_type": "capability_not_allowed",
-                "capability": capability,
-            }
 
-        if not self._guardrails.allow(capability, payload):
-            logger.warning("Capability %s BLOCKED by guardrails", capability)
-            self._audit.record(
-                AuditEvent(
-                    capability=capability,
-                    ok=False,
-                    error="guardrails_blocked",
+        if request.request_type == EngineRequestType.GET_CAPABILITY_INFO:
+            if not request.capability:
+                return EngineResponse(
+                    status=EngineResponseStatus.ERROR,
+                    request_id=request.request_id,
+                    error="capability name is required for GET_CAPABILITY_INFO",
+                    error_type="validation_error",
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
                 )
+            info = self.get_capability_info(request.capability)
+            if info is None:
+                return EngineResponse(
+                    status=EngineResponseStatus.ERROR,
+                    request_id=request.request_id,
+                    error=f"Capability '{request.capability}' not found",
+                    error_type="capability_not_found",
+                    capability=request.capability,
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
+                )
+            return EngineResponse(
+                status=EngineResponseStatus.SUCCESS,
+                request_id=request.request_id,
+                result=info,
+                capability=request.capability,
+                execution_time_ms=(time.perf_counter() - call_start) * 1000,
             )
-            return {
-                "status": "blocked",
-                "error": f"Capability '{capability}' blocked by guardrails",
-                "error_type": "guardrails_blocked",
-                "capability": capability,
-            }
 
-        if not self._rate_limiter.allow(capability):
-            logger.warning("Capability %s BLOCKED by rate limiter", capability)
-            self._audit.record(
-                AuditEvent(
-                    capability=capability,
-                    ok=False,
-                    error="rate_limit_exceeded",
+        if request.request_type == EngineRequestType.EXECUTE_CAPABILITY:
+            if not request.capability:
+                return EngineResponse(
+                    status=EngineResponseStatus.ERROR,
+                    request_id=request.request_id,
+                    error="capability name is required for EXECUTE_CAPABILITY",
+                    error_type="validation_error",
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
                 )
-            )
-            return {
-                "status": "blocked",
-                "error": f"Rate limit exceeded for capability '{capability}'",
-                "error_type": "rate_limit_exceeded",
-                "capability": capability,
-            }
 
-        try:
-            result = self._adapter.execute(capability, payload)
-            execution_time = (time.perf_counter() - call_start) * 1000
+            capability = request.capability
+            payload = request.payload
 
-            if result.ok:
-                self._audit.record(
-                    AuditEvent(
-                        capability=capability,
-                        ok=True,
-                    )
-                )
-                return {
-                    "status": "success",
-                    "result": result.result,
-                    "capability": capability,
-                    "execution_time_ms": execution_time,
-                }
-            else:
+            if not self._allowlist.is_allowed(capability):
+                logger.warning("Capability %s BLOCKED by allowlist", capability)
                 self._audit.record(
                     AuditEvent(
                         capability=capability,
                         ok=False,
-                        error=result.error or "unknown_error",
+                        error="capability_not_allowed",
                     )
                 )
-                return {
-                    "status": "error",
-                    "error": result.error or "Unknown error",
-                    "error_type": "execution_error",
-                    "capability": capability,
-                    "execution_time_ms": execution_time,
-                }
-        except Exception as e:
-            execution_time = (time.perf_counter() - call_start) * 1000
-            logger.exception("Capability %s raised exception", capability)
-            self._audit.record(
-                AuditEvent(
+                return EngineResponse(
+                    status=EngineResponseStatus.BLOCKED,
+                    request_id=request.request_id,
+                    error=f"Capability '{capability}' is not allowed",
+                    error_type="capability_not_allowed",
                     capability=capability,
-                    ok=False,
-                    error=str(e),
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
                 )
-            )
-            return {
-                "status": "error",
-                "error": str(e),
-                "error_type": "exception",
-                "capability": capability,
-                "execution_time_ms": execution_time,
-            }
+
+            if not self._guardrails.allow(capability, payload):
+                logger.warning("Capability %s BLOCKED by guardrails", capability)
+                self._audit.record(
+                    AuditEvent(
+                        capability=capability,
+                        ok=False,
+                        error="guardrails_blocked",
+                    )
+                )
+                return EngineResponse(
+                    status=EngineResponseStatus.BLOCKED,
+                    request_id=request.request_id,
+                    error=f"Capability '{capability}' blocked by guardrails",
+                    error_type="guardrails_blocked",
+                    capability=capability,
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
+                )
+
+            if not self._rate_limiter.allow(capability):
+                logger.warning("Capability %s BLOCKED by rate limiter", capability)
+                self._audit.record(
+                    AuditEvent(
+                        capability=capability,
+                        ok=False,
+                        error="rate_limit_exceeded",
+                    )
+                )
+                return EngineResponse(
+                    status=EngineResponseStatus.BLOCKED,
+                    request_id=request.request_id,
+                    error=f"Rate limit exceeded for capability '{capability}'",
+                    error_type="rate_limit_exceeded",
+                    capability=capability,
+                    execution_time_ms=(time.perf_counter() - call_start) * 1000,
+                )
+
+            try:
+                result = self._adapter.execute(capability, payload)
+                execution_time = (time.perf_counter() - call_start) * 1000
+
+                if result.ok:
+                    self._audit.record(
+                        AuditEvent(
+                            capability=capability,
+                            ok=True,
+                        )
+                    )
+                    return EngineResponse(
+                        status=EngineResponseStatus.SUCCESS,
+                        request_id=request.request_id,
+                        result=result.result,
+                        capability=capability,
+                        execution_time_ms=execution_time,
+                    )
+                else:
+                    self._audit.record(
+                        AuditEvent(
+                            capability=capability,
+                            ok=False,
+                            error=result.error or "unknown_error",
+                        )
+                    )
+                    return EngineResponse(
+                        status=EngineResponseStatus.ERROR,
+                        request_id=request.request_id,
+                        error=result.error or "Unknown error",
+                        error_type="execution_error",
+                        capability=capability,
+                        execution_time_ms=execution_time,
+                    )
+            except Exception as e:
+                execution_time = (time.perf_counter() - call_start) * 1000
+                logger.exception("Capability %s raised exception", capability)
+                self._audit.record(
+                    AuditEvent(
+                        capability=capability,
+                        ok=False,
+                        error=str(e),
+                    )
+                )
+                return EngineResponse(
+                    status=EngineResponseStatus.ERROR,
+                    request_id=request.request_id,
+                    error=str(e),
+                    error_type="exception",
+                    capability=capability,
+                    execution_time_ms=execution_time,
+                )
+
+        return EngineResponse(
+            status=EngineResponseStatus.ERROR,
+            request_id=request.request_id,
+            error=f"Unknown request type: {request.request_type}",
+            error_type="invalid_request_type",
+            execution_time_ms=(time.perf_counter() - call_start) * 1000,
+        )
 
     def list_capabilities(self, version: str | None = None) -> list[dict[str, Any]]:
         return [capability_to_dict(cap, version) for cap in self._catalog.list()]

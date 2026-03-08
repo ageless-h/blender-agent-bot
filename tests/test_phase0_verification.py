@@ -14,7 +14,7 @@ def test_engine_initialization():
     adapter = MockAdapter()
     engine = BlenderEngine(adapter=adapter)
     assert engine is not None
-    print("✓ Engine initialization successful")
+    print("[OK] Engine initialization successful")
 
 
 def test_engine_execute_capability():
@@ -25,7 +25,7 @@ def test_engine_execute_capability():
 
     assert response["status"] in ["success", "error", "blocked"]
     assert "capability" in response
-    print(f"✓ Engine execute_capability returned: {response['status']}")
+    print(f"[OK] Engine execute_capability returned: {response['status']}")
 
 
 def test_engine_list_capabilities():
@@ -36,7 +36,7 @@ def test_engine_list_capabilities():
 
     assert isinstance(capabilities, list)
     assert len(capabilities) > 0
-    print(f"✓ Engine list_capabilities returned {len(capabilities)} capabilities")
+    print(f"[OK] Engine list_capabilities returned {len(capabilities)} capabilities")
 
 
 def test_mcp_frontend_initialization():
@@ -49,7 +49,7 @@ def test_mcp_frontend_initialization():
     server = MCPServer(engine=engine)
 
     assert server is not None
-    print("✓ MCP Frontend initialization successful")
+    print("[OK] MCP Frontend initialization successful")
 
 
 def test_mcp_tools_list():
@@ -65,7 +65,7 @@ def test_mcp_tools_list():
 
     assert "tools" in result
     assert len(result["tools"]) > 0
-    print(f"✓ MCP tools_list returned {len(result['tools'])} tools")
+    print(f"[OK] MCP tools_list returned {len(result['tools'])} tools")
 
 
 def test_mcp_tools_call():
@@ -80,7 +80,7 @@ def test_mcp_tools_call():
     result = server.tools_call("blender_get_objects", {})
 
     assert "content" in result
-    print(f"✓ MCP tools_call executed successfully")
+    print(f"[OK] MCP tools_call executed successfully")
 
 
 if __name__ == "__main__":
@@ -96,13 +96,13 @@ if __name__ == "__main__":
         test_mcp_tools_call()
 
         print("=" * 50)
-        print("✓ All verification tests passed!")
+        print("[OK] All verification tests passed!")
         print("\nPhase 0 refactoring is complete:")
         print("  - Engine layer extracted and uses unified protocol")
         print("  - MCP Frontend extracted and adapts to Engine")
         print("  - All components working together")
     except Exception as e:
-        print(f"\n✗ Test failed: {e}")
+        print(f"\n[FAIL] Test failed: {e}")
         import traceback
 
         traceback.print_exc()

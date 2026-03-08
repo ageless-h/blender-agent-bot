@@ -13,10 +13,12 @@ from .engine import BlenderEngine
 from .adapters.base import BlenderAdapter
 from .adapters.socket import SocketAdapter
 from .adapters.mock import MockAdapter
+from .adapters.stdio import StdioAdapter
 
 __all__ = [
     "BlenderEngine",
     "BlenderAdapter",
     "SocketAdapter",
     "MockAdapter",
+    "StdioAdapter",
 ]
