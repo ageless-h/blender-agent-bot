@@ -5,7 +5,7 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from ..types.tool_types import SafetyLevel, ToolCall
+from ..agent_types.tool_types import SafetyLevel, ToolCall
 from .messages import BaseMessage, MessageType
 
 

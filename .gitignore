@@ -20,3 +20,4 @@ node_modules/
 Thumbs.db
 *.blend1
 *.blend2
+temp/
