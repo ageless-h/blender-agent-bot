@@ -113,6 +113,31 @@ class BlenderEngine:
         capability: str,
         payload: dict[str, Any],
     ) -> dict[str, Any]:
+        """Execute a capability (deprecated - use execute_request instead).
+
+        This method is deprecated and maintained only for backward compatibility.
+        New code should use execute_request() with EngineRequest/EngineResponse
+        for full type safety and Pydantic validation.
+
+        Args:
+            capability: The capability name to execute
+            payload: The capability payload as a dict
+
+        Returns:
+            Response as a dict (for backward compatibility)
+
+        Deprecated:
+            Use execute_request() instead for type safety.
+        """
+        import warnings
+
+        warnings.warn(
+            "execute_capability() is deprecated. Use execute_request() with "
+            "EngineRequest/EngineResponse for type safety.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+
         request = EngineRequest(
             request_type=EngineRequestType.EXECUTE_CAPABILITY,
             capability=capability,

@@ -57,11 +57,18 @@ def create_bounce_animation():
 
     # 设置插值类型为贝塞尔曲线以获得平滑的弧线运动
     if cube.animation_data and cube.animation_data.action:
-        for fcurve in cube.animation_data.action.fcurves:
+        action = cube.animation_data.action
+        if hasattr(action, "fcurves"):
+            fcurves = action.fcurves
+        elif hasattr(action, "curves"):
+            fcurves = action.curves
+        else:
+            fcurves = []
+
+        for fcurve in fcurves:
             if fcurve.data_path == "location" and fcurve.array_index == 2:
                 for keyframe in fcurve.keyframe_points:
                     keyframe.interpolation = "BEZIER"
-                    # 调整手柄以模拟重力效果
                     keyframe.handle_left_type = "AUTO_CLAMPED"
                     keyframe.handle_right_type = "AUTO_CLAMPED"
 

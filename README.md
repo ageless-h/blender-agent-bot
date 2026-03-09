@@ -41,7 +41,10 @@ BlenderAgentBot/
 ├── shared/                  # 统一协议/配置/类型
 ├── skills/                  # 技能库 (Skill Capsule)
 ├── examples/                # 示例与模板
-├── plan.md                  # 架构设计文档 v4.0
+├── doc/                     # 文档目录
+│   ├── planning/            # 架构设计文档
+│   ├── phase0/              # Phase 0 文档
+│   └── phase1/              # Phase 1 文档
 └── pyproject.toml
 ```
 
@@ -55,10 +58,17 @@ BlenderAgentBot/
 
 ## 开发路线图
 
-- **Phase 0**: 重构基础 (2-3 周) — Engine 抽取 + 统一协议
-- **Phase 1**: Agent Core + Blender UI (4-6 周) — AI 大脑 + 艺术家入口
+- **Phase 0**: 重构基础 (2-3 周) — Engine 抽取 + 统一协议 ✅ **已完成**
+- **Phase 1**: Agent Core + Blender UI (4-6 周) — AI 大脑 + 艺术家入口 🚧 **进行中**
 - **Phase 2**: CLI + Web (4-6 周) — 终端和浏览器扩展
 - **Phase 3**: 打磨与生态 (4-6 周) — 降级/路由/技能进化/社区
+
+## 文档
+
+- 📋 [完整架构设计](doc/planning/plan.md) - 系统架构和技术选型
+- ✅ [Phase 0 完成报告](doc/phase0/PHASE0_COMPLETE.md) - 重构基础完成
+- 📝 [Phase 1 实施计划](doc/phase1/PHASE1_IMPLEMENTATION_PLAN.md) - 详细任务拆解
+- 📚 [所有文档](doc/README.md) - 完整文档索引
 
 ## 快速开始
 

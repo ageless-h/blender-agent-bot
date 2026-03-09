@@ -18,6 +18,40 @@ class MCPServer:
             engine = BlenderEngine()
         self._engine = engine
 
+        # Import protocol types
+        try:
+            from protocol import EngineRequest, EngineRequestType, EngineResponseStatus
+        except ImportError:
+            # Fallback for development
+            import importlib.util
+            from pathlib import Path
+
+            shared_path = Path(__file__).parent.parent.parent.parent / "shared"
+            engine_protocol_path = shared_path / "protocol" / "engine_protocol.py"
+
+            if engine_protocol_path.exists():
+                spec = importlib.util.spec_from_file_location("engine_protocol", engine_protocol_path)
+                if spec and spec.loader:
+                    engine_protocol = importlib.util.module_from_spec(spec)
+                    spec.loader.exec_module(engine_protocol)
+                    EngineRequest = engine_protocol.EngineRequest
+                    EngineRequestType = engine_protocol.EngineRequestType
+                    EngineResponseStatus = engine_protocol.EngineResponseStatus
+
+                    # Rebuild models with correct namespace
+                    EngineRequest.model_rebuild(
+                        _types_namespace={
+                            "EngineRequestType": EngineRequestType,
+                            "Any": Any,
+                        }
+                    )
+            else:
+                raise ImportError("Cannot find engine_protocol module")
+
+        self._EngineRequest = EngineRequest
+        self._EngineRequestType = EngineRequestType
+        self._EngineResponseStatus = EngineResponseStatus
+
         from .tool_registry import TOOL_DEFINITIONS, get_tool
 
         self._tool_definitions = TOOL_DEFINITIONS
@@ -65,20 +99,26 @@ class MCPServer:
         internal_capability = tool_def["internal_capability"]
         logger.info("tools/call %s (capability=%s)", name, internal_capability)
 
-        response = self._engine.execute_capability(internal_capability, arguments)
+        # Use Pydantic protocol
+        request = self._EngineRequest(
+            request_type=self._EngineRequestType.EXECUTE_CAPABILITY,
+            capability=internal_capability,
+            payload=arguments,
+        )
+        response = self._engine.execute_request(request)
 
-        if response["status"] == "success":
+        if response.status == self._EngineResponseStatus.SUCCESS:
             return {
                 "content": [
                     {
                         "type": "text",
-                        "text": json.dumps(response["result"], indent=2),
+                        "text": json.dumps(response.result, indent=2),
                     }
                 ]
             }
-        elif response["status"] == "blocked":
+        elif response.status == self._EngineResponseStatus.BLOCKED:
             return {
-                "content": [{"type": "text", "text": response["error"]}],
+                "content": [{"type": "text", "text": response.error}],
                 "isError": True,
             }
         else:
@@ -86,7 +126,7 @@ class MCPServer:
                 "content": [
                     {
                         "type": "text",
-                        "text": f"Error: {response['error']}",
+                        "text": f"Error: {response.error}",
                     }
                 ],
                 "isError": True,
