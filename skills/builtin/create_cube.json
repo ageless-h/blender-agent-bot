@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "name": "create_cube",
+    "version": "1.0.0",
+    "description": "创建一个立方体并设置其位置、旋转和缩放",
+    "category": "modeling",
+    "author": "BlenderAgentBot",
+    "tags": ["primitive", "cube", "basic", "modeling"],
+    "parameters": [
+      {
+        "name": "name",
+        "type": "string",
+        "description": "立方体的名称",
+        "required": false,
+        "default": "Cube"
+      },
+      {
+        "name": "location",
+        "type": "object",
+        "description": "立方体的位置 (x, y, z)",
+        "required": false,
+        "default": {"x": 0, "y": 0, "z": 0}
+      },
+      {
+        "name": "scale",
+        "type": "object",
+        "description": "立方体的缩放 (x, y, z)",
+        "required": false,
+        "default": {"x": 1, "y": 1, "z": 1}
+      }
+    ],
+    "examples": [
+      {
+        "description": "创建一个默认立方体",
+        "input": {},
+        "expected_output": "成功创建立方体"
+      },
+      {
+        "description": "创建一个位于 (2, 0, 1) 的立方体",
+        "input": {
+          "name": "MyCube",
+          "location": {"x": 2, "y": 0, "z": 1}
+        },
+        "expected_output": "成功创建立方体 MyCube"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "create_primitive",
+      "arguments": {
+        "type": "CUBE",
+        "name": "$name"
+      },
+      "description": "创建立方体"
+    },
+    {
+      "tool_name": "set_object_location",
+      "arguments": {
+        "object": "$name",
+        "location": "$location"
+      },
+      "description": "设置立方体位置"
+    },
+    {
+      "tool_name": "set_object_scale",
+      "arguments": {
+        "object": "$name",
+        "scale": "$scale"
+      },
+      "description": "设置立方体缩放"
+    }
+  ]
+}

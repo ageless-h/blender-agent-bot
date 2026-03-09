@@ -1,0 +1,94 @@
+{
+  "metadata": {
+    "name": "apply_basic_material",
+    "version": "1.0.0",
+    "description": "为对象应用基础材质，设置颜色和金属度",
+    "category": "materials",
+    "author": "BlenderAgentBot",
+    "tags": ["material", "shader", "color"],
+    "parameters": [
+      {
+        "name": "object",
+        "type": "string",
+        "description": "目标对象名称",
+        "required": true
+      },
+      {
+        "name": "color",
+        "type": "object",
+        "description": "材质颜色 RGB (0-1)",
+        "required": false,
+        "default": {"r": 0.8, "g": 0.8, "b": 0.8}
+      },
+      {
+        "name": "metallic",
+        "type": "number",
+        "description": "金属度 (0-1)",
+        "required": false,
+        "default": 0.0
+      },
+      {
+        "name": "roughness",
+        "type": "number",
+        "description": "粗糙度 (0-1)",
+        "required": false,
+        "default": 0.5
+      }
+    ],
+    "examples": [
+      {
+        "description": "为立方体应用红色材质",
+        "input": {
+          "object": "Cube",
+          "color": {"r": 1.0, "g": 0.0, "b": 0.0}
+        },
+        "expected_output": "成功应用材质"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "create_material",
+      "arguments": {
+        "name": "$object_Material"
+      },
+      "description": "创建材质"
+    },
+    {
+      "tool_name": "set_material_property",
+      "arguments": {
+        "material": "$object_Material",
+        "property": "base_color",
+        "value": "$color"
+      },
+      "description": "设置基础颜色"
+    },
+    {
+      "tool_name": "set_material_property",
+      "arguments": {
+        "material": "$object_Material",
+        "property": "metallic",
+        "value": "$metallic"
+      },
+      "description": "设置金属度"
+    },
+    {
+      "tool_name": "set_material_property",
+      "arguments": {
+        "material": "$object_Material",
+        "property": "roughness",
+        "value": "$roughness"
+      },
+      "description": "设置粗糙度"
+    },
+    {
+      "tool_name": "assign_material",
+      "arguments": {
+        "object": "$object",
+        "material": "$object_Material"
+      },
+      "description": "将材质分配给对象"
+    }
+  ]
+}

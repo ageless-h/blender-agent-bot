@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "name": "clean_scene",
+    "version": "1.0.0",
+    "description": "清理场景，删除所有对象、灯光和相机",
+    "category": "workflow",
+    "author": "BlenderAgentBot",
+    "tags": ["scene", "cleanup", "reset"],
+    "parameters": [],
+    "examples": [
+      {
+        "description": "清空整个场景",
+        "input": {},
+        "expected_output": "成功清理场景"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "select_all_objects",
+      "arguments": {},
+      "description": "选择所有对象"
+    },
+    {
+      "tool_name": "delete_selected",
+      "arguments": {},
+      "description": "删除选中对象"
+    }
+  ]
+}

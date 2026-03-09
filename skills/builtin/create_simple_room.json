@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "name": "create_simple_room",
+    "version": "1.0.0",
+    "description": "创建一个简单的房间，包含地板、墙壁和天花板",
+    "category": "modeling",
+    "author": "BlenderAgentBot",
+    "tags": ["room", "architecture", "scene"],
+    "parameters": [
+      {
+        "name": "width",
+        "type": "number",
+        "description": "房间宽度",
+        "required": false,
+        "default": 5
+      },
+      {
+        "name": "length",
+        "type": "number",
+        "description": "房间长度",
+        "required": false,
+        "default": 5
+      },
+      {
+        "name": "height",
+        "type": "number",
+        "description": "房间高度",
+        "required": false,
+        "default": 3
+      }
+    ],
+    "examples": [
+      {
+        "description": "创建一个 5x5x3 的默认房间",
+        "input": {},
+        "expected_output": "成功创建房间"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "create_primitive",
+      "arguments": {
+        "type": "PLANE",
+        "name": "Floor"
+      },
+      "description": "创建地板"
+    },
+    {
+      "tool_name": "set_object_scale",
+      "arguments": {
+        "object": "Floor",
+        "scale": {"x": "$width", "y": "$length", "z": 1}
+      },
+      "description": "设置地板大小"
+    },
+    {
+      "tool_name": "create_primitive",
+      "arguments": {
+        "type": "CUBE",
+        "name": "Walls"
+      },
+      "description": "创建墙壁"
+    },
+    {
+      "tool_name": "set_object_scale",
+      "arguments": {
+        "object": "Walls",
+        "scale": {"x": "$width", "y": "$length", "z": "$height"}
+      },
+      "description": "设置墙壁大小"
+    },
+    {
+      "tool_name": "set_object_location",
+      "arguments": {
+        "object": "Walls",
+        "location": {"x": 0, "y": 0, "z": "$height"}
+      },
+      "description": "设置墙壁位置"
+    }
+  ]
+}

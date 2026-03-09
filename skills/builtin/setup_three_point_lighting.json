@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "name": "setup_three_point_lighting",
+    "version": "1.0.0",
+    "description": "设置经典的三点布光系统（主光、补光、轮廓光）",
+    "category": "lighting",
+    "author": "BlenderAgentBot",
+    "tags": ["lighting", "studio", "photography"],
+    "parameters": [
+      {
+        "name": "target",
+        "type": "string",
+        "description": "照明目标对象",
+        "required": false,
+        "default": "Cube"
+      },
+      {
+        "name": "intensity",
+        "type": "number",
+        "description": "整体光照强度",
+        "required": false,
+        "default": 1000
+      }
+    ],
+    "examples": [
+      {
+        "description": "为默认立方体设置三点布光",
+        "input": {},
+        "expected_output": "成功设置三点布光"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "create_light",
+      "arguments": {
+        "type": "AREA",
+        "name": "KeyLight"
+      },
+      "description": "创建主光源"
+    },
+    {
+      "tool_name": "set_object_location",
+      "arguments": {
+        "object": "KeyLight",
+        "location": {"x": 4, "y": -4, "z": 6}
+      },
+      "description": "设置主光位置"
+    },
+    {
+      "tool_name": "set_light_energy",
+      "arguments": {
+        "light": "KeyLight",
+        "energy": "$intensity"
+      },
+      "description": "设置主光强度"
+    },
+    {
+      "tool_name": "create_light",
+      "arguments": {
+        "type": "AREA",
+        "name": "FillLight"
+      },
+      "description": "创建补光"
+    },
+    {
+      "tool_name": "set_object_location",
+      "arguments": {
+        "object": "FillLight",
+        "location": {"x": -4, "y": -2, "z": 4}
+      },
+      "description": "设置补光位置"
+    },
+    {
+      "tool_name": "set_light_energy",
+      "arguments": {
+        "light": "FillLight",
+        "energy": 500
+      },
+      "description": "设置补光强度（较弱）"
+    },
+    {
+      "tool_name": "create_light",
+      "arguments": {
+        "type": "AREA",
+        "name": "RimLight"
+      },
+      "description": "创建轮廓光"
+    },
+    {
+      "tool_name": "set_object_location",
+      "arguments": {
+        "object": "RimLight",
+        "location": {"x": 0, "y": 4, "z": 3}
+      },
+      "description": "设置轮廓光位置"
+    },
+    {
+      "tool_name": "set_light_energy",
+      "arguments": {
+        "light": "RimLight",
+        "energy": 800
+      },
+      "description": "设置轮廓光强度"
+    }
+  ]
+}

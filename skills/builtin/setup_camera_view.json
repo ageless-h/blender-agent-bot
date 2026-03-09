@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "name": "setup_camera_view",
+    "version": "1.0.0",
+    "description": "设置相机位置和朝向，对准目标对象",
+    "category": "rendering",
+    "author": "BlenderAgentBot",
+    "tags": ["camera", "view", "composition"],
+    "parameters": [
+      {
+        "name": "target",
+        "type": "string",
+        "description": "相机对准的目标对象",
+        "required": false,
+        "default": "Cube"
+      },
+      {
+        "name": "distance",
+        "type": "number",
+        "description": "相机距离目标的距离",
+        "required": false,
+        "default": 10
+      },
+      {
+        "name": "angle",
+        "type": "number",
+        "description": "相机角度（度）",
+        "required": false,
+        "default": 45
+      }
+    ],
+    "examples": [
+      {
+        "description": "设置相机对准立方体",
+        "input": {
+          "target": "Cube",
+          "distance": 8
+        },
+        "expected_output": "成功设置相机"
+      }
+    ],
+    "dependencies": []
+  },
+  "steps": [
+    {
+      "tool_name": "create_camera",
+      "arguments": {
+        "name": "MainCamera"
+      },
+      "description": "创建相机"
+    },
+    {
+      "tool_name": "set_camera_location",
+      "arguments": {
+        "camera": "MainCamera",
+        "distance": "$distance",
+        "angle": "$angle"
+      },
+      "description": "设置相机位置"
+    },
+    {
+      "tool_name": "point_camera_at",
+      "arguments": {
+        "camera": "MainCamera",
+        "target": "$target"
+      },
+      "description": "相机对准目标"
+    },
+    {
+      "tool_name": "set_active_camera",
+      "arguments": {
+        "camera": "MainCamera"
+      },
+      "description": "设为活动相机"
+    }
+  ]
+}
