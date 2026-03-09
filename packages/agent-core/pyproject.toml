@@ -1,55 +1,74 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "blender-agent-core"
 version = "0.1.0"
-description = "BlenderAgentBot unified AI brain - LLM adapters, planner, safety, skills"
+description = "AI Agent Core for BlenderAgentBot - LLM adapters, task planning, and safety"
+readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "BlenderAgentBot Contributors"}
+]
+keywords = ["blender", "ai", "agent", "llm", "automation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
 dependencies = [
-    "httpx",
-    "pyyaml",
-    "pydantic",
+    "blender-shared>=0.1.0",
+    "pydantic>=2.0.0",
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "pyyaml>=6.0",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest", "pytest-asyncio", "ruff"]
-openai = ["openai"]
-anthropic = ["anthropic"]
-google = ["google-generativeai"]
-all = ["openai", "anthropic", "google-generativeai"]
-
-[tool.hatch.build.targets.wheel]
-include = [
-    "blender_agent_core/**/*.py",
-    "__init__.py",
-    "llm/**/*.py",
-    "planner/**/*.py",
-    "safety/**/*.py",
-    "context/**/*.py",
-    "session/**/*.py",
-    "skills/**/*.py",
-    "router/**/*.py",
-    "prompts/**/*.py",
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
 ]
 
-[tool.hatch.build.targets.sdist]
-include = [
-    "README.md",
-    "SPEC_TODOLIST.md",
-    "pyproject.toml",
-    "blender_agent_core/**/*.py",
-    "__init__.py",
-    "llm/**/*.py",
-    "planner/**/*.py",
-    "safety/**/*.py",
-    "context/**/*.py",
-    "session/**/*.py",
-    "skills/**/*.py",
-    "router/**/*.py",
-    "prompts/**/*.py",
-]
+[project.urls]
+Homepage = "https://github.com/ageless-h/BlenderAgentBot"
+Repository = "https://github.com/ageless-h/BlenderAgentBot"
+Documentation = "https://github.com/ageless-h/BlenderAgentBot/tree/main/doc"
 
-[tool.ruff.lint]
-ignore = ["N999"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["blender_agent_core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=blender_agent_core --cov-report=term-missing"
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
