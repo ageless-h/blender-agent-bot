@@ -1,45 +1,14 @@
-from context import HistoryManager, SceneContext, VisualFeedback
-from llm import (
-    AnthropicAdapter,
-    FallbackAdapter,
-    GoogleAdapter,
-    LLMAdapter,
-    LLMResponse,
-    ModelCapabilities,
-    OpenAIAdapter,
-)
-from planner import SkillRouter, TaskPlanner
-from prompts import BasePrompt, build_model_layer_prompt, build_persona_layer_prompt
-from router import ToolRouter
-from safety import ASTAnalyzer, ConfirmationFlow, SecurityGateway
-from session import MessageStore, SessionManager
-from skills import SkillExecutor, SkillMatcher, SkillStore
+"""BlenderAgentBot Agent Core - AI Brain for Blender automation."""
 
 __version__ = "0.1.0"
 
+from .core import AgentCore
+from .router.tool_router import ToolRouter
+from .session.session_manager import SessionManager
+
 __all__ = [
-    "LLMAdapter",
-    "ModelCapabilities",
-    "LLMResponse",
-    "OpenAIAdapter",
-    "AnthropicAdapter",
-    "GoogleAdapter",
-    "FallbackAdapter",
-    "TaskPlanner",
-    "SkillRouter",
-    "ASTAnalyzer",
-    "SecurityGateway",
-    "ConfirmationFlow",
-    "SceneContext",
-    "VisualFeedback",
-    "HistoryManager",
+    "AgentCore",
     "SessionManager",
-    "MessageStore",
-    "SkillStore",
-    "SkillMatcher",
-    "SkillExecutor",
     "ToolRouter",
-    "BasePrompt",
-    "build_model_layer_prompt",
-    "build_persona_layer_prompt",
+    "__version__",
 ]
