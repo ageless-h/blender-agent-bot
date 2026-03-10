@@ -289,10 +289,24 @@ if bpy is not None:
             if api_key:
                 env_overrides["BLENDERAGENT_API_KEY"] = api_key
 
-            auto_start = bool(getattr(preferences, "auto_start_core", True))
-            auto_restart = bool(getattr(preferences, "auto_restart_core", True))
-            max_restart_attempts = int(getattr(preferences, "max_restart_attempts", 3))
-            restart_backoff_seconds = float(getattr(preferences, "restart_backoff_seconds", 1.0))
+            # Handle Blender property deferred loading
+            auto_start_val = getattr(preferences, "auto_start_core", True)
+            auto_start = bool(auto_start_val) if not isinstance(auto_start_val, type(lambda: None)) else True
+
+            auto_restart_val = getattr(preferences, "auto_restart_core", True)
+            auto_restart = bool(auto_restart_val) if not isinstance(auto_restart_val, type(lambda: None)) else True
+
+            max_restart_val = getattr(preferences, "max_restart_attempts", 3)
+            try:
+                max_restart_attempts = int(max_restart_val)
+            except (TypeError, ValueError):
+                max_restart_attempts = 3
+
+            restart_backoff_val = getattr(preferences, "restart_backoff_seconds", 1.0)
+            try:
+                restart_backoff_seconds = float(restart_backoff_val)
+            except (TypeError, ValueError):
+                restart_backoff_seconds = 1.0
 
         return (
             RuntimeSettings(
@@ -307,7 +321,11 @@ if bpy is not None:
 
     def _sync_bridge_status() -> None:
         status = get_runtime().status()
-        for scene in _bpy.data.scenes:
+        data = getattr(_bpy, "data", None)
+        scenes = getattr(data, "scenes", None)
+        if scenes is None:
+            return
+        for scene in scenes:
             if hasattr(scene, "blenderagent_bridge_status"):
                 scene.blenderagent_bridge_status = status
 
@@ -326,8 +344,10 @@ if bpy is not None:
                 get_runtime().start(settings)
             except Exception as exc:
                 print(f"[BlenderAgent] Agent Core 自动启动失败: {exc}")
-                if _bpy.context is not None and _bpy.context.scene is not None:
-                    _bpy.context.scene.blenderagent_last_error = str(exc)
+                context = getattr(_bpy, "context", None)
+                scene = getattr(context, "scene", None)
+                if scene is not None and hasattr(scene, "blenderagent_last_error"):
+                    scene.blenderagent_last_error = str(exc)
 
         _sync_bridge_status()
 
